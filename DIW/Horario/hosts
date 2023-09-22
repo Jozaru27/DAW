@@ -1,0 +1,27 @@
+# Standard host addresses
+127.0.0.1  localhost
+::1        localhost ip6-localhost ip6-loopback
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+# This host address
+127.0.1.1  jose-virtualbox
+192.168.4.201    www.pc01horarios.com
+192.168.4.202    www.pc02horarios.com
+192.168.4.203    www.pc03horarios.com
+192.168.4.204    www.pc04horarios.com
+192.168.4.205    www.pc05horarios.com
+192.168.4.206    www.pc06horarios.com
+192.168.4.207    www.pc07horarios.com
+192.168.4.208    www.pc08horarios.com
+192.168.4.209    www.pc09horarios.com
+192.168.4.210    www.pc10horarios.com
+192.168.4.211    www.pc11horarios.com
+192.168.4.212    www.pc12horarios.com
+192.168.4.213    www.pc13horarios.com
+192.168.4.214    www.pc14horarios.com
+192.168.4.215    www.pc15horarios.com
+192.168.4.216    www.pc16horarios.com
+192.168.4.217    www.pc17horarios.com
+192.168.4.218    www.pc18horarios.com
+192.168.4.219    www.pc19horarios.com
+192.168.4.220    www.pc20horarios.com
