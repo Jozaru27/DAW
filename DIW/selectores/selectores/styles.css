@@ -1,0 +1,28 @@
+table, th, td {
+    border: 1px solid #333;
+    height: 50px;
+    width: 30em;
+    text-align:center;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: arial;
+}
+
+th{
+    background-image: url("./images/fondo_gris.gif");
+}
+
+.tdblue{
+    background-color: #E6F3FF;
+    font-weight: bold
+}
+
+tr:nth-child(even) {
+    background-color: #FFFFCC;
+  }
+
+  tr:hover {
+    background-color: #FFFF66;
+}
