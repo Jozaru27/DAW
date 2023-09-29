@@ -1,0 +1,13 @@
+<?php
+
+/** 
+* @author Jose Zafrilla Ruiz jozaru27@gmail.com
+* 
+* 2. Modifica el ejercicio anterior para que muestre el mismo mensaje usando un operador de
+* concatenación
+*/
+
+$nombre = readline("Por favor, introduzca su nombre. ");
+echo "Hola, " . $nombre . " encantado de conocerte.\n";
+
+?>
