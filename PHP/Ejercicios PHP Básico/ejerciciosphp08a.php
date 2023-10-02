@@ -8,7 +8,11 @@
 * día
 */
 
+// Guarda el día actual en una variable
+
 $diaActual = date('d');
+
+// Si el día guardado en variable es menor o mayor a 15, mostrará un texto u otro
 
 if ($diaActual <= 15){
     echo "El día actual es " . $diaActual . " por ende, estamos en la primera quincena \n" ;

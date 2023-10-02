@@ -7,8 +7,14 @@
 * el resultado
 */
 
+// Pide un número por pantalla y lo guarda en una variable
+
+echo "Introduce un número por pantalla";
 $decimal = readline();
-echo round($decimal);
+
+// Muestra el número por pantalla además del resultado del redondeo
+
+echo "El número decimal es $decimal, el número redondeado es " . round($decimal). "";
 echo "\n"
 
 ?>

@@ -7,13 +7,19 @@
 * una advertencia indicando que son iguales
 */
 
+// Pide tres números por pantalla
+
 $num1 = readline("Introduce un número: \n");
 $num2 = readline("Introduce un número: \n");
 $num3 = readline("Introduce un número: \n");
 
+// Si hay algún numero igual, advierte por pantalla
+
 if ($num1 == $num2 || $num1 == $num3 || $num2 == $num3) {
     echo "¡Cuidadín chavalín! Que al menos dos de los números son iguales. \n";
 }
+
+// Va comprobando que número es mayor y cuál es menor, para mostrarlos ordenados
 
 if ($num1<$num2){
     if($num3<$num1){

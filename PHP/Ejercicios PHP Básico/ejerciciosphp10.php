@@ -7,7 +7,11 @@
 * (Ejemplo: 3 – tres)
 */
 
+// Genera un número aleatorio
+
 $numaleatorio = rand(1,5);
+
+// Dependiendo del número generado, muestra su valor en texto por pantalla
 
 switch ($numaleatorio) {
     case 1:

@@ -8,7 +8,12 @@
 * día
 */
 
+// Similar al ejercicio anterior
+// Pide un número por pantalla para guardarlo en una variable
+
 $diaActual = readline();
+
+// Dependiendo del número introducido, si es mayor o menor que 15, mostrará un texto u otro
 
 if ($diaActual <= 15){
     echo "El día actual es " . $diaActual . " por ende, estamos en la primera quincena \n" ;

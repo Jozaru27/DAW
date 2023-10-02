@@ -7,6 +7,8 @@
 * continuación el número obtenido
 */
 
+// Muestra por pantalla un número aleatorio comprendido entre 10 y 90
+
 echo("La cantidad es de " . rand(10,90) ."\n");
 
 ?>

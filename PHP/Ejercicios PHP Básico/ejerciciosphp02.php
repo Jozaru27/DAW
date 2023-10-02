@@ -7,7 +7,7 @@
 * concatenación
 */
 
-$nombre = readline("Por favor, introduzca su nombre. ");
-echo "Hola, " . $nombre . " encantado de conocerte.\n";
+$nombre = readline("Por favor, introduzca su nombre. "); // Pide el nombre por pantalla para guardarlo en variable, igual que el ejercicio anterior
+echo "Hola, " . $nombre . " encantado de conocerte.\n"; // Llama a la variable por pantalla, la cuál está concatenada por puntos 
 
 ?>
