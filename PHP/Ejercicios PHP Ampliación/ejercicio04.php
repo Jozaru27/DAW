@@ -2,15 +2,15 @@
 /**
  * @author Jose Zafrilla Ruiz jozaru27@gmail.com
  * 
- * . Escribe un programa que calcule el salario semanal de un trabajador teniendo en cuenta que las
+ * 4. Escribe un programa que calcule el salario semanal de un trabajador teniendo en cuenta que las
  * horas ordinarias (40 primeras horas de trabajo) se pagan a 12 euros la hora. A partir de la hora
  * 41, se pagan a 16 euros la hora
 */
 
-$horasTrabajadas = readline("Ficha las horas totales que has trabajado: \n");
+$horasTrabajadas = readline("Ficha las horas totales que has trabajado: ");
 
-if ($horasTrabajadas < 0){
-    "Ponte a currar";
+if ($horasTrabajadas <= 0){
+    echo "Ponte a currar";
     exit();
 }
 

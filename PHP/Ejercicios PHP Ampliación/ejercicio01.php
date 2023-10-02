@@ -6,7 +6,9 @@
  * el html necesario así como los datos.
 */
 
-echo '<!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html>
     <head>
         <title>Horari DAW</title>
@@ -78,7 +80,9 @@ echo '<!DOCTYPE html>
           </tr>
         </table>
     </body>
-</html>';
+</html>
+
+<?php
 
 /** 
 *comando en consola: php -S localhost:8000
