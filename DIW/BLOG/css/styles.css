@@ -1,0 +1,36 @@
+body, html{
+    margin:5px;
+    border:0px;
+    padding:0px;
+    background-color:#ebebeb;
+    height:100%;
+}
+
+#header{
+    
+}
+
+#navbar{
+
+}
+
+content{
+    margin-left:5%;
+    margin-right:5%;
+    width:60%;
+}
+
+#article{
+    background-color:#d6d7d2;
+    padding:2%;
+}
+
+#sidebar{
+    margin-top:3%;
+    width:30%;
+}
+
+#footer{
+    text-align:center;
+    font-size:25px;
+}
