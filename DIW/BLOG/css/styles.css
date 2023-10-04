@@ -6,31 +6,39 @@ body, html{
     height:100%;
 }
 
-#header{
+.header{
     
 }
 
-#navbar{
+.navbar{
 
 }
 
-content{
+.content{
+    border: 1px solid #000;
+}
+
+.article-box{
     margin-left:5%;
-    margin-right:5%;
-    width:60%;
+    margin-right:35%;
+    float:left;
+    border: 1px solid #000;
 }
 
-#article{
+.article{
     background-color:#d6d7d2;
     padding:2%;
+    border: 1px solid #000;
 }
 
-#sidebar{
+.sidebar{
     margin-top:3%;
-    width:30%;
+    margin-left:65%;
+    float:right;
+    border: 1px solid #000;
 }
 
-#footer{
+footer{
     text-align:center;
     font-size:25px;
 }
