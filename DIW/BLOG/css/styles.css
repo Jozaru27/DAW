@@ -15,30 +15,27 @@ body, html{
 }
 
 .content{
-    border: 1px solid #000;
+    width:100%;
+    overflow:auto;
 }
 
 .article-box{
-    margin-left:5%;
-    margin-right:35%;
+    margin-left:3%;
+    width:70%;
     float:left;
-    border: 1px solid #000;
 }
 
 .article{
     background-color:#d6d7d2;
     padding:2%;
-    border: 1px solid #000;
 }
 
 .sidebar{
     margin-top:3%;
-    margin-left:65%;
-    float:right;
-    border: 1px solid #000;
+    margin-left:85%;
 }
 
-footer{
+.footer{
     text-align:center;
     font-size:25px;
 }
