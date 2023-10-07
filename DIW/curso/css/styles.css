@@ -16,6 +16,7 @@ body {
     margin-left:auto;
     margin-right:auto;
     text-align:left;
+    background-image: url("../imgs/lgrey008.jpg"); /* Si no pones el fondo aquí, no carga en la página*/
 }
 
 #header {
@@ -30,7 +31,8 @@ h1 {
     background-image: url("../imgs/logo.png");
     background-repeat: no-repeat;
     background-position: 25px;
-    vertical-align:center;
+    /* no lo admite: vertical-align:center;*/
+    line-height: 1.5;
     padding-top:20px;
     padding-bottom:20px;
     padding-left:100px;
@@ -122,7 +124,7 @@ h1 {
 #content {
     font-family:'Verdana';
     font-size: 0.8em;
-    background-image: url("../imgs/lgrey008.jpg");
+    /* background-image: url("../imgs/lgrey008.jpg"); el fondo aquí rompe la página*/
 }
 
 .article {
@@ -130,7 +132,7 @@ h1 {
     border-bottom: 1px lightgray solid;
     background-color:white;
     text-align:center;
-    /* alto de linea */
+    line-height:1.8em;
     padding: 5px 5px 22px 5px;
     margin:30px;
     float:left;
@@ -157,6 +159,6 @@ h2{
     padding-bottom:15px;
 }
 
-#footer:a{
+#footer a{
     color:white;
 }
