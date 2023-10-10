@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulario</title>
+    <script>
+
+        let password;
+
+        function validarNombre(){
+            let nombrePara = /^[a-zA-Z]{0,100}$/;
+            if (nombre.value.match(nombrePara)==null){
+                alert ("Nombre no válido");
+            }
+        }
+
+        function validarNombre(data){
+            let nombrePara = /^[a-zA-Z]{0,100}$/;
+            if (nombrePara.test(data.value)==null){
+                alert ("Nombre no válido");
+            }
+        }
+
+        function validarApellidos(){
+            let ApellidosPara = /^([a-zA-Z]+( [a-zA-Z]+)*){0,100}$/;
+            if (apellidos.value.match(ApellidosPara)==null){
+                alert ("Apellido no válido");
+            }
+        }
+
+        function validarEmail(){
+            let emailPara = /^[a-z0-9\._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+            if (mail.value.match(emailPara)==null){
+                alert ("Formato de mail incorrecto");
+            }
+        }
+
+        function validarDNI(){
+            let DNIPara = /^[0-9]{8,8}[A-Za-z]$/;
+            if (DNI.value.match(DNIPara)==null){
+                alert ("Formato de DNI incorrecto");
+            }
+        }
+
+        function validarPassword(input){
+
+            let passwordPara = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordPara.test(this.value)){
+                alert ("Formato de contraseña incorrecto");
+            } else {
+                password = input.value;
+            }
+        }
+
+        function validarPasswordIdentical(input){
+            if (input.value != password) {
+                alert ("Las contraseñas no coinciden");
+            }
+        }
+
+        function validarIP(){
+            let IPPara = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
+            if (IP.value.match(IPPara)==null){
+                alert ("Formato de IP incorrecto");
+            }
+        }
+
+        function validarValidaciones(){
+
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <h1> Formulario Total</h1>
+        <form action="/action_page.php">
+            <label for="nombre">Nombre</label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" onblur="validarNombre(this)"><br><br>
+
+            <label for="apellidos">Apellidos</label><br>
+            <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" onblur="validarApellidos()"><br><br>
+
+            <label for="mail">mail</label><br>
+            <input type="text" id="mail" name="mail" placeholder="ejemplo@gmail.com" onblur="validarEmail()"><br><br>
+
+            <label for="DNI">DNI</label><br>
+            <input type="text" id="DNI" name="DNI" placeholder="123456789Z" onblur="validarDNI()"><br><br>
+
+            <label for="Password">Password</label><br>
+            <input type="text" id="Password" name="Password" placeholder="********" onblur="validarPassword(this)"><br><br>
+
+            <label for="PasswordRepeat">PasswordRepeat</label><br>
+            <input type="text" id="PasswordRepeat" name="PasswordRepeat" placeholder="********" onblur="validarPasswordIdentical(this)"><br><br>
+
+            <label for="IP">IP</label><br>
+            <input type="text" id="IP" name="IP" placeholder="192.168.X.X" onblur="validarIP()"><br><br>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
