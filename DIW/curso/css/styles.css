@@ -16,7 +16,6 @@ body {
     margin-left:auto;
     margin-right:auto;
     text-align:left;
-    background-image: url("../imgs/lgrey008.jpg"); /* Si no pones el fondo aquí, no carga en la página*/
 }
 
 #header {
@@ -124,7 +123,9 @@ h1 {
 #content {
     font-family:'Verdana';
     font-size: 0.8em;
-    /* background-image: url("../imgs/lgrey008.jpg"); el fondo aquí rompe la página*/
+    background-image: url("../imgs/lgrey008.jpg");
+    overflow:hidden;
+    height:1%;
 }
 
 .article {
