@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cajasaurio</title>
+    <script type="text/javascript">
+         function makeCircle(element) {
+            element.style.borderRadius = '50%';
+        }
+
+        function makeSquare(element) {
+            element.style.borderRadius = '0';
+        }
+
+        function removeShadow(element) {
+            element.style.boxShadow = '0 0 0 rgba(0, 0, 0, 0)';
+        }
+
+        function removeOuterShadowAndAddInnerShadow(element) {
+            element.style.boxShadow = 'inset 5px 5px 5px rgba(0, 0, 0, 0.5)';
+        }
+
+        function removeSquareAndButton(element) {
+            const parent = element.parentElement;
+            parent.removeChild(element);
+            parent.removeChild(parent.querySelector("button"));
+        }
+
+    </script>
+    <style>
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .caja {
+            margin-bottom: 15px;
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s;
+        }
+
+        .sub-contenedor{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="sub-contenedor">
+            <div class="caja" style="background-color: red;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
+            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+        </div>
+        <div class="sub-contenedor">
+            <div class="caja" style="background-color: blue;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
+            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+        </div>
+        <div class="sub-contenedor">
+            <div class="caja" style="background-color: green;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
+            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+        </div>
+        <div class="sub-contenedor">
+            <div class="caja" style="background-color: black;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
+            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+        </div>
+    </div>
+</body>
+</html>
