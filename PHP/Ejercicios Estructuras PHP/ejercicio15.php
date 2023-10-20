@@ -11,19 +11,38 @@
 *
 */
 
+// Función
 function permutaciones(&$V) {
+    // Obtiene el tamaño del vector
     $N = count($V);
+
+    // Va iterando hasta la mitad del mismo
     for ($i = 0; $i < $N / 2; $i++) {
+        // Guarda el valor actual en una variable temporal
         $temp = $V[$i];
+
+        // Va intercambiando el valor actual con el que sería su "opuesto" del vector
         $V[$i] = $V[$N - 1 - $i];
         $V[$N - 1 - $i] = $temp;
     }
 }
 
-// Ejemplo de uso:
-$vector = [1, 2, 3, 4, 5];
+// Programa
+
+echo "Introduce elementos para el vector. Presiona enter sin ningún valor para salir. ";
+$vector = array();
+
+// Bucle while con booleano para guardar los elementos en el vector. Al no poner nada sale del bucle
+while (true) {
+    $elementos = readline("Elemento:  ");
+    if ($elementos === ""){
+        break;
+    }
+    $vector[] = $elementos;
+}
+
+// Llama a la función y lo muestra por pantalla 
 permutaciones($vector);
 echo "Vector permutado: " . implode(', ', $vector);
-
 
 ?>
