@@ -10,48 +10,26 @@
 * 
 */
 
-$fechaActual = date("h:i:s") . "\n";
-$fechaDeseada = date(readline("Por favor, introduce una hora en formato HH:MM:SS \n"));
-
-echo " La hora actual es $fechaActual y la deseada $fechaDeseada";
-//Calcular la diferencia
-//Añadir la fecha
-?>
-
-/////// WTFF
-
-<?php
-
-/**
-* 
-* @author Jose Zafrilla Ruiz
-*
-* 7. Calcula, dada la fecha y hora actual y la fecha y hora deseada, cuántas horas y minutos quedan
-* para dicho momento
-*
-* 
-*/
-
-// Obtener la fecha y hora actual
+// Obtiene la fecha y la hora actual
 $fechaActual = new DateTime();
 
-// Solicitar al usuario una hora en formato HH:MM:SS
-$horaDeseada = readline("Por favor, introduce una hora en formato HH:MM:SS: ");
+// Pide por teclado una hora en formato HH:MM:SS
+$horaDeseada = readline("Por favor, introduce una hora en formato HH:MM:SS: \n");
 
-// Separar la hora introducida por el usuario en horas, minutos y segundos
+// Separa la hora introducida en tres partes, marcado por el : y lo mete en un Datetime nuevo
 list($horas, $minutos, $segundos) = explode(':', $horaDeseada);
-
-// Crear un objeto DateTime con la hora deseada
 $fechaDeseada = new DateTime($fechaActual->format('Y-m-d') . " $horas:$minutos:$segundos");
 
-// Calcular la diferencia en horas y minutos
-$interval = $fechaActual->diff($fechaDeseada);
+// Calcula la diferencia en horas minutos y segundos
+$diferencia = $fechaActual->diff($fechaDeseada);
 
-// Obtener la diferencia en horas y minutos
-$horasRestantes = $interval->h;
-$minutosRestantes = $interval->i;
+// Obtiene la diferencia y las guarda en variables
+$horasRestantes = $diferencia->h;
+$minutosRestantes = $diferencia->i;
+$segundosRestantes = $diferencia->s;
 
-// Mostrar la diferencia
-echo "La hora actual es " . $fechaActual->format('h:i:s') . " y la deseada es $horaDeseada.\n";
-echo "Faltan $horasRestantes horas y $minutosRestantes minutos para la hora deseada.\n";
+// Muestra la hora actual, la deseada y la diferencia por pantalla
+echo "La hora actual es " . $fechaActual->format('h:i:s') . " y la deseada es $horaDeseada \n";
+echo "Faltan $horasRestantes horas, $minutosRestantes minutos y $segundosRestantes segundos para la hora deseada \n";
+
 ?>
