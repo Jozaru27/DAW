@@ -8,32 +8,25 @@
  * contener n+m. Después se debe mostrar su contenido.
 */
 
-// Creamos los 3 vectores
-$vector1 = array();
-$vector2 = array();
-$vector3 = array();
+// Creamos un array
+$matriz = array();
 
-// Este bucle for lee por pantalla hasta 10 veces un número, guardándolo en el primer vector
-for ($i = 0; $i < 10; $i++) {
-    echo "Introduzca un número para el primer vector: \n";
-    $numero = readline();
-    $vector1[] = $numero;
+// Usamos un bucle for para recorrer las filas, y otro anidado para recorrer las columnas
+for ($fila = 0; $fila < 5; $fila++) {
+    for ($columna = 0; $columna < 5; $columna++) {
+        // Accedemos a la posición de la matriz bidimensional y le asignamos el valor igual a la suma de la fila y columna
+        // Por ejemplo: fila 2 columna 3 (M[2,3]), es 2+3 = 5
+        $matriz[$fila][$columna] = $fila + $columna;
+    }
 }
 
-// Este bucle for lee por pantalla hasta 10 veces un número, guardándolo en el segundo vector
-for ($i = 0; $i < 10; $i++) {
-    echo "Introduzca un número para el segundo vector: \n";
-    $numero = readline();
-    $vector2[] = $numero;
+// Muestra el contenido de la matriz
+// Con otro for anidado, recorremos todas las posiciones de filas y columnas
+echo "Matriz 5x5: \n";
+for ($fila = 0; $fila < 5; $fila++) {
+    for ($columna = 0; $columna < 5; $columna++) {
+        echo $matriz[$fila][$columna] . " ";
+    }
+    echo "\n";
 }
-
-// Este bucle for va metiendo en el tercer vector, los números de las posiciones actuales ($i) del primer y el segundo vector. Lo hace 10 veces, por lo que recorre las 10 posiciones
-for ($i = 0; $i < 10; $i++) {
-    $vector3[] = $vector1[$i];
-    $vector3[] = $vector2[$i];
-}
-
-// Muestra por pantalla, añadiendo como separador una coma y un espacio
-echo "Tercer Vector: " . implode(', ', $vector3) . " \n";
-
 ?>
