@@ -4,8 +4,8 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * 8. Leer por teclado y rellenar dos vectores de 10 números enteros y mezclarlos en un tercer vector
- * de la forma: el 1º de A, el 1º de B, el 2º de A, el 2º de B, etc
+ * 9. Crear una matriz de tamaño 5x5 y rellenarla de la siguiente forma: la posición M[n,m] debe
+ * contener n+m. Después se debe mostrar su contenido.
 */
 
 // Creamos los 3 vectores
