@@ -20,10 +20,12 @@
             element.style.boxShadow = 'inset 5px 5px 5px rgba(0, 0, 0, 0.5)';
         }
 
-        function removeSquareAndButton(element) {
-            const parent = element.parentElement;
-            parent.removeChild(element);
-            parent.removeChild(parent.querySelector("button"));
+        function removeSquareAndButton(container) {
+            container.style.transition = 'opacity 1s'; // Animación de opacidad
+            container.style.opacity = '0'; // Oculta gradualmente el contenedor
+            setTimeout(function() {
+                container.parentElement.removeChild(container);
+            }, 1000); // Elimina el contenedor después de 1 segundo (1000 ms)
         }
 
     </script>
@@ -40,7 +42,7 @@
             width: 300px;
             border: 1px solid black;
             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s;
+            transition: all 1s;
         }
 
         .sub-contenedor{
@@ -52,19 +54,19 @@
     <div class="contenedor">
         <div class="sub-contenedor">
             <div class="caja" style="background-color: red;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
-            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+            <button onclick="removeSquareAndButton(this.parentElement)">Eliminar</button>
         </div>
         <div class="sub-contenedor">
             <div class="caja" style="background-color: blue;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
-            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+            <button onclick="removeSquareAndButton(this.parentElement)">Eliminar</button>
         </div>
         <div class="sub-contenedor">
             <div class="caja" style="background-color: green;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
-            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+            <button onclick="removeSquareAndButton(this.parentElement)">Eliminar</button>
         </div>
         <div class="sub-contenedor">
             <div class="caja" style="background-color: black;" onmouseover="makeCircle(this)" onmouseout="makeSquare(this)" onclick="removeShadow(this)" ondblclick="removeOuterShadowAndAddInnerShadow(this)"></div>
-            <button onclick="removeSquareAndButton(this)">Eliminar</button>
+            <button onclick="removeSquareAndButton(this.parentElement)">Eliminar</button>
         </div>
     </div>
 </body>
