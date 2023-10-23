@@ -22,21 +22,14 @@ for ($i = 0; $i < 20; $i++) {
     $cubo[$i] = $numero[$i] ** 3;    
 }
 
-// Muestra el contenido del array en tres columnas, dentro de una tabla
-// Imprime por pantalla las cabeceras de las columnas (th)
-echo "<table border='1'>";
-echo "<tr><th>Número</th><th>Cuadrado</th><th>Cubo</th></tr>";
+// Imprime por pantalla los datos en formato tabular utilizando printf
+// El echo funciona a modo de cabecera (\t = tabular valores)
+echo "Número\tCuadrado\tCubo \n";
 
-// Este bucle for recorre las 20 posiciones de los arrays mostrando su contenido en table datas
+// Bucle for que recorre las filas de datos imprimiendo los valores
+// Se separa con las tabulaciones
 for ($i = 0; $i < 20; $i++) {
-    echo "<tr>";
-    echo "<td>" . $numero[$i] . "</td>";
-    echo "<td>" . $cuadrado[$i] . "</td>";
-    echo "<td>" . $cubo[$i] . "</td> \n";
-    echo "</tr>";
+    printf("%d\t%d\t\t%d \n", $numero[$i], $cuadrado[$i], $cubo[$i]);
 }
-
-echo "</table>";
-
 
 ?>
