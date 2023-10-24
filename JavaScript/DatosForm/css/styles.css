@@ -1,0 +1,47 @@
+input, label{
+    display:inline;
+}
+
+.form {
+    background-color: salmon;
+    padding:15px;
+    margin:10px;
+    text-align:center;
+}
+
+.button{
+    width: 30px;
+    height: 30px;
+    color: white; 
+    font-size: 18px; 
+    border-radius: 0; 
+    cursor: pointer; 
+}
+
+.button_x {
+    background-color: #d9534f; 
+    border: 1px solid #c9302c; 
+}
+
+.button_e{
+    background-color: #4CAF50; 
+    border: 1px solid #45a049; 
+}
+
+.img-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.img-button img {
+    width: 100%;
+    height: 100%;
+}
+
