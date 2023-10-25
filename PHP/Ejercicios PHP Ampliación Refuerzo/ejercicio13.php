@@ -10,23 +10,76 @@
  * la matriz con los resultados
 */
 
-function operaMatriz($matriz1, $matriz2, $operacion){
+function operaMatriz($matriz1, $matriz2, $operacion) {
+    // Mostrar las matrices originales
+    echo "Matriz 1:\n";
+    imprimirMatriz($matriz1);
+    echo "Matriz 2:\n";
+    imprimirMatriz($matriz2);
 
+    // Realizar la operación seleccionada
+    $resultado = array(); // Matriz para almacenar el resultado
+
+    for ($i = 0; $i < count($matriz1); $i++) {
+        $fila = array(); // Fila de la matriz resultado
+        for ($j = 0; $j < count($matriz1[0]); $j++) {
+            if ($operacion == 's') { // Suma
+                $fila[] = $matriz1[$i][$j] + $matriz2[$i][$j];
+            } elseif ($operacion == 'r') { // Resta
+                $fila[] = $matriz1[$i][$j] - $matriz2[$i][$j];
+            } elseif ($operacion == 'm') { // Multiplicación
+                $fila[] = $matriz1[$i][$j] * $matriz2[$i][$j];
+            } elseif ($operacion == 'd') { // División (ten en cuenta manejar divisiones por cero)
+                if ($matriz2[$i][$j] != 0) {
+                    $fila[] = $matriz1[$i][$j] / $matriz2[$i][$j];
+                } else {
+                    $fila[] = "Error: División por cero";
+                }
+            }
+        }
+        $resultado[] = $fila;
+    }
+
+    // Mostrar la operación y el resultado
+    echo "Operación a realizar: ";
+    if ($operacion == 's') {
+        echo "Suma\n";
+    } elseif ($operacion == 'r') {
+        echo "Resta\n";
+    } elseif ($operacion == 'm') {
+        echo "Multiplicación\n";
+    } elseif ($operacion == 'd') {
+        echo "División\n";
+    }
+    echo "Matriz resultado:\n";
+    imprimirMatriz($resultado);
 }
 
-for ($i = 0; $i < 3; $i++) {
-    for ($j = 0; $j < 3; $j++) {
-        echo "Ingresa el valor para la posición [$i][$j]: ";
-        $matriz2[$i][$j] = (int)readline();
+function imprimirMatriz($matriz) {
+    foreach ($matriz as $fila) {
+        foreach ($fila as $elemento) {
+            echo $elemento . "\t";
+        }
+        echo "\n";
     }
 }
 
-echo "Las operaciones son: \n";
-echo "sumar\t\t ->\t 's' \n";
-echo "restar\t\t ->\t 'r' \n";
-echo "multiplicar\t ->\t 'm' \n";
-echo "dividir\t\t ->\t 'd' \n";
-$operación = readline("¿Qué tipo de operación será?")
+// Ejemplo de uso
+$matriz1 = array(
+    array(1, 2, 3),
+    array(4, 5, 6),
+    array(7, 8, 9)
+);
+
+$matriz2 = array(
+    array(9, 8, 7),
+    array(6, 5, 4),
+    array(3, 2, 1)
+);
+
+$operacion = 's'; // Puedes cambiar 's' por 'r', 'm', o 'd' para probar diferentes operaciones
+
+operaMatriz($matriz1, $matriz2, $operacion);
 
 
 
