@@ -10,16 +10,18 @@
  * la matriz con los resultados
 */
 
+// Creamos la matriz. Le pasamos por parámetro dos matrices y la operación a realizar.
 function operaMatriz($matriz1, $matriz2, $operacion) {
-    // Mostrar las matrices originales
+    // Muestra las matrices originales
     echo "Matriz 1:\n";
     imprimirMatriz($matriz1);
     echo "Matriz 2:\n";
     imprimirMatriz($matriz2);
 
-    // Realizar la operación seleccionada
-    $resultado = array(); // Matriz para almacenar el resultado
+    // Creamos otra matriz para almacenar el resultado
+    $resultado = array(); 
 
+    // Bucle for para realizar la operación seleccionada
     for ($i = 0; $i < count($matriz1); $i++) {
         $fila = array(); // Fila de la matriz resultado
         for ($j = 0; $j < count($matriz1[0]); $j++) {
