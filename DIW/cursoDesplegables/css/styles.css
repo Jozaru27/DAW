@@ -11,7 +11,7 @@ body {
 }
 
 #page {
-    width: 1250px;
+    width: 1200px;
     margin-top:0px;
     margin-bottom:0px;
     margin-left:auto;
@@ -30,7 +30,8 @@ header {
 }
 
 h1 {
-    background-image: url("../imgs/logo.png");
+    /*background-image: url("../imgs/logo.png");*/ /* Se ha movido al index.html > html > body > #page > header > h1 > img*/
+    position:relative;
     background-repeat: no-repeat;
     background-position: 25px;
     /* no lo admite: vertical-align:center;*/
@@ -39,6 +40,12 @@ h1 {
     padding-bottom:20px;
     padding-left:100px;
     padding-right:100px;
+}
+
+/* Para posicionar la imagen dentro del header*/
+h1 > img{
+    position: absolute;
+    left:30px;
 }
 
 #nav {
@@ -147,11 +154,42 @@ h1 {
     border-width: 75px 30px 80px 30px;
     border-image: url(../imgs/movil.png);
     border-image-slice: 75 30 80 30;
+    position:relative;/* Añadido para poder posicionar las imágenes chincheta */
+    margin-top:30px;
 }
 
 .article_header{
     border-bottom: 1px;
     color:#999999;
+}
+
+/* Div chincheta donde está la imagen*/
+.chincheta{
+    position: absolute;
+    width:35px;
+    height: 49px;
+    top: -91px;
+    background-image: url(../imgs/chincheta.png);
+}
+
+.ch1{
+    left: 211px;
+}
+
+.ch2{
+    left: 123px;
+}
+
+.ch3{
+    left: 30px;
+}
+
+.art1{
+    transform: rotate(-2deg);
+}
+
+.art3{
+    transform: rotate(2deg);
 }
 
 h2{
