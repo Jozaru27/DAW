@@ -13,17 +13,9 @@ $nota = readline("Introduzca una nota del 0 al 10: \n");
 
 switch ($nota){
     case 0:
-        $notaTexto = "INSUFICIENTE";
-        break;
     case 1:
-        $notaTexto = "INSUFICIENTE";
-        break;
     case 2:
-        $notaTexto = "INSUFICIENTE";
-        break;
     case 3:
-        $notaTexto = "INSUFICIENTE";
-        break;
     case 4:
         $notaTexto = "INSUFICIENTE";
         break;
@@ -34,16 +26,16 @@ switch ($nota){
         $notaTexto = "BIEN";
         break;
     case 7:
-        $notaTexto = "NOTABLE";
-        break;
     case 8:
         $notaTexto = "NOTABLE";
         break;
     case 9:
-        $notaTexto = "SOBRESALIENTE";
-        break;
     case 10:
         $notaTexto = "SOBRESALIENTE";
+        break;
+    default: 
+        echo "Esa nota no existe ";
+        $notaTexto = "ERROR";
         break;
 }
 
