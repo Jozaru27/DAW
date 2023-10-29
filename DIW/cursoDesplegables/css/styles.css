@@ -58,6 +58,8 @@ h1 > img{
     box-shadow: 10px 10px 5px grey;
 }
 
+/* Enlaces de la barra nav */
+
 #nav li{
     padding-top:80px;
     margin-top:0px;
@@ -70,24 +72,12 @@ h1 > img{
     cursor: pointer;
 }
 
+/* Enlace Contenidos, Videos y Contacto */
 #navli-content{
     background-image: url("../imgs/book.png");
     background-repeat: no-repeat;
     text-align: center;
     padding-top:10px;
-}
-
-#navli-content a:link{
-    text-decoration:none;
-    color: rgb(255, 255, 255);
-}
-
-#navli-content a:visited{
-    color:rgb(255, 255, 255);
-}
-
-#navli-content a:hover{
-    color:white;
 }
 
 #navli-videos{
@@ -97,19 +87,6 @@ h1 > img{
     padding-top:10px;
 }
 
-#navli-videos a:link{
-    text-decoration:none;
-    color: rgb(255, 255, 255);
-}
-
-#navli-videos a:visited{
-    color:rgb(255, 255, 255);
-}
-
-#navli-videos a:hover{
-    color:white;
-}
-
 #navli-contact{
     background-image: url("../imgs/mail.png");
     background-repeat: no-repeat;
@@ -117,17 +94,21 @@ h1 > img{
     padding-top:10px;
 }
 
-#navli-contact a:link{
+#navli-content a, #navli-videos a, #navli-contact a{
     text-decoration:none;
-    color: rgb(255, 255, 255);
+    color: white; /* Color de fondo del elemento */
+    text-shadow: 0px 0px 5px white; /* Distancia horizontal, distancia vertical, radio de difuminación y color */
 }
 
-#navli-contact a:visited{
+#navli-content a:visited, #navli-videos a:visited, #navli-contact a:visited{
     color:rgb(255, 255, 255);
 }
 
-#navli-contact a:hover{
-    color:white;
+/* Hover sobre los enlaces */
+#navli-content a:hover, #navli-videos a:hover, #navli-contact a:hover{
+    color: white;
+    text-shadow: 2px 2px 0px red; /* Distancia horizontal, distancia vertical, radio de difuminación y color */
+    transition: 0.5s; /* Transición */
 }
 
 #content {
@@ -172,6 +153,7 @@ h1 > img{
     background-image: url(../imgs/chincheta.png);
 }
 
+/* Posición chincheta ajustada al ancho de la página */
 .ch1{
     left: 211px;
 }
@@ -184,6 +166,7 @@ h1 > img{
     left: 30px;
 }
 
+/* Rotación del primer y tercer div de artículos*/
 .art1{
     transform: rotate(-2deg);
 }
@@ -212,4 +195,66 @@ h2{
 
 #footer a{
     color:white;
+}
+
+/* Menú desplegable */
+
+#navli-videos:hover {
+    position: relative;
+}
+
+#navli-videos:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    left: 0; /* Alinea la caja a la izquierda */
+    transform: translateX(-25%) translateY(5%); /* Centra el menú horizontalmente */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: white;
+    background-color: #e34c26; /* Color todos los elementos */
+}
+
+/* Color de elementos impares */
+.dropdown-content a:nth-child(odd) {
+    background-color: #f06529;
+}
+
+/* Ratón por encima de elementos cambia el fondo de color */
+.dropdown-content a:hover {
+    background-color: #ff7e42;
+}
+
+/* Borde redondeado en el primer elemento */
+.dropdown-content a:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Borde redondeado en el último elemento */
+.dropdown-content a:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Triángulo en la parte superior - Técnica: CSS Triangles: https://css-tricks.com/snippets/css/css-triangle/*/
+#navli-videos:hover .dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -20px; /* Coloca el triángulo 10 píxeles por encima de la caja */
+    left: 50%;
+    margin-left: -10px; /* Centra el triángulo horizontalmente */
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f06529 transparent; /* Color del triángulo */
 }
