@@ -60,7 +60,7 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             <input type="text" id="nombre" name="nombre" maxlength="50"><br><br>
 
             <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" name="apellidos" maxlength="50"><br><br>
+            <input type="text" id="apellidos" name="apellidos" maxlength="200"><br><br>
 
             <label for="sexo">Sexo:</label><br>
             <input type="radio" id="sexo" name="sexo" value="H">Hombre
