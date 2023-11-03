@@ -4,7 +4,7 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * Formulario 1
+ * Formulario 2
  * 
  */
 
@@ -46,7 +46,7 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Título de Página -->
-    <title>Alumnos - Formulario de Registro</title>
+    <title>Alumnos - Formulario de Registro 2</title>
 </head>
 
 <body>
@@ -62,12 +62,18 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             <label for="apellidos">Apellidos:</label>
             <input type="text" id="apellidos" name="apellidos" maxlength="200"><br><br>
 
+            <label for="correo">Correo Electrónico:</label>
+            <input type="text" id="correo" name="correo" maxlength="250"><br><br>
+
+            <label for="usuario">Nombre de Usuario:</label>
+            <input type="text" id="usuario" name="usuario" maxlength="5"><br><br>
+
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" maxlength="15"><br><br>
+
             <label for="sexo">Sexo:</label><br>
             <input type="radio" id="sexo" name="sexo" value="H">Hombre
             <input type="radio" id="sexo" name="sexo" value="M">Mujer<br><br>
-
-            <label for="correo">Correo Electrónico:</label>
-            <input type="text" id="correo" name="correo" maxlength="250"><br> <br>
 
             <label for="provincia">Provincia:</label>
             <select name="provincia">
@@ -75,6 +81,17 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
                 <option value="castellon"> Castellón </option>
                 <option value="valencia"> Valencia </option>
             </select><br><br>
+
+            <label for="situacion">Situación:</label>
+            <select multiple size="2" name="situacion[]">
+                <option value="alicante"> Estudiando </option>
+                <option value="castellon"> Trabajando </option>
+                <option value="valencia"> Buscando Empleo </option>
+                <option value="valencia"> Otro </option>
+            </select><br><br>
+
+            <label for="comentario">
+            <input type="textarea" id="comentario" name="comentario"> 
 
             <input type="checkbox" name="ofertas" checked>
             <label for="ofertas"> Deseo recibir información sobre novedades y ofertas. </label> <br><br>
