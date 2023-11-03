@@ -1,0 +1,89 @@
+/* Estilo Form */
+form {
+    padding: 10px auto;
+    border: 2px 0px;
+    border-color: #888;
+    width: 710px;
+    text-align: center;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: url('../imgs/bg-form.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    /* estilo añadido */
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+/* Estilo Lista */
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+/* Estilo Elementos Lista */
+li {
+    margin-bottom: 15px;
+}
+
+/* Estilo Label */
+label {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-family: LeagueGothic;
+}
+
+/* Estilo Título Form */
+form h1 {
+    font-size: 2em;
+    padding-bottom: 20px;
+    background: 
+        url('../imgs/bg-formtitle-left.png') left no-repeat,
+        url('../imgs/bg-formtitle-right.png') right no-repeat;
+    background-size: 100px auto;
+}
+
+#registro-submit {
+    border: none;
+    background: radial-gradient(circle, rgb(144, 144, 144), rgb(72, 72, 72));
+    color: white;
+    font-family: Tahoma, Geneva, sans-serif;
+    opacity: 80%;
+    font-size: 2em;
+    font-style: italic;
+    padding: 15px 30px;
+    border-radius: 15px;
+    transition: linear 0.25s;
+}
+
+#registro-submit:hover {
+    opacity: 100%;
+}
+
+input:required {
+    background-image: url('../imgs/required.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 16px;
+}
+
+input:focus:valid {
+    background-image: url('../imgs/valid.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 16px;
+}
+
+input:focus:invalid {
+    background-image: url('../imgs/invalid.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 16px;
+}
+
+::selection {
+    background-color: #484848;
+    color: #fff;
+    text-shadow: none;
+}

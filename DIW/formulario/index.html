@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="registro" method="post"> <h1>Regístrate!</h1><br>
+        <ul>
+            <li>
+                <label for="nombre">Mi nombre es:</label><br><br>
+                <input type="text" id="nombre" name="nombre" required autofocus><br><br>
+            </li>
+            <li>
+                <label for="email">Mi email es:</label><br><br>
+                <input type="email" id="email" name="email" required multiple><br><br>
+            </li>
+            <li>
+                <label for="recuerdame">Recuérdame en este equipo</label><br><br>
+                <input type="checkbox" id="recuerdame" name="recuerdame"><br><br>
+            </li>
+            <li>
+                <label for="url">Mi dirección web es:</label><br><br>
+                <input type="url" id="url" name="url" placeholder="http://ejemplo.com"><br><br>
+            </li>
+            <li>
+                <label for="password"> Me gustaría que mi password fuera: <br></label>
+                <p><h6> (al menos 6 caracteres, sin espacios)</h6></p>
+                <input type="password" id="password" name="password" required pattern="\S{6,}"><br><br>
+            </li>
+            <li>
+                <label for="password2">Mi password repetida es:</label><br>
+                <input type="password" id="password2" name="password2" required pattern="\S{6,}"><br><br>
+            </li>
+            <li>
+                <label for="conocimientos">En una escala de 1 a 10, mis conocimientos de HTML5 son:</label><br>
+                <input type="range" id="conocimientos" name="conocimientos" min="1" max="10"><br><br>
+            </li>
+            <li>
+                <label for="fechaInicio">Por favor, inicia mi suscripción el día::</label><br>
+                <input type="date" id="fechaInicio" name="fechaInicio" required placeholder="dd/mm/aaaa"><br><br>
+            </li>
+            <li>
+                <label for="cantidad">Me gustaría recibir <input type="number" id="cantidad" name="cantidad" min="0" max="5" value="1"> copias de <i>El manual de HTML5 </label>
+            </li>
+            <li>
+                <label for="tambienCSS3">También regístrame para <i>El manual de HTML5.</i></label><br>
+                <input type="checkbox" id="tambienCSS3" name="tambienCSS3">
+            </li>
+            <li>
+                <input type="button" id="registro-submit" name="registro-submit" value="ENVÍAME">
+            </li>
+        </ul>
+    </form>
+    
+</body>
+</html>
