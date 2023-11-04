@@ -1,3 +1,9 @@
+/* Estilo Extra - Para que salga el form centrado y no a la izquierda */
+body {
+    display: flex;
+    justify-content: center;
+}
+
 /* Estilo Form */
 form {
     padding: 10px auto;
@@ -31,7 +37,7 @@ label {
     display: block;
     margin: auto;
     text-align: center;
-    font-family: LeagueGothic;
+    font-family: 'LeagueGothic';
 }
 
 /* Estilo Título Form */
@@ -42,8 +48,10 @@ form h1 {
         url('../imgs/bg-formtitle-left.png') left no-repeat,
         url('../imgs/bg-formtitle-right.png') right no-repeat;
     background-size: 100px auto;
+    font-family: 'AcknowledgementMedium'
 }
 
+/* Estilo Botón Envío */
 #registro-submit {
     border: none;
     background: radial-gradient(circle, rgb(144, 144, 144), rgb(72, 72, 72));
@@ -57,10 +65,12 @@ form h1 {
     transition: linear 0.25s;
 }
 
+/* Hover Botón Envío - Cambio color */
 #registro-submit:hover {
     opacity: 100%;
 }
 
+/* Imágenes de Requerido, Válido o Inválido */
 input:required {
     background-image: url('../imgs/required.png');
     background-repeat: no-repeat;
@@ -82,8 +92,29 @@ input:focus:invalid {
     background-size: 16px;
 }
 
+/* CSS Selección Texto */
 ::selection {
     background-color: #484848;
     color: #fff;
     text-shadow: none;
 }
+
+
+/* Fuentes Importadas */
+@font-face {
+    font-family: LeagueGothic;
+    src: url(../fonts/LeagueGothic-Regular-VariableFont_wdth.ttf);
+}
+
+@font-face {
+    font-family: AcknowledgementMedium;
+    src: url(../fonts/Acknowledgement.otf);
+}
+
+/* Estilo Extra - Que los campos salgan como en la imagen - Línea de puntos intermitente en vez de un rectángulo blanco */
+input {
+    border: none;
+    border-bottom: 1px dotted #000; /* Borde, color y estilo del borde inferior */
+    background: transparent; /* Esto hace que el fondo sea transparente para que los puntos sean visibles */
+    outline: none; /* Elimina el contorno al hacer clic en el campo */
+  }
