@@ -80,7 +80,7 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             <label for="ofertas"> Deseo recibir información sobre novedades y ofertas. </label> <br><br>
             
             <input type="checkbox" name="condiciones" > 
-            <label> Declaro haber leído y aceptar las condiciones generales del programa y la normativa sobre protección de datos. </label> <br><br>
+            <label for="condiciones"> Declaro haber leído y aceptar las condiciones generales del programa y la normativa sobre protección de datos. </label> <br><br>
 
             <input type="submit" name="enviar" value="Enviar">
         </fieldset>
