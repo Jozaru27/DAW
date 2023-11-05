@@ -4,7 +4,7 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * Formulario 2
+ * Formulario 3
  * 
  */
 
@@ -28,11 +28,6 @@ echo "<b>Nombre de Usuario: </b>" . strtoupper($_GET["usuario"]) . "<br>";
 echo "<b>Password: </b>" . strtoupper($_GET["contraseña"]) . "<br>";
 echo "<b>Sexo: </b>" . strtoupper($_GET["sexo"]) . "<br>";
 echo "<b>Provincia: </b>" . strtoupper($_GET["provincia"]) . "<br>";
-$situaciones = $_GET["situacion"];
-foreach ($situaciones as $situacion){
-    $situacion = strtoupper($situacion);
-    echo "<b>Situación: </b>" . $situacion . "<br>";
-}
 echo "<b>Comentario: </b>" . strtoupper($_GET["comentario"]) . "<br>";
 echo "<b>Desea recibir información sobre novedades y ofertas: </b> $ofertas" . "<br>";
 echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condiciones" . "<br>";
@@ -54,13 +49,13 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Título de Página -->
-    <title>Alumnos - Formulario de Registro 2</title>
+    <title>Alumnos - Formulario de Registro 3</title>
 </head>
 
 <body>
-    <h2>Alumnos - Formulario de Registro 2</h2>
+    <h2>Alumnos - Formulario de Registro 3</h2>
 
-    <form action="formulario2.php" method="get">
+    <form action="formulario3.php" method="get">
         <fieldset>
             <legend> Datos Personales </legend><br>
 
@@ -90,13 +85,11 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
                 <option value="valencia"> Valencia </option>
             </select><br><br>
 
-            <label for="situacion">Situación:</label>
-            <select multiple size="2" name="situacion[]">
-                <option value="Estudiando"> Estudiando </option>
-                <option value="Trabajando"> Trabajando </option>
-                <option value="Buscando Empleo"> Buscando Empleo </option>
-                <option value="Otro"> Otro </option>
-            </select><br><br>
+            <!-- Horario Contacto - Desplegable con valores:  De 8 a 14 horas, De 14 a 18 horas y De 18
+a 21 horas de modo que se podrá seleccionar uno o varios de ellos. Deberá mostrar 2 elementos
+cada vez. -->
+
+            <!-- ¿Cómo nos ha conocido? Checkbox para Un Amigo, Web, Prensa, Otros.-->
 
             <label for="comentario">
             <textarea id="comentario" name="comentario" rows="6" cols="60"></textarea><br>
