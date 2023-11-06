@@ -33,12 +33,13 @@ function accion() {
             borrar();
             break;
         case "=":
-            resolverExpresion();
+            resultado();
             break;
         case "()":
+            agregarParentesis();
             break;
         case ".":
-            // solo añadir si hay número delante
+            agregarNumero(this.innerText);
             break;
         default: 
             agregarNumero(this.innerText);
@@ -52,47 +53,49 @@ function sombra(ev) {
 
 /* Añadir números al input */
 function agregarNumero(valor) {
-    if (pantalla.value == "0") pantalla.value = valor;
-    else pantalla.value += valor;
+    let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
+    if (valor === "." && ultimoCaracter === ".") {
+        return; // Evitar agregar dos puntos seguidos
+    }
+
+    if (pantalla.value === "0" && valor !== ".") {
+        pantalla.value = valor;
+    } else {
+        pantalla.value += valor;
+    }
 }
 
 /* Laquo - Borrar */
 function borrar() {
-    let pantalla = document.querySelector('input');
-    let valorPantalla = pantalla.value;
-
-    pantalla.value = valorPantalla.substring(0, valorPantalla.length - 1);
+    pantalla.value = pantalla.value.substring(0, pantalla.value.length - 1);
 
     if (pantalla.value === "") {
         pantalla.value = "0"; // Si no queda nada, mostrar 0
     }
 }
 
-/* Función para agregar números si es posible */
+/* Función para agregar operador si es posible */
 function agregarSiDisponible(valor) {
-    let pantalla = document.querySelector('input');
-    let valorPantalla = pantalla.value;
-    let ultimoCaracter = valorPantalla.charAt(valorPantalla.length - 1);
+    let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
 
-     // Reemplaza "x" por "*" si se detecta
-    if (valor === "x") {
-        valor = "*";
-    }
-
-    if (!/[X+\/%-,.]/.test(ultimoCaracter)) {
+    if (ultimoCaracter !== 'x' && ultimoCaracter !== '+' && ultimoCaracter !== '/' && ultimoCaracter !== '-' && ultimoCaracter !== '%'){
         agregarNumero(valor);
     }
 }
 
 /* Función para resolver la expresión y mostrar el resultado en pantalla */
-function resolverExpresion() {
-    let pantalla = document.querySelector('input');
-    let valorPantalla = pantalla.value;
-
-    try {
-        let resultado = eval(valorPantalla);
-        pantalla.value = resultado.toString(); // Muestra el resultado como un número
-    } catch (error) {
-        pantalla.value = "Error"; // Manejar errores en la evaluación
-    }
+function resultado(){
+    pantalla.value = pantalla.value.replaceAll("x", '*'); // Reemplaza las x por * para que el eval funcione mientras se muestra x por pantalla
+    pantalla.value = pantalla.value.replaceAll("%", '*(1/100)*'); // Porcentaje
+    pantalla.value = eval(pantalla.value); // Efectúa operación
 }
+
+/* Función para añadir paréntesis rodeando todo */
+function agregarParentesis() {
+    let contenidoPantalla = pantalla.value;
+    pantalla.value = `(${pantalla.value})`;
+}
+
+// no se puede añadir operador si hay una .
+// no se puede añadir . si hay un paréntesis
+// como se puede añadir coma en un operando que ya tenga coma
