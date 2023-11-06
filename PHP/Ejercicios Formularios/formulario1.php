@@ -67,7 +67,7 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             <input type="radio" id="sexo" name="sexo" value="M">Mujer<br><br>
 
             <label for="correo">Correo Electrónico:</label>
-            <input type="text" id="correo" name="correo" maxlength="250"><br> <br>
+            <input type="text" id="correo" name="correo" maxlength="250"><br><br>
 
             <label for="provincia">Provincia:</label>
             <select name="provincia">

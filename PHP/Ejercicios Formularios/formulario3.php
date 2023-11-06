@@ -21,6 +21,9 @@ if (isset($_GET["condiciones"])){
     $condiciones = "NO";
 }
 
+$conocido = $_GET["conocido"] ?? []; // Si no está definido, se inicializa como un array vacío
+$conocidoSeleccionado = implode(", ", array_map('strtoupper', $conocido));
+
 echo "<b>Nombre: </b>" . strtoupper($_GET["nombre"]) . "<br>";
 echo "<b>Apellidos: </b>" . strtoupper($_GET["apellidos"]) . "<br>";
 echo "<b>Correo: </b>" . strtoupper($_GET["correo"]) . "<br>";
@@ -28,6 +31,12 @@ echo "<b>Nombre de Usuario: </b>" . strtoupper($_GET["usuario"]) . "<br>";
 echo "<b>Password: </b>" . strtoupper($_GET["contraseña"]) . "<br>";
 echo "<b>Sexo: </b>" . strtoupper($_GET["sexo"]) . "<br>";
 echo "<b>Provincia: </b>" . strtoupper($_GET["provincia"]) . "<br>";
+$horarios = $_GET["horarios"];
+foreach ($horarios as $horario){
+    $horario = strtoupper($horario);
+    echo "<b>Horario: </b>" . $horario . "<br>";
+}
+echo "<b>¿Cómo nos ha conocido?:</b> " . implode(", ", $conocidoSeleccionado) . "<br>";
 echo "<b>Comentario: </b>" . strtoupper($_GET["comentario"]) . "<br>";
 echo "<b>Desea recibir información sobre novedades y ofertas: </b> $ofertas" . "<br>";
 echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condiciones" . "<br>";
@@ -85,14 +94,25 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
                 <option value="valencia"> Valencia </option>
             </select><br><br>
 
-            <!-- Horario Contacto - Desplegable con valores:  De 8 a 14 horas, De 14 a 18 horas y De 18
-a 21 horas de modo que se podrá seleccionar uno o varios de ellos. Deberá mostrar 2 elementos
-cada vez. -->
+            <label for="horarios">Horario de Contacto:</label>
+            <select id="horarios" name="horarios[]" size="2" multiple>
+                <option value="8-14">De 8 a 14 horas</option>
+                <option value="14-18">De 14 a 18 horas</option>
+                <option value="18-21">De 18 a 21 horas</option>
+            </select><br><br>
 
-            <!-- ¿Cómo nos ha conocido? Checkbox para Un Amigo, Web, Prensa, Otros.-->
+            <label>¿Cómo nos ha conocido?</label><br><br>
+            <input type="checkbox" id="amigo" name="conocido[]" value="Un Amigo">
+            <label for="amigo">Un Amigo</label>
+            <input type="checkbox" id="web" name="conocido[]" value="Web">
+            <label for="web">Web</label>
+            <input type="checkbox" id="prensa" name="conocido[]" value="Prensa">
+            <label for="prensa">Prensa</label>
+            <input type="checkbox" id="otros" name="conocido[]" value="Otros">
+            <label for="otros">Otros</label><br><br>
 
-            <label for="comentario">
-            <textarea id="comentario" name="comentario" rows="6" cols="60"></textarea><br>
+            <label for="comentario">Comentario:
+            <textarea id="comentario" name="comentario" rows="6" cols="60"></textarea><br><br>
 
             <input type="checkbox" name="ofertas" checked>
             <label for="ofertas"> Deseo recibir información sobre novedades y ofertas. </label> <br><br>

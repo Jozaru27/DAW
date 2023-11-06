@@ -4,7 +4,7 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * Formulario 2
+ * Formulario 4
  * 
  */
 
@@ -21,6 +21,9 @@ if (isset($_GET["condiciones"])){
     $condiciones = "NO";
 }
 
+/*$conocido = $_GET["conocido"] ?? []; // Si no está definido, se inicializa como un array vacío
+$conocidoSeleccionado = implode(", ", array_map('strtoupper', $conocido));*/
+
 echo "<b>Nombre: </b>" . strtoupper($_GET["nombre"]) . "<br>";
 echo "<b>Apellidos: </b>" . strtoupper($_GET["apellidos"]) . "<br>";
 echo "<b>Correo: </b>" . strtoupper($_GET["correo"]) . "<br>";
@@ -28,11 +31,12 @@ echo "<b>Nombre de Usuario: </b>" . strtoupper($_GET["usuario"]) . "<br>";
 echo "<b>Password: </b>" . strtoupper($_GET["contraseña"]) . "<br>";
 echo "<b>Sexo: </b>" . strtoupper($_GET["sexo"]) . "<br>";
 echo "<b>Provincia: </b>" . strtoupper($_GET["provincia"]) . "<br>";
-$situaciones = $_GET["situacion"];
-foreach ($situaciones as $situacion){
-    $situacion = strtoupper($situacion);
-    echo "<b>Situación: </b>" . $situacion . "<br>";
+$horarios = $_GET["horarios"];
+foreach ($horarios as $horario){
+    $horario = strtoupper($horario);
+    echo "<b>Horario: </b>" . $horario . "<br>";
 }
+/*echo "<b>¿Cómo nos ha conocido?:</b> " . implode(", ", $conocidoSeleccionado) . "<br>";*/
 echo "<b>Comentario: </b>" . strtoupper($_GET["comentario"]) . "<br>";
 echo "<b>Desea recibir información sobre novedades y ofertas: </b> $ofertas" . "<br>";
 echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condiciones" . "<br>";
@@ -54,13 +58,13 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Título de Página -->
-    <title>Alumnos - Formulario de Registro 2</title>
+    <title>Alumnos - Formulario de Registro 4</title>
 </head>
 
 <body>
-    <h2>Alumnos - Formulario de Registro 2</h2>
+    <h2>Alumnos - Formulario de Registro 4</h2>
 
-    <form action="formulario2.php" method="get">
+    <form action="formulario4.php" method="get">
         <fieldset>
             <legend> Datos Personales </legend><br>
 
@@ -82,7 +86,9 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             <label for="sexo">Sexo:</label><br>
             <input type="radio" id="sexo" name="sexo" value="H">Hombre
             <input type="radio" id="sexo" name="sexo" value="M">Mujer<br><br>
-
+    </fieldset><br>
+    <fieldset>
+            <legend> Datos de Contacto </legend><br>
             <label for="provincia">Provincia:</label>
             <select name="provincia">
                 <option value="alicante"> Alicante </option>
@@ -90,13 +96,26 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
                 <option value="valencia"> Valencia </option>
             </select><br><br>
 
-            <label for="situacion">Situación:</label>
-            <select multiple size="2" name="situacion[]">
-                <option value="Estudiando"> Estudiando </option>
-                <option value="Trabajando"> Trabajando </option>
-                <option value="Buscando Empleo"> Buscando Empleo </option>
-                <option value="Otro"> Otro </option>
+            <label for="horarios">Horario de Contacto:</label>
+            <select id="horarios" name="horarios[]" size="2" multiple>
+                <option value="8-14">De 8 a 14 horas</option>
+                <option value="14-18">De 14 a 18 horas</option>
+                <option value="18-21">De 18 a 21 horas</option>
             </select><br><br>
+
+            <label>¿Cómo nos ha conocido?</label><br><br>
+            <input type="checkbox" id="amigo" name="conocido[]" value="Un Amigo">
+            <label for="amigo">Un Amigo</label>
+            <input type="checkbox" id="web" name="conocido[]" value="Web">
+            <label for="web">Web</label>
+            <input type="checkbox" id="prensa" name="conocido[]" value="Prensa">
+            <label for="prensa">Prensa</label>
+            <input type="checkbox" id="otros" name="conocido[]" value="Otros">
+            <label for="otros">Otros</label><br><br>
+    </fieldset><br>
+    <fieldset>
+        <legend> Datos de la incidencia: </legend><br>
+        <!-- telefono fijo -->
 
             <label for="comentario">Comentario:
             <textarea id="comentario" name="comentario" rows="6" cols="60"></textarea><br><br>
@@ -109,7 +128,7 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
 
             <input type="submit" name="enviar" value="Enviar">
             <input type="reset" name="borrar" value="Limpiar">
-        </fieldset>
+        </fieldset><br>
     </form> 
 </body>
 </html>
