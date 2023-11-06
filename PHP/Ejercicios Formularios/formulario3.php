@@ -21,8 +21,16 @@ if (isset($_GET["condiciones"])){
     $condiciones = "NO";
 }
 
-$conocido = $_GET["conocido"] ?? []; // Si no está definido, se inicializa como un array vacío
-$conocidoSeleccionado = implode(", ", array_map('strtoupper', $conocido));
+$horarios = $_GET["horarios"];
+foreach ($horarios as $horario){
+    $horarioSelect = implode(" / ", $horarios);
+}
+
+$conocidos = $_GET["conocido"];
+foreach ($conocidos as $conocido){
+    $conocidoSelect = implode(" / ", $conocidos);
+
+}
 
 echo "<b>Nombre: </b>" . strtoupper($_GET["nombre"]) . "<br>";
 echo "<b>Apellidos: </b>" . strtoupper($_GET["apellidos"]) . "<br>";
@@ -31,12 +39,8 @@ echo "<b>Nombre de Usuario: </b>" . strtoupper($_GET["usuario"]) . "<br>";
 echo "<b>Password: </b>" . strtoupper($_GET["contraseña"]) . "<br>";
 echo "<b>Sexo: </b>" . strtoupper($_GET["sexo"]) . "<br>";
 echo "<b>Provincia: </b>" . strtoupper($_GET["provincia"]) . "<br>";
-$horarios = $_GET["horarios"];
-foreach ($horarios as $horario){
-    $horario = strtoupper($horario);
-    echo "<b>Horario: </b>" . $horario . "<br>";
-}
-echo "<b>¿Cómo nos ha conocido?:</b> " . implode(", ", $conocidoSeleccionado) . "<br>";
+echo "<b>Horario: </b>" . $horarioSelect . "<br>";
+echo "<b>¿Cómo nos ha conocido?:</b> " . $conocidoSelect . "<br>";
 echo "<b>Comentario: </b>" . strtoupper($_GET["comentario"]) . "<br>";
 echo "<b>Desea recibir información sobre novedades y ofertas: </b> $ofertas" . "<br>";
 echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condiciones" . "<br>";
