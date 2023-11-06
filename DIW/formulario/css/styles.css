@@ -48,7 +48,7 @@ form h1 {
         url('../imgs/bg-formtitle-left.png') left no-repeat,
         url('../imgs/bg-formtitle-right.png') right no-repeat;
     background-size: 100px auto;
-    font-family: 'AcknowledgementMedium'
+    font-family: 'AcknowledgementMedium';
 }
 
 /* Estilo Botón Envío */

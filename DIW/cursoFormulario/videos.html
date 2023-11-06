@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursobordes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reproductor.css">
+</head>
+<body>
+    <!-- Contenedor Principal-->
+    <div id="page">
+
+        <header>
+            <h1><img src="imgs/logo.png" src="imagen logo">Curso de HTML5 y CSS3</h1>
+        </header>
+
+        <div id="nav">
+            <ul>
+                <li id="navli-content"> <a href="index.html">Contenidos</a>   </li>
+                <li id="navli-videos">  <a href="">Vídeos</a>       
+                    <div class="dropdown-content">
+                        <a href="videos.html">Vídeos 1</a>
+                        <a href="videos.html">Vídeos 2</a>
+                        <a href="videos.html">Vídeos 3</a>
+                    </div>
+                </li>
+                <li id="navli-contact"> <a href="">Contacto</a>     </li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <main>
+                <div id="reproductor">
+                    <video id="medio" width="720" height="400"> <source src="media/trailer.mp4">
+                        <source src="media/trailer.ogg">
+                    </video>
+                    <div id="barra">
+                        <div id="progreso"></div>
+                    </div>
+                </div>
+                <nav>
+                    <input type="button" id="reiniciar" value="reiniciar">
+                    <input type="button" id="retrasar" value="&laquo;">
+                    <input type="button" id="play" value="&#9658;">
+                    <input type="button" id="adelantar" value="&raquo;">
+                    <input type="button" id="silenciar" value="silenciar">
+                    <label>Volumen</label>
+                    <input type="button" id="menosVolumen" value="-">
+                    <input type="button" id="masVolumen" value="+">
+                </nav>
+            </main>
+        </div>
+        
+        <div id="footer">
+            <p>HTML5 y CSS3.</p>
+            <p>Diseño de interfaces web - 2DAW</p>
+        </div>
+
+    </div>
+</body>
+</html>
