@@ -61,11 +61,11 @@ echo "<b>Comentario: </b>" . strtoupper($_GET["comentario"]) . "<br>";
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Título de Página -->
-    <title>Alumnos - Formulario de Registro 4</title>
+    <title>Jose Zafrilla - Formulario de Registro 4</title>
 </head>
 
 <body>
-    <h2>Alumnos - Formulario de Registro 4</h2>
+    <h2>Jose Zafrilla - Formulario de Registro 4</h2>
 
     <form action="formulario4.php" method="get">
         <fieldset>

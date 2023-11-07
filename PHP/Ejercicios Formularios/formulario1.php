@@ -46,11 +46,11 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Título de Página -->
-    <title>Alumnos - Formulario de Registro</title>
+    <title>Jose Zafrilla - Formulario de Registro</title>
 </head>
 
 <body>
-    <h2>Alumnos - Formulario de Registro</h2>
+    <h2>Jose Zafrilla - Formulario de Registro</h2>
 
     <form action="formulario1.php" method="get">
         <fieldset>
