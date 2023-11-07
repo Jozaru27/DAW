@@ -39,6 +39,7 @@ function accion(e) {
         case "+":
         case "-":
         case "/":
+        case "*":
         case "%":
             agregarOperacion(element);
             break;
@@ -110,7 +111,11 @@ function borrar() {
 /* Función para agregar operador si es posible */
 function agregarOperacion(valor) {
     let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
-
+    console.log(valor);
+    if (valor == "*") {
+        console.log("ASDF");
+        valor = "x";
+    }
     if (ultimoCaracter !== 'x' && ultimoCaracter !== '+' && ultimoCaracter !== '/' && ultimoCaracter !== '-' && ultimoCaracter !== '%' && ultimoCaracter !== '.'){
         punto = false;
         escribirPantalla(valor);
@@ -131,4 +136,4 @@ function agregarParentesis() {
 }
 
 // numpad no multiplicacion
-// borrar un paréntesis borrar el primero
+// borrar un paréntesis borrar el primero - substring 1 a length
