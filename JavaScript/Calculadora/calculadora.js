@@ -1,3 +1,10 @@
+/* Declaración Variables Generales */
+let numeros = "0123456789";
+let operadores = "+/-%x*";
+let puntito = ".";
+let parentesis = "()";
+let punto = false;
+
 /* Cargar un Add Event Listener */
 window.onload = function() {
     addEvents();
@@ -6,6 +13,7 @@ window.onload = function() {
 /* EventListener - Cuando se hace click en un cualquier boton, se ejecuta la función acción*/
 function addEvents() {
     let botones = document.querySelectorAll(".boton");
+    document.addEventListener("keydown", accion);
 
     for(boton of botones) {
         boton.addEventListener("click", accion);
@@ -16,33 +24,40 @@ function addEvents() {
 }
 
 /* Función Acción - La acción que realiza cada botón cuando se pulsa */
-function accion() {
-    console.log(this.innerText);
-    switch(this.innerText) {
+function accion(e) {
+    
+    let element = ""
+    if (e.type == "keydown") element = e.key
+    else element = this.innerText
+
+    switch(element) {
         case "C":
             pantalla.value = "0";
+            punto = false;
             break;
         case "x":
         case "+":
         case "-":
         case "/":
         case "%":
-            agregarSiDisponible(this.innerText);
+            agregarOperacion(element);
             break;
         case "«":
+        case "Backspace":
             borrar();
             break;
         case "=":
+        case "Enter":
             resultado();
             break;
         case "()":
             agregarParentesis();
             break;
         case ".":
-            agregarNumero(this.innerText);
+            agregarPunto(element);
             break;
         default: 
-            agregarNumero(this.innerText);
+            escribirPantalla(element);
     }
 }
 
@@ -51,35 +66,54 @@ function sombra(ev) {
     ev.type == "mouseout" ? this.classList.remove("sombra") : this.classList.toggle("sombra");
 }
 
-/* Añadir números al input */
-function agregarNumero(valor) {
-    let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
-    if (valor === "." && ultimoCaracter === ".") {
-        return; // Evitar agregar dos puntos seguidos
+/* Escribir En pantalla */
+function escribirPantalla(dato) {
+    if (numeros.includes(dato) || operadores.includes(dato) || puntito.includes(dato) || parentesis.includes(dato))
+    
+    if (numeros.includes(dato) && pantalla.value == "0") {
+        pantalla.value = dato;
+    } else {
+        pantalla.value += dato;
     }
 
-    if (pantalla.value === "0" && valor !== ".") {
-        pantalla.value = valor;
-    } else {
-        pantalla.value += valor;
+}
+
+/* Agregar punto */
+function agregarPunto(dato){
+    let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
+
+    if (!punto && numeros.includes(ultimoCaracter)) {
+        pantalla.value += dato;
+        punto = true;
     }
 }
 
 /* Laquo - Borrar */
 function borrar() {
     pantalla.value = pantalla.value.substring(0, pantalla.value.length - 1);
+    let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
+    
+    if (ultimoCaracter === ".") {
+        punto = false;
+    }
 
     if (pantalla.value === "") {
         pantalla.value = "0"; // Si no queda nada, mostrar 0
     }
+
+    if (ultimoCaracter === ")") {
+        pantalla.value = pantalla.value.slice(1);
+    }
+
 }
 
 /* Función para agregar operador si es posible */
-function agregarSiDisponible(valor) {
+function agregarOperacion(valor) {
     let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
 
-    if (ultimoCaracter !== 'x' && ultimoCaracter !== '+' && ultimoCaracter !== '/' && ultimoCaracter !== '-' && ultimoCaracter !== '%'){
-        agregarNumero(valor);
+    if (ultimoCaracter !== 'x' && ultimoCaracter !== '+' && ultimoCaracter !== '/' && ultimoCaracter !== '-' && ultimoCaracter !== '%' && ultimoCaracter !== '.'){
+        punto = false;
+        escribirPantalla(valor);
     }
 }
 
@@ -96,6 +130,5 @@ function agregarParentesis() {
     pantalla.value = `(${pantalla.value})`;
 }
 
-// no se puede añadir operador si hay una .
-// no se puede añadir . si hay un paréntesis
-// como se puede añadir coma en un operando que ya tenga coma
+// numpad no multiplicacion
+// borrar un paréntesis borrar el primero
