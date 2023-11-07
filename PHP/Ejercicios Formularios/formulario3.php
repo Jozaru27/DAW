@@ -40,7 +40,7 @@ echo "<b>Password: </b>" . strtoupper($_GET["contraseña"]) . "<br>";
 echo "<b>Sexo: </b>" . strtoupper($_GET["sexo"]) . "<br>";
 echo "<b>Provincia: </b>" . strtoupper($_GET["provincia"]) . "<br>";
 echo "<b>Horario: </b>" . $horarioSelect . "<br>";
-echo "<b>¿Cómo nos ha conocido?:</b> " . $conocidoSelect . "<br>";
+echo "<b>¿Cómo nos ha conocido?:</b> " . strtoupper($conocidoSelect) . "<br>";
 echo "<b>Comentario: </b>" . strtoupper($_GET["comentario"]) . "<br>";
 echo "<b>Desea recibir información sobre novedades y ofertas: </b> $ofertas" . "<br>";
 echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condiciones" . "<br>";

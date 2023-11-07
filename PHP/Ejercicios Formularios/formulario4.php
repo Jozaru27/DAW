@@ -21,8 +21,16 @@ if (isset($_GET["condiciones"])){
     $condiciones = "NO";
 }
 
-/*$conocido = $_GET["conocido"] ?? []; // Si no está definido, se inicializa como un array vacío
-$conocidoSeleccionado = implode(", ", array_map('strtoupper', $conocido));*/
+$horarios = $_GET["horarios"];
+foreach ($horarios as $horario){
+    $horarioSelect = implode(" / ", $horarios);
+}
+
+$conocidos = $_GET["conocido"];
+foreach ($conocidos as $conocido){
+    $conocidoSelect = implode(" / ", $conocidos);
+
+}
 
 echo "<b>Nombre: </b>" . strtoupper($_GET["nombre"]) . "<br>";
 echo "<b>Apellidos: </b>" . strtoupper($_GET["apellidos"]) . "<br>";
@@ -31,15 +39,10 @@ echo "<b>Nombre de Usuario: </b>" . strtoupper($_GET["usuario"]) . "<br>";
 echo "<b>Password: </b>" . strtoupper($_GET["contraseña"]) . "<br>";
 echo "<b>Sexo: </b>" . strtoupper($_GET["sexo"]) . "<br>";
 echo "<b>Provincia: </b>" . strtoupper($_GET["provincia"]) . "<br>";
-$horarios = $_GET["horarios"];
-foreach ($horarios as $horario){
-    $horario = strtoupper($horario);
-    echo "<b>Horario: </b>" . $horario . "<br>";
-}
-/*echo "<b>¿Cómo nos ha conocido?:</b> " . implode(", ", $conocidoSeleccionado) . "<br>";*/
+echo "<b>Horario: </b>" . $horarioSelect . "<br>";
+echo "<b>¿Cómo nos ha conocido?:</b> " . strtoupper($conocidoSelect) . "<br>";
+echo "<b>Tipo de Incidencia: </b> " . strtoupper($_GET["tipo_incidencia"]) . "<br>";
 echo "<b>Comentario: </b>" . strtoupper($_GET["comentario"]) . "<br>";
-echo "<b>Desea recibir información sobre novedades y ofertas: </b> $ofertas" . "<br>";
-echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condiciones" . "<br>";
 
 ?>
 
@@ -69,26 +72,28 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             <legend> Datos Personales </legend><br>
 
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" maxlength="50"><br><br>
+            <input type="text" id="nombre" name="nombre" maxlength="50" placeholder="Escriba su Nombre"><br><br>
 
             <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" name="apellidos" maxlength="200"><br><br>
+            <input type="text" id="apellidos" name="apellidos" maxlength="200" placeholder="Escriba sus Apellidos"><br><br>
 
             <label for="correo">Correo Electrónico:</label>
-            <input type="text" id="correo" name="correo" maxlength="250"><br><br>
+            <input type="text" id="correo" name="correo" maxlength="250" placeholder="usuario@empresa.com"><br><br>
 
             <label for="usuario">Nombre de Usuario:</label>
-            <input type="text" id="usuario" name="usuario" maxlength="5"><br><br>
+            <input type="text" id="usuario" name="usuario" maxlength="5" placeholder="Escriba su nombre de usuario"><br><br>
 
             <label for="contraseña">Contraseña:</label>
-            <input type="password" id="contraseña" name="contraseña" maxlength="15"><br><br>
+            <input type="password" id="contraseña" name="contraseña" maxlength="15" placeholder="Escriba su password"><br><br>
 
             <label for="sexo">Sexo:</label><br>
-            <input type="radio" id="sexo" name="sexo" value="H">Hombre
+            <input type="radio" id="sexo" name="sexo" value="H" checked>Hombre
             <input type="radio" id="sexo" name="sexo" value="M">Mujer<br><br>
-    </fieldset><br>
-    <fieldset>
-            <legend> Datos de Contacto </legend><br>
+
+        </fieldset><br>
+        <fieldset>
+                <legend> Datos de Contacto </legend><br>    
+
             <label for="provincia">Provincia:</label>
             <select name="provincia">
                 <option value="alicante"> Alicante </option>
@@ -97,7 +102,7 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             </select><br><br>
 
             <label for="horarios">Horario de Contacto:</label>
-            <select id="horarios" name="horarios[]" size="2" multiple>
+            <select id="horarios" name="horarios[]" size="3" multiple>
                 <option value="8-14">De 8 a 14 horas</option>
                 <option value="14-18">De 14 a 18 horas</option>
                 <option value="18-21">De 18 a 21 horas</option>
@@ -112,23 +117,25 @@ echo "<b>Declara haber leído y acepta las condiciones y normativa: </b> $condic
             <label for="prensa">Prensa</label>
             <input type="checkbox" id="otros" name="conocido[]" value="Otros">
             <label for="otros">Otros</label><br><br>
-    </fieldset><br>
-    <fieldset>
-        <legend> Datos de la incidencia: </legend><br>
-        <!-- telefono fijo -->
+        
+        </fieldset><br>
+        <fieldset>
+            <legend> Datos de Incidencia </legend><br>
 
-            <label for="comentario">Comentario:
-            <textarea id="comentario" name="comentario" rows="6" cols="60"></textarea><br><br>
+            <label for="tipo_incidencia">Tipo de Incidencia:</label>
+            <select name="tipo_incidencia">
+                <option value="fijo"> Teléfono Fijo </option>
+                <option value="movil"> Teléfono Móvil </option>
+                <option value="internet"> Internet </option>
+                <option value="television"> Televisión </option>
+            </select><br><br>
 
-            <input type="checkbox" name="ofertas" checked>
-            <label for="ofertas"> Deseo recibir información sobre novedades y ofertas. </label> <br><br>
-            
-            <input type="checkbox" name="condiciones"> 
-            <label for="condiciones"> Declaro haber leído y aceptar las condiciones generales del programa y la normativa sobre protección de datos. </label> <br><br>
+            <label for="comentario">Descripción de la incidencia:
+            <textarea id="comentario" name="comentario" rows="4" cols="40" placeholder="Describa la incidencia"></textarea><br><br>
 
             <input type="submit" name="enviar" value="Enviar">
             <input type="reset" name="borrar" value="Limpiar">
-        </fieldset><br>
+        </fieldset>
     </form> 
 </body>
 </html>

@@ -137,3 +137,4 @@ function agregarParentesis() {
 
 // numpad no multiplicacion
 // borrar un paréntesis borrar el primero - substring 1 a length
+// parentesis y num espacio interpretar como multi
