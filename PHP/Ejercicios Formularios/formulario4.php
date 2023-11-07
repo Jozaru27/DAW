@@ -8,19 +8,6 @@
  * 
  */
 
-
-if (isset($_GET["ofertas"])){
-    $ofertas = "SÍ";
-} else {
-    $ofertas = "NO";
-}
-
-if (isset($_GET["condiciones"])){
-    $condiciones = "SÍ";
-} else {
-    $condiciones = "NO";
-}
-
 $horarios = $_GET["horarios"];
 foreach ($horarios as $horario){
     $horarioSelect = implode(" / ", $horarios);
