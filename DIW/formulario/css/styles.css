@@ -117,4 +117,8 @@ input {
     border-bottom: 1px dotted #000; /* Borde, color y estilo del borde inferior */
     background: transparent; /* Esto hace que el fondo sea transparente para que los puntos sean visibles */
     outline: none; /* Elimina el contorno al hacer clic en el campo */
-  }
+}
+
+input:focus{
+    background-color: rgb(160, 160, 160);
+}
