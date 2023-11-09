@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursobordes</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/reproductor.css">
+    <link rel="stylesheet" href="css/contacto.css">
 </head>
 <body>
     <!-- Contenedor Principal-->
@@ -25,31 +25,23 @@
                         <a href="videos.html">Vídeos 3</a>
                     </div>
                 </li>
-                <li id="navli-contact"> <a href="">Contacto</a>     </li>
+                <li id="navli-contact"> <a href="contacto.html">Contacto</a>     </li>
             </ul>
         </div>
 
         <div id="content">
-            <main>
-                <div id="reproductor">
-                    <video id="medio" width="720" height="400"> <source src="media/trailer.mp4">
-                        <source src="media/trailer.ogg">
-                    </video>
-                    <div id="barra">
-                        <div id="progreso"></div>
-                    </div>
-                </div>
-                <nav>
-                    <input type="button" id="reiniciar" value="reiniciar">
-                    <input type="button" id="retrasar" value="&laquo;">
-                    <input type="button" id="play" value="&#9658;">
-                    <input type="button" id="adelantar" value="&raquo;">
-                    <input type="button" id="silenciar" value="silenciar">
-                    <label>Volumen</label>
-                    <input type="button" id="menosVolumen" value="-">
-                    <input type="button" id="masVolumen" value="+">
-                </nav>
-            </main>
+            <div id="contenedorFormulario">
+                <h1>Contáctenos</h1>
+                <form action="/procesar_formulario" method="post">
+                    <input type="text" id="nombre" name="nombre" placeholder="Escriba su nombre" required><label></label><br>
+            
+                    <input type="email" id="email" name="email" placeholder="Escriba su email" required><label></label><br>
+            
+                    <textarea id="mensaje" name="mensaje" placeholder="Su mensaje..." required></textarea><br>
+            
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
         </div>
         
         <div id="footer">

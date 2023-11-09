@@ -1,0 +1,105 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap');
+
+/* Estilo del main container - div content*/
+#content {
+    background-image: url('../imgs/fondoForm.jpg');
+    text-align:center;
+}
+
+/* Estilo del div que contiene el formulario */
+#contenedorFormulario {
+    position:relative;
+    display: inline-block;
+    margin: 50px;
+    width: 600px;
+    padding: 20px 50px;
+    background-color: rgba(200, 200, 200, 0.7);
+    text-align: left;
+    box-shadow: 3px 0px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo del título dentro del contenedor del formulario */
+#contenedorFormulario h1 {
+    position: absolute;
+    top: -16px;
+    left: 490px;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-family: 'Aguafina Script', cursive;
+    color: #333;
+    letter-spacing: 5px;
+    text-shadow: 0px 0px 2px #777;
+    padding: 0px 10px;
+}
+
+
+/* Estilos comunes para campos del formulario */
+input[type="text"], input[type="email"], textarea {
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), inset 0px 0px 40px rgba(0, 0, 0, 0.1);
+    color: #000;
+    font-weight: bold;
+    padding: 1px 4px 1px 45px;
+    margin-bottom: 10px;
+    transition: all 0.4s ease-in;
+}
+
+/* Estilos especificos de campo */
+input[type="text"], input[type="email"]{
+    height: 32px;
+    width: 330px;
+}
+
+/* Cuando se le haga focus a un campo - se activa con una transición */
+input[type="text"]:focus, input[type="email"]:focus {
+    width: 370px;
+    box-shadow: 0px 0px 12px rgba(255, 255, 255);
+}
+
+/* Estilos que contienen las imágenes de los campos */
+input[type="text"]{
+    background-image: url('../imgs/icon-nombre.png');
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+input[type="email"]{
+    background-image: url('../imgs/icon-correo.png');
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+/* Estilos valid/invalid de los campos */
+
+input[type="text"]:focus:valid, input[type="email"]:focus:valid{
+    background-image: url('../imgs/valid.png');
+    background-repeat: no-repeat;
+    background-position: 390px;
+}
+
+input[type="text"]:focus:invalid, input[type="email"]:focus:invalid{
+    background-image: url('../imgs/invalid.png');
+    background-repeat: no-repeat;
+    background-position: 390px;
+}
+
+input:required + label::after{
+    content: ' *';
+}
+
+textarea {
+    font: arial;
+    font-size: 1em;
+    width: 90%;
+    height: 150px;
+    background-image: url('../imgs/icon-mensaje.png');
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+textarea:focus{
+    box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.7);
+}
+
+/* boton */

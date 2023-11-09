@@ -111,11 +111,11 @@ function borrar() {
 /* Función para agregar operador si es posible */
 function agregarOperacion(valor) {
     let ultimoCaracter = pantalla.value.charAt(pantalla.value.length - 1);
-    console.log(valor);
+    
     if (valor == "*") {
-        console.log("ASDF");
         valor = "x";
     }
+
     if (ultimoCaracter !== 'x' && ultimoCaracter !== '+' && ultimoCaracter !== '/' && ultimoCaracter !== '-' && ultimoCaracter !== '%' && ultimoCaracter !== '.'){
         punto = false;
         escribirPantalla(valor);
@@ -135,6 +135,6 @@ function agregarParentesis() {
     pantalla.value = `(${pantalla.value})`;
 }
 
-// numpad no multiplicacion
-// borrar un paréntesis borrar el primero - substring 1 a length
-// parentesis y num espacio interpretar como multi
+// Funciones que interesaría implementar !!
+// al borrar un paréntesis borrar el primero - substring 1 a length (los paréntesis por teclado que se coloquen al principio y final)
+// si no hay operación entre paréntesis y número, considerar como multiplicación
