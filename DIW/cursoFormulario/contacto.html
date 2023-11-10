@@ -33,7 +33,14 @@
             <div id="contenedorFormulario">
                 <h1>Contáctenos</h1>
                 <form action="/procesar_formulario" method="post">
-                    <input type="text" id="nombre" name="nombre" placeholder="Escriba su nombre" required><label></label><br>
+                    <input type="text" id="nombre" name="nombre" list="nombres" placeholder="Escriba su nombre" required><label></label><br>
+
+                    <datalist id="nombre">
+                        <option value="alex">
+                        <option value="juan">
+                        <option value="ana">
+                        <option value="pedro">
+                    </datalist>
             
                     <input type="email" id="email" name="email" placeholder="Escriba su email" required><label></label><br>
             
