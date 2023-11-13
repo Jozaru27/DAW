@@ -4,7 +4,7 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * 1. Ejercicio 4 - añadiendo selector de operación a aplicar (pueden seleccionarse mínimo una o
+ * 1. Añadiendo selector de operación a aplicar (pueden seleccionarse mínimo una o
  * todas las operaciones): Dados dos números enteros realizar operaciones de suma, resta, división y
  * multiplicación y mostrar los resultados por pantalla concatenando la operación (expresión con
  * operandos y operador) y el resultado. Comprueba que los datos introducidos son los esperados
