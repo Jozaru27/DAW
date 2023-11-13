@@ -9,7 +9,7 @@
 <body>
     <?php
     foreach ($_GET as $key => $value) {
-        echo "". $key ." + ". $value ."";
+        echo "<p> ".ucfirst($key)." tiene el valor <strong>".strtoupper($value)."</strong> </p>";
     }
     ?>
 </body>
