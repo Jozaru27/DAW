@@ -9,14 +9,8 @@
 
 <h2>Resultado del Registro</h2>
 
-<?php
-
-$email = isset($_GET["email"]) ? $_GET["email"] : 'No definido';
-$aceptaPublicidad = isset($_GET["aceptaPublicidad"]) ? $_GET["aceptaPublicidad"] : 'No definido';
-?>
-
-<p>Correo Electrónico: <?php echo $email; ?></p>
-<p>Acepta recibir publicidad: <?php echo $aceptaPublicidad; ?></p>
+<p>Correo Electrónico: <?php echo $_GET["email"]; ?></p>
+<p>Acepta recibir publicidad: <?php echo isset($_GET["aceptaPublicidad"]) ? "Sí" : "No"; ?></p>
 
 </body>
 </html>
