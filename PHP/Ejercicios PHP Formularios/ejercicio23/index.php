@@ -22,6 +22,17 @@ $errores = array(); //Este array guardará los errores de validación que surjan
 $arrayURL = array(); //Este array almacenará los datos del form
 
 //Guarda los valores de los campos en variables, siempre y cuando se haya enviado el formulario, si no guardará NULL
+
+$otroshobbiestext = isset($_POST['$otroshobbiestext']) ? $_POST['$otroshobbiestext'] : "";
+$hobby = isset($_POST['hobby']) ? $_POST['hobby'] : [];
+if (in_array('otros', $hobby)) {
+    // Encuentra la clave del elemento 'otros' en el array
+    $key = array_search('otros', $hobby);
+
+    // Asigna el valor de $_POST['otroshobbiestext'] a esa posición
+    $hobby[$key] = $_POST['otroshobbiestext'];
+}
+
 if (isset($_POST['nombre'])){
     $nombre = $_POST['nombre'];
     $arrayURL['nombre'] = $nombre;
@@ -78,32 +89,32 @@ if (array_key_exists('ocupacion',$_POST)){
     $ocupacion=null;
 }
 
-if (array_key_exists('hobby',$_POST)){
-    $hobby='';
-    foreach ($_POST['hobby'] as $hobbie){
-        if ($hobby===''){
-            $hobby=$hobbie;
-        } else {
-            $hobby=$hobby."+".$hobbie;
-        }
-    }
-    $arrayURL['hobby']=$hobby;
-} else{
-    $hobby=null;
-}
+// if (array_key_exists('hobby',$_POST)){
+//     $hobby='';
+//     foreach ($_POST['hobby'] as $hobbie){
+//         if ($hobby===''){
+//             $hobby=$hobbie;
+//         } else {
+//             $hobby=$hobby."+".$hobbie;
+//         }
+//     }
+//     $arrayURL['hobby']=$hobby;
+// } else{
+//     $hobby=null;
+// }
 
-if (isset($_POST['otroshobbiescheck'])){
-    $otroshobbiescheck = $_POST['otroshobbiescheck'];
-   //$arrayURL['otroshobbiescheck'] = $otroshobbiescheck;
-} else{
-    $otroshobbiescheck=null;
-}
+// if (isset($_POST['otroshobbiescheck'])){
+//     $otroshobbiescheck = $_POST['otroshobbiescheck'];
+//     //$arrayURL['otroshobbiescheck'] = $otroshobbiescheck;
+// } else{
+//     $otroshobbiescheck=null;
+// }
 
 if (isset($_POST['otroshobbiestext']) && isset($_POST['otroshobbiescheck'])){
-    $otroshobbiestext = $_POST['otroshobbiestext'];
+   $otroshobbiestext = $_POST['otroshobbiestext'];
     $arrayURL['otroshobbiestext'] = $otroshobbiestext;
 } else{
-    $otroshobbiestext=null;
+   $otroshobbiestext=null;
 }
 
 
@@ -145,44 +156,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errores[] = 'El campo email es incorrecto.';
     }
 
-    // //Comprueba que 
-    // if (!validaAlfanum($otroshobbiestext)) {
-    //     $errores[] = 'El campo hobbie es incorrecto.';
-    // }
+    // if (strpos('otros', $hobby) >= 0 && !empty($otroshobbiestext)){
+    //     $errores[] = 'Necesitas especificar un hobby en el campo otro';
+    // } else
+    
+    //if (!validaAlfanum($otroshobbiestext)){
+    //    $errores[] = "Aprende a escribir bobo";
+    //}
 
     // Cuando se pulsa el botón de validar, muestra el mensaje en caso de no haber error
     // Si hay algún error, los mostrará como lista en html
-    if (isset($_POST["validar"])){
-        // $_POST['validar']=="Validar" Esto da error de array key. En el enviar pasaba lo mismo
+    //  if (in_array('otro', $hobby) && empty($otroshobbiestext)) {
+    //      $errores[] = 'Necesitas especificar un hobby en el campo otro';
+    // } elseif (validaAlfanum($otroshobbiestext)) {
+    //      $errores[] = "Aprende a escribir, bobo";
+    //  }
+
+    if (isset($_POST['validar'])){            
         if(!$errores){
             echo "<h3 style='color:#0f0'>El formulario se ha validado correctamente</h3>";
         } 
+
+    }
+    
+    // Cuando se pulsa el botón de enviar, verifica si hay errores, y si no hay redirige a la otra página
+    if (isset($_POST["enviar"])) {
+    $url = '';
+
+    // Genera la URL con parámetros
+    foreach ($arrayURL as $key => $param) {
+        if ($url !== '') {
+            $url .= "&";
+        }
+        if ($param !== '') {
+            $url .= $key . "=" . $param;
+        }
     }
 
-    // Cuando se pulsa el botón de enviar, verifica si hay errores, y si no hay redirige a la otra página
-    if (isset($_POST["enviar"])){
-
-        $url='';
-
-        // Genera la URL con parámetros
-        foreach ($arrayURL as $key=>$param){
-            if ($url<>''){
-                $url=$url."&";
-            }
-            if ($param<>''){
-            $url=$url.$key."=".$param;
-            }
-        
-        } 
-
-        // Si ha validado, no hay errores, y hay datos, redirige a la página de resultado
-        if(!$errores && ($url!='')){
-            header('Location: validado.php?'.htmlspecialchars($url));
-            exit;
-        } else {
-            echo "<h3 style='color:#f00'>Debe validar el formulario antes de enviar los datos<h3>";
+    // Agrega los valores de hobby a la URL
+    if (!empty($hobby)) {
+        $url .= "&hobby=";
+        foreach ($hobby as $value) {
+            $url .= "+" . $value;
         }
-    } 
+    }
+
+    // Si 'otros' está presente, agrega el valor de 'otroshobbiestext' a la URL
+    if (in_array('otros', $hobby) && isset($_POST['otroshobbiestext']) && !empty($_POST['otroshobbiestext'])) {
+        $url .= "&otroshobbiestext=" . $_POST['otroshobbiestext'];
+    }
+
+    // Si ha validado, no hay errores, y hay datos, redirige a la página de resultado
+    if (!$errores && ($url !== '')) {
+        header('Location: validado.php?' . $url);
+        exit;
+    } else {
+        echo "<h3 style='color:#f00'>Debe validar el formulario antes de enviar los datos<h3>";
+    }
+}
 }
 
 ?>
@@ -237,20 +268,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label for="ocupacion">Ocupación</label>
         <select name="ocupacion[]" multiple>
-            <option value="Estudiando" <?php if (in_array('Estudiando',$_POST["ocupacion"])) echo "SELECTED" ?>>Estudiando</option>
-            <option value="Trabajando" <?php if (in_array('Trabajando', $_POST["ocupacion"])) echo "SELECTED" ?>>Trabajando</option>
-            <option value="Buscando Empleo" <?php if (in_array('Buscando Empleo', $_POST["ocupacion"])) echo "SELECTED" ?>>Buscando Empleo</option>
-            <option value="Desempleado" <?php if (in_array('Desempleado', $_POST["ocupacion"])) echo "SELECTED" ?>>Desempleado</option>
+            <option value="Estudiando" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Estudiando', $_POST["ocupacion"])) echo "SELECTED" ?>>Estudiando</option>
+            <option value="Trabajando" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Trabajando', $_POST["ocupacion"])) echo "SELECTED" ?>>Trabajando</option>
+            <option value="Buscando Empleo" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Buscando Empleo', $_POST["ocupacion"])) echo "SELECTED" ?>>Buscando Empleo</option>
+            <option value="Desempleado" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Desempleado', $_POST["ocupacion"])) echo "SELECTED" ?>>Desempleado</option>
         </select><br><br> 
         <!-- STRPOS CACA === HACE QUE CUANDO VALIDES/CARGUES EL FORMULARIO, TE SELECCIONE TODAS LAS OPCIONES -->
 
         <label for="hobby">Hobby</label><br>
-        <input type="checkbox" name="hobby[]" value="cine" <?php if (strpos($hobby,'cine')==0) echo "SELECTED" ?>><label for="hobby">Cine</label>
-        <input type="checkbox" name="hobby[]" value="lectura" <?php if (strpos($hobby,'lectura')) echo "SELECTED" ?>><label for="hobby">Lectura</label>
-        <input type="checkbox" name="hobby[]" value="videojuegos" <?php if (strpos($hobby,'videojuegos')) echo "SELECTED" ?>><label for="hobby">Videojuegos</label>
-        <input type="checkbox" name="hobby[]" value="warhammer" <?php if (strpos($hobby,'warhammer')) echo "SELECTED" ?>><label for="hobby">Warhammer</label>
-        <input type="checkbox" name="otroshobbiescheck" value="otros" <?php if ($otroshobbiescheck==='otros') echo "SELECTED" ?>><label for="otros">Otros</label>
-        <input type="text" name="otroshobbiestext" placeholder="..." value="<?php echo $otroshobbiestext?>"><br><br>
+        <input type="checkbox" name="hobby[]" value="cine" <?php echo in_array('cine', $hobby) ? 'checked' : ''; ?>><label for="hobby">Cine</label>
+        <input type="checkbox" name="hobby[]" value="lectura" <?php echo in_array('lectura', $hobby) ? 'checked' : ''; ?>><label for="hobby">Lectura</label>
+        <input type="checkbox" name="hobby[]" value="videojuegos" <?php echo in_array('videojuegos', $hobby) ? 'checked' : ''; ?>><label for="hobby">Videojuegos</label>
+        <input type="checkbox" name="hobby[]" value="warhammer" <?php echo in_array('warhammer', $hobby) ? 'checked' : ''; ?>><label for="hobby">Warhammer</label>
+        <input type="checkbox" name="hobby[]" value="otros" <?php echo in_array('otros', $hobby) ? 'checked' : ''; ?>><label for="otros">Otros</label>
+        <input type="text" name="otroshobbiestext" placeholder="..." value="<?php echo in_array('otros', $hobby) ? $otroshobbiestext : ''; ?>" ><br><br>
         
         <input type="submit" name="validar" value="Validar" />
         <input type="reset" name="borrar" value="Limpiar datos" />

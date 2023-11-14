@@ -1,0 +1,13 @@
+<option value="Estudiando" <?php if (in_array('Estudiando',$_POST["ocupacion"])) echo "SELECTED" ?>>Estudiando</option>
+<option value="Trabajando" <?php if (in_array('Trabajando', $_POST["ocupacion"])) echo "SELECTED" ?>>Trabajando</option>
+<option value="Buscando Empleo" <?php if (in_array('Buscando Empleo', $_POST["ocupacion"])) echo "SELECTED" ?>>Buscando Empleo</option>
+<option value="Desempleado" <?php if (in_array('Desempleado', $_POST["ocupacion"])) echo "SELECTED" ?>>Desempleado</option> 
+
+El código a veces falla, reemplazar la zona de strpos de ocupación por lo de arriba (lo de arriba en clase no va)
+
+Lo de abajo en mi casa no va - Comprueba que tiene cosas dentro y que su valor está en un array
+
+<option value="Estudiando" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Estudiando', $_POST["ocupacion"])) echo "SELECTED" ?>>Estudiando</option>
+<option value="Trabajando" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Trabajando', $_POST["ocupacion"])) echo "SELECTED" ?>>Trabajando</option>
+<option value="Buscando Empleo" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Buscando Empleo', $_POST["ocupacion"])) echo "SELECTED" ?>>Buscando Empleo</option>
+<option value="Desempleado" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Desempleado', $_POST["ocupacion"])) echo "SELECTED" ?>>Desempleado</option>
