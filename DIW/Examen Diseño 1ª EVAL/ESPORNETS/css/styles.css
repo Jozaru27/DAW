@@ -1,0 +1,157 @@
+/* Estilo General */
+body, html{
+    margin:0px;
+    border:0px;
+    padding:0px;
+    background-color:#ebebeb;
+    height:100%;
+}
+
+/* Cabecera, tamaño e imagen */
+.header {
+    height: 200px;
+    background-image: url("../img/espornets.png");
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-color: #00175d;
+}
+
+/* Título de la cabecera - Se ha jugado con distintos text shadows para darle un borde negro y brillo naranja */
+.header h1{
+    margin-top:0px;
+    font-size: 48px;
+    text-align:center;
+    color: white;
+    text-shadow: 0px 0px 50px #ff7b2c,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000; 
+    padding-top:70px;
+}
+
+/* Barra Nav & Menú Desplegable */
+
+.navbar{
+    background-color:#365b9f;
+    padding-left:30px;
+}
+
+/* Estilo del botón Productos*/
+.dropbtn {
+    background-color: #365b9f;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+/* Contenedor para posicionar los elementos desplegables del menú */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+/* Menú Desplegable (escondido por defecto) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+/* Enlaces dentro del menú */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Cambio de color de los enlaces - Hover*/
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+  
+/* Muestra el menú desplegable - Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+  
+/* Cambia el color de fondo del Menú Inicial (Productos) cuando se muestra el contenido desplegable */
+.dropdown:hover .dropbtn {
+    background-color: #567cc4;
+}
+
+/* Contenedor Central */
+.content{
+    width:100%;
+    overflow:auto;
+    height: 520px;
+    background-color: #aabfe6;
+    padding-top:5%;
+}
+
+/* Contenedor de las diferentes secciones (Hombre/Mujer) */
+.article-box {
+    margin-left: 3%;
+    width: 70%;
+    float: left;
+    overflow: hidden; 
+}
+
+/* Secciones individuales Hombre y Mujer */
+.article {
+    background-color: #596f99;
+    padding: 1%;
+    width: 45%; 
+    margin: 2%; /* Añade un margen para separar los elementos */
+    border-radius: 10px;
+    display: inline-block; /* Cambia a inline-block para que estén en la misma línea */
+    box-sizing: border-box; /* Evita que el ancho se vea afectado por el padding y el borde */
+}
+
+.article:hover {
+    background-color: #d6f3d2;
+    cursor: pointer;
+}
+
+.article img {
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+}
+
+.article-link {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+/* Barra Lateral */
+.sidebar {
+    margin-top: 3%;
+    margin-left: 75%;
+}
+
+
+/* Footer */
+.footer{
+    text-align:center;
+    font-size:15px;
+    background-color: #567cc4;
+}
+
+.footer p{
+    margin-bottom: 0px;
+    padding-bottom: 30px;
+}
+
+hr {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
