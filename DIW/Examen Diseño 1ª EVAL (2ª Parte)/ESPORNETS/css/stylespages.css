@@ -1,3 +1,5 @@
+/* Hoja de estilos para hombres.html y mujeres.html, al diferir su estructura de index.html*/
+
 /* Estilo General */
 body, html{
     margin:0px;
@@ -16,6 +18,20 @@ body, html{
     background-color: #2e2b2d;
 }
 
+/* Título de la cabecera - Se ha jugado con distintos text shadows para darle un borde negro y brillo naranja */
+.header h1{
+    margin-top:0px;
+    font-size: 48px;
+    text-align:center;
+    color: white;
+    text-shadow: 0px 0px 50px #ff7b2c,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000; 
+    padding-top:70px;
+}
+
 /* Transición sobre el texto de la cabecera */
 .header h1{
     transition: transform 3s ease;
@@ -23,20 +39,6 @@ body, html{
 
 .header h1:hover {
     transform: scale(1.2);
-}
-
-/* Título de la cabecera - Se ha jugado con distintos text shadows para darle un borde negro y brillo naranja */
-.header h1{
-    margin-top:0px;
-    font-size: 48px;
-    text-align:center;
-    color: white;
-    text-shadow: 0px 0px 100px #ff7b2c,
-    -3px -3px 0 #000,
-    3px -3px 0 #000,
-    -3px 3px 0 #000,
-    3px 3px 0 #000; 
-    padding-top:70px;
 }
 
 /* Barra Nav & Menú Desplegable */
@@ -113,49 +115,42 @@ body, html{
 /* Estilo del enlace Home */
 .home-link {
     text-decoration: none; 
-    color: white; 
+    color: white;
 }
-
 
 /* Contenedor Central */
 .content{
     width:100%;
     overflow:auto;
     height: 520px;
-    background-color: #e7f1e1;
-    background-image: url(../img/runner.jpg);
-    background-position-y:-10px;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #aabfe6;
     padding-top:5%;
+    height: 50vh; 
+    background-image: url('../img/pexels-leandro-boogalu-1390403.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
 
-/* Contenedor de las diferentes secciones (Hombre/Mujer) */
+/* Contenedor de las diferentes secciones de articulos */
 .article-box {
-    margin-left: 3%;
-    width: 80%;
-    float: left;
     overflow: hidden; 
 }
 
-/* Secciones individuales Hombre y Mujer */
+/* Secciones individuales */
 .article {
-    background-color: #5b5451;
-    color:white;
+    background-color: #d6d7d2;
     padding: 1%;
     width: 45%; 
     margin: 2%; 
     border-radius: 10px;
-    display: inline-block; /* Cambia a inline-block para que estén en la misma línea */
-    box-sizing: border-box; /* Evita que el ancho se vea afectado por el padding y el borde */
-    transition: background-color 0.5s ease; /* Duración para las transiciones de color del hover */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    display: inline-block;  
+    box-sizing: border-box;
 }
 
 .article:hover {
-    background-color: #817672;
+    background-color: #d6f3d2;
     cursor: pointer;
-    color:white;
 }
 
 .article img {
@@ -164,30 +159,17 @@ body, html{
     height: 300px;
 }
 
-/* Estilo de los enlaces que rodean a las secciones hombre y mujer */
 .article-link {
-    text-decoration: none;
+    text-decoration: none; /
 }
-
-.article-link:visited {
-    color: inherit;
-}
-
-
-/* Barra Lateral */
-.sidebar {
-    margin-top: 3%;
-    margin-left: 85%;
-    color: white;
-}
-
 
 /* Footer */
 .footer{
     text-align:center;
     font-size:15px;
     background-color: #7a6b64;
-    color:white;
+    color: white;
+    height:190px;
 }
 
 .footer p{
@@ -195,12 +177,45 @@ body, html{
     padding-bottom: 30px;
 }
 
-/* Separador HR */
+/* HR Separador */
 hr {
     margin: 0px;
 }
 
-/* Quita la decoración de los anchor */
-a {
-    text-decoration: none;
+/* Estilo Tabla */
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 8px; /* Bordes redondeados para la tabla */
+    overflow: hidden; /* Evitar que los bordes redondeados se vean afectados por el borde interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para resaltar la tabla */
 }
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    background-color: #fff;
+}
+
+th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd; /* Línea de separación más prominente para las cabeceras */
+}
+
+/* Hover sobre las filas */
+tr:hover {
+    background-color: #f5f5f5; /* Cambio de color al pasar el ratón por encima de una fila */
+}
+
+td {
+    transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+}
+
+/* Hover sobre las celdas de datos td */
+td:hover {
+    background-color: #e0f7fa; /* Cambio de color al pasar el ratón por encima de una celda */
+}
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleform.css">
+    <title>ESPORNETS Formulario</title>
+</head>
+<body>
+    <div class="header">
+        <h1>ESPORNETS</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html" class="home-link">
+            <button class="home-btn">Home</button>
+        </a>
+        <div class="dropdown">
+            <button class="dropbtn">Productos</button>
+            <div class="dropdown-content">
+              <a href="hombres.html">Hombre</a>
+              <a href="mujeres.html">Mujer</a>
+            </div>
+        </div>
+        <a href="form.html" class="home-link">
+            <button class="home-btn">Pedidos</button>
+        </a>
+    </div>
+    
+    <div class="content">
+
+        <div class="article-box">
+            <form>
+                
+                <h4>Formulario de Pedido</h4>
+                <label for="nombreCompleto">Nombre y Apellidos:</label><br>
+                <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Angel Berlanas Vicente..." required><br><br>
+                
+                <label for="dni">DNI:</label><br>
+                <input type="text" id="dni" name="dni" placeholder="12345678Z..." pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" required><br><br>
+
+                <label for="email">Correo Electrónico:</label><br>
+                <input type="email" id="email" name="email" placeholder="jpintor@gmail.com..." required><br><br>
+
+                <label for="telefono">Teléfono(s):</label><br>
+                <input type="tel" id="telefono" name="telefono" placeholder="679934325..." pattern="([0-9]{9}|[0-9]{9}, [0-9]{9})" title="Introduzca un número de teléfono de 9 dígitos, o dos separados por una coma y un espacio" required><br><br>
+
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label><br>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" max="2005-11-17" required><br><br> <!-- la fecha está temporalmente adaptada a la mayoría de edad (del 17 de nov - la fecha de entrega del producto) se podría controlar dinámicamente con javascript-->
+
+                <label for="producto">Producto(s) a comprar:</label><br>
+                <select name="producto" id="producto" multiple size="4" required>
+                    <option value="ZM-120-RUN ">Zapatilla mujer runner </option>
+                    <option value="ZM-150-PRO ">Zapatilla mujer pronador </option>
+                    <option value="ZM-120-SUP ">Zapatilla mujer supinador</option>
+                    <option value="ZM-120-PRO ">Zapatilla mujer profesional </option>
+                    <option value="ZM-120-RUN ">Zapatilla hombre runner </option>
+                    <option value="ZM-150-PRO ">Zapatilla hombre pronador </option>
+                    <option value="ZM-120-SUP ">Zapatilla hombre supinador</option>
+                    <option value="ZM-120-PRO ">Zapatilla hombre profesional </option>
+                </select><br><br>
+
+                <label for="colorCaja">Color de la Caja:</label><br>
+                <input type="color" id="colorCaja" name="colorCaja"  required><br><br>
+
+                <label for="numeroUnidades">Número de Unidades:</label><br>
+                <input type="number" id="numeroUnidades" name="numeroUnidades" min="0" max="5" required><br><br>
+
+                <button type="submit" value=""><img class="imgCarrito" src="../ESPORNETS/img/carrito.png"></img></button>
+               
+              </form>              
+        </div>
+
+    </div>
+    
+    <div class="footer">
+        <hr>
+        <p>ESPORNETS - Calzado deportivo de calidad para todo<br>
+        <p>Todos los derechos Reservados a ESPORNETS - 2022-2023©</p><br>
+    </div>
+</body>
+</html>
