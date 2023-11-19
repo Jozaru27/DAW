@@ -2,30 +2,36 @@ body{
     background-image:url('../img/fondo.gif');
     background-size:100%;
 }
+
 @font-face {
     font-family: christmas;
     src: url(../fonts/christmas.ttf);
 }
+
 @font-face {
     font-family: score;
     src: url(../fonts/score.ttf);
 }
+
 #contenedor {
     width:1000px;
     margin-left:calc(50% - 500px);
 }
+
 h1 {
     color:red;
     font-size:50px;
     font-family:christmas;
     text-shadow: 2px 2px 5px #000000;
 }
+
 #cartel {
     text-align:center;
     height:100px;
     width:100%;
     float:left;
 }
+
 #teclado {
     position:absolute;
     top:300px;
@@ -33,6 +39,7 @@ h1 {
     width:270px;
     height:330px;
 }
+
 .tecla {
     border:1px solid gray;
     font-family: christmas;
@@ -47,11 +54,13 @@ h1 {
     box-shadow:2px 2px 3px black;
     transition: background .5s;
 }
+
 .tecla:hover {
     background-color:rgb(253, 177, 177);
     cursor: pointer;
     transition: background .5s;
 }
+
 .caja {
     border:3px solid black;
     border-radius:15px;
@@ -67,12 +76,14 @@ h1 {
     height:700px;
     width:calc(70% - 10px);
 }
+
 #letras {
     float:left;
     width:calc(30% - 43px);
     margin-left:10px;
     height:610px;
 }
+
 #titulo {
     font-family:verdana;
     font-weight:bold;
@@ -108,6 +119,7 @@ h1 {
     background-color:whitesmoke;
     margin-bottom:10px;
 }
+
 #letrasUsadas {
     font-family:verdana;
     font-weight:bold;
@@ -122,6 +134,7 @@ h1 {
     background-repeat:no-repeat;
     background-size: 100%;
 }
+
 #cabeza {
     top:150px;
     left:400px;
@@ -129,6 +142,7 @@ h1 {
     height:135px;
     background-image:url('../img/cabeza.png');
 }
+
 #cuerpo {
     top:213px;
     left:363px;
@@ -137,6 +151,7 @@ h1 {
     background-image:url('../img/cuerpo.png');
     z-index:2;
 }
+
 #brazoIzq {
     top:220px;
     left:307px;
@@ -144,30 +159,31 @@ h1 {
     height:140px;
     background-image:url('../img/brazoIzq.png');
 }
+
 #brazoDer {
     top:218px;
     left:503px;
     width:100px;
     height:140px;
     background-image:url('../img/brazoDer.png');
-
 }
+
 #manoIzq {
     top:298px;
     left:290px;
     width:80px;
     height:135px;
     background-image:url('../img/manoIzq.png');
-
 }
+
 #manoDer {
     top:305px;
     left:540px;
     width:80px;
     height:135px;
     background-image:url('../img/manoDer.png');
-
 }
+
 #piernaIzq {
     top:375px;
     left:380px;
@@ -175,8 +191,8 @@ h1 {
     height:135px;
     background-image:url('../img/piernaIzq.png');
     z-index:1;
-
 }
+
 #piernaDer {
     top:370px;
     left:455px;
@@ -185,6 +201,7 @@ h1 {
     background-image:url('../img/piernaDer.png');
     z-index:1;
 }
+
 #pieIzq {
     top:450px;
     left:330px;
@@ -192,8 +209,8 @@ h1 {
     height:135px;
     background-image:url('../img/pieIzq.png');
     z-index:2;
-
 }
+
 #pieDer {
     top:448px;
     left:470px;
@@ -201,37 +218,30 @@ h1 {
     height:135px;
     background-image:url('../img/pieDer.png');
     z-index:2;
-
 }
 
 .ocultar{
-
-
     display: none;
 }
 
-.letraUnitaria{
-
-    height: 48px;
-    width: 62px;
-    border: 1px solid black;
+.letraIndividual{
+    height: 42px;
+    width: 42px;
+    border: 1px solid rgb(0, 0, 0);
     text-align: center;
     font-size: 20px;
-    
-
+    padding-top: 15px;
+    font-family: christmas, sans-serif;
 }
 
-#contenedorLetraUnitaria{
-
-display: flex;
-flex-direction: row;
-justify-content: center;
-flex-wrap: wrap;
-
+#letraIndividualDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #pelicula{
-
     font-family:verdana;
     font-weight:bold;
     padding:15px;
@@ -240,11 +250,9 @@ flex-wrap: wrap;
     height:100px;
     width:calc(80% - 20px);
     display: flex;
-
 }
 
 .letraPeli{
-
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid black;
@@ -256,13 +264,10 @@ flex-wrap: wrap;
 }
 
 .ocultarLetra{
-
     font-size: 0;
-
 }
 
 .letraPeliEspacio{
-
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -273,17 +278,21 @@ flex-wrap: wrap;
 }
 
 .letraUtilizada {
-    background-color: yellow;
+    background-color: rgb(80, 175, 92);
     transition: background-color 1s;
+    animation: fadeOutBackground 3s forwards; 
 }
 
+@keyframes fadeOutBackground {
+    to {
+        background-color: transparent; 
+    }
+}
 
-
-/* Estilos para el modal */
-.modal {
+.ventana {
     display: none;
     position: fixed;
-    z-index: 2; /* Aumenta el z-index del modal */
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -292,7 +301,7 @@ flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
+.ventana-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -300,5 +309,32 @@ flex-wrap: wrap;
     width: 70%;
     text-align: center;
     position: relative;
+    background-image: url("../img/fondo_navidad.jpg");
 }
 
+/* No fufa */
+#mensaje-ventana{
+    font-weight: bold;
+    font-family: christmas, sans-serif;
+}
+
+#btnRestart{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: 2px solid rgb(22, 72, 44);
+    border-radius: 10px;
+    color: rgb(220, 34, 34);
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#btnRestart:hover{
+    background-color: rgb(67, 175, 76);
+    color: #ffffff;
+}
