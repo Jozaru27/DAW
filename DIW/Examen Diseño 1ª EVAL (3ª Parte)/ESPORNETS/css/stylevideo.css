@@ -1,0 +1,253 @@
+/* Hoja de estilos para video1.html, video2.html, y video3.html, al diferir su estructura de index.html*/
+
+/* Estilo General */
+body, html{
+    margin:0px;
+    border:0px;
+    padding:0px;
+    background-color:#ebebeb;
+    height:100%;
+}
+
+/* Cabecera, tamaño e imagen */
+.header {
+    height: 200px;
+    background-image: url("../img/espornets.png");
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-color: #2e2b2d;
+}
+
+/* Título de la cabecera - Se ha jugado con distintos text shadows para darle un borde negro y brillo naranja */
+.header h1{
+    margin-top:0px;
+    font-size: 48px;
+    text-align:center;
+    color: white;
+    text-shadow: 0px 0px 50px #ff7b2c,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000; 
+    padding-top:70px;
+}
+
+/* Transición sobre el texto de la cabecera */
+.header h1{
+    transition: transform 3s ease;
+}
+
+.header h1:hover {
+    transform: scale(1.2);
+}
+
+/* Barra Nav & Menú Desplegable */
+
+.navbar{
+    background-color:#7a6b64;
+    padding-left:30px;
+}
+
+/* Estilo del botón Productos*/
+.dropbtn {
+    background-color: #7a6b64;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+/* Contenedor para posicionar los elementos desplegables del menú */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+/* Menú Desplegable (escondido por defecto) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #7a6b64;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+/* Enlaces dentro del menú */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Cambio de color de los enlaces - Hover*/
+.dropdown-content a:hover {
+    background-color: #534a45
+}
+  
+/* Muestra el menú desplegable - Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilo del botón Home */
+.navbar .dropbtn, .navbar .home-btn {
+    background-color: #7a6b64;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cambio de color de los enlaces - Hover para Home */
+.navbar .home-btn:hover, .navbar .dropdown-content a:hover {
+    background-color: #534a45;
+}
+
+/* Cambia el color de fondo del Menú Inicial (Productos y Home) cuando se muestra el contenido desplegable */
+.navbar .dropdown:hover .dropbtn, .navbar .home-btn:hover {
+    background-color: #534a45;
+}
+
+/* Estilo del enlace Home */
+.home-link {
+    text-decoration: none; 
+    color: white;
+}
+
+/* Contenedor Central */
+.content{
+    width:100%;
+    height: 1020px;
+    background-color: #aabfe6;
+    padding-top:5%;
+    background-image: url('../img/pexels-leandro-boogalu-1390403.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+/* Contenedor de las diferentes secciones de articulos */
+/* Se ha centrado para que los vídeos estén en medio */
+.article-box {
+    overflow: hidden;
+    text-align:center;
+    padding-top: 3%;
+}
+
+/* Título de los vídeos */
+.article-box h1{
+    color: rgb(117, 96, 96);
+}
+
+/* Secciones individuales */
+.article {
+    background-color: #d6d7d2;
+    padding: 1%;
+    width: 45%; 
+    margin: 2%; 
+    border-radius: 10px;
+    display: inline-block;  
+    box-sizing: border-box;
+}
+
+.article:hover {
+    background-color: #d6f3d2;
+    cursor: pointer;
+}
+
+.article img {
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+}
+
+.article-link {
+    text-decoration: none; /
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    font-size:15px;
+    background-color: #7a6b64;
+    color: white;
+}
+
+.footer p{
+    margin-bottom: 0px;
+    padding-bottom: 30px;
+}
+
+/* HR Separador */
+hr {
+    margin: 0px;
+}
+
+/* Estilo Form */
+/* Está centrado el form y su contenido, separado de los bordes, con un fondo con trasnparencia */
+/* He añadido un gradiente de fondo, donde conforme avanza el formulario de arriba a abajo, más transparente es */
+.article-box form {
+    margin-top: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-image: linear-gradient(rgba(128, 116, 116, 0.8), rgba(180, 163, 163, 0.2));
+    /* background-color: rgba(128, 116, 116, 0.6); */
+    border-radius: 15px;
+    color: white;
+    padding:15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo de los campos del form */
+input{
+    border: none;
+    border-bottom: 1px solid #000; /* Borde, color y estilo del borde inferior */
+    background: rgba(255, 255, 255, 0.6); /* Esto hace que el fondo sea semi transparente y de cierto color*/
+    outline: none; /* Elimina el contorno al hacer clic en el campo */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Estilo de la imagen y el botón de enviar */
+.imgCarrito{
+    height:30px;
+    width: 30px;
+}
+
+.article-box button {
+    border-radius:10px;
+    width:100px;
+    text-align:center;
+}
+
+/* Decoración barra superior del vídeo + bordes */
+video{
+    background-color: #7a6b64;
+    border-radius:15px;
+}
+
+/* Clase del video, donde añadimos la llamada a la animación */
+/* Esta clase inicialmente no la tienen los vídeos, se añade mediante el script*/
+.video{
+    animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* Keyframes / Animación */
+@keyframes rotate-in-center {
+    0% {
+      -webkit-transform: rotate(-360deg);
+              transform: rotate(-360deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+      opacity: 1;
+    }
+}
+  

@@ -1,0 +1,221 @@
+/* Hoja de estilos para hombres.html y mujeres.html, al diferir su estructura de index.html*/
+
+/* Estilo General */
+body, html{
+    margin:0px;
+    border:0px;
+    padding:0px;
+    background-color:#ebebeb;
+    height:100%;
+}
+
+/* Cabecera, tamaño e imagen */
+.header {
+    height: 200px;
+    background-image: url("../img/espornets.png");
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-color: #2e2b2d;
+}
+
+/* Título de la cabecera - Se ha jugado con distintos text shadows para darle un borde negro y brillo naranja */
+.header h1{
+    margin-top:0px;
+    font-size: 48px;
+    text-align:center;
+    color: white;
+    text-shadow: 0px 0px 50px #ff7b2c,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000; 
+    padding-top:70px;
+}
+
+/* Transición sobre el texto de la cabecera */
+.header h1{
+    transition: transform 3s ease;
+}
+
+.header h1:hover {
+    transform: scale(1.2);
+}
+
+/* Barra Nav & Menú Desplegable */
+
+.navbar{
+    background-color:#7a6b64;
+    padding-left:30px;
+}
+
+/* Estilo del botón Productos*/
+.dropbtn {
+    background-color: #7a6b64;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+/* Contenedor para posicionar los elementos desplegables del menú */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+/* Menú Desplegable (escondido por defecto) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #7a6b64;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+/* Enlaces dentro del menú */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Cambio de color de los enlaces - Hover*/
+.dropdown-content a:hover {
+    background-color: #534a45
+}
+  
+/* Muestra el menú desplegable - Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilo del botón Home */
+.navbar .dropbtn, .navbar .home-btn {
+    background-color: #7a6b64;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cambio de color de los enlaces - Hover para Home */
+.navbar .home-btn:hover, .navbar .dropdown-content a:hover {
+    background-color: #534a45;
+}
+
+/* Cambia el color de fondo del Menú Inicial (Productos y Home) cuando se muestra el contenido desplegable */
+.navbar .dropdown:hover .dropbtn, .navbar .home-btn:hover {
+    background-color: #534a45;
+}
+
+/* Estilo del enlace Home */
+.home-link {
+    text-decoration: none; 
+    color: white;
+}
+
+/* Contenedor Central */
+.content{
+    width:100%;
+    overflow:auto;
+    height: 520px;
+    background-color: #aabfe6;
+    padding-top:5%;
+    height: 50vh; 
+    background-image: url('../img/pexels-leandro-boogalu-1390403.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+/* Contenedor de las diferentes secciones de articulos */
+.article-box {
+    overflow: hidden; 
+}
+
+/* Secciones individuales */
+.article {
+    background-color: #d6d7d2;
+    padding: 1%;
+    width: 45%; 
+    margin: 2%; 
+    border-radius: 10px;
+    display: inline-block;  
+    box-sizing: border-box;
+}
+
+.article:hover {
+    background-color: #d6f3d2;
+    cursor: pointer;
+}
+
+.article img {
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+}
+
+.article-link {
+    text-decoration: none; /
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    font-size:15px;
+    background-color: #7a6b64;
+    color: white;
+    height:190px;
+}
+
+.footer p{
+    margin-bottom: 0px;
+    padding-bottom: 30px;
+}
+
+/* HR Separador */
+hr {
+    margin: 0px;
+}
+
+/* Estilo Tabla */
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 8px; /* Bordes redondeados para la tabla */
+    overflow: hidden; /* Evitar que los bordes redondeados se vean afectados por el borde interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para resaltar la tabla */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    background-color: #fff;
+}
+
+th {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #ddd; /* Línea de separación más prominente para las cabeceras */
+}
+
+/* Hover sobre las filas */
+tr:hover {
+    background-color: #f5f5f5; /* Cambio de color al pasar el ratón por encima de una fila */
+}
+
+td {
+    transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+}
+
+/* Hover sobre las celdas de datos td */
+td:hover {
+    background-color: #e0f7fa; /* Cambio de color al pasar el ratón por encima de una celda */
+}
+
