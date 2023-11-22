@@ -7,14 +7,20 @@
  * 
  */
 
- $patronExpresion = '^\+3496\d{6}$';
- $cadenaBuena = "";
-
+ $patronExpresion = '/^96\d{7}$/';
+ $cadenaBuena = "962522525";
+ $cadenaMala = "9625";
 
  if (preg_match($patronExpresion, $cadenaBuena) === 1){
-    echo "El número introducido es correcto";
+    echo "El número introducido es correcto \n";
  } else {
-    echo "El número introducido no es correcto";
+    echo "El número introducido no es correcto \n";
  }
+
+ if (preg_match($patronExpresion, $cadenaMala) === 1){
+   echo "El número introducido es correcto \n";
+} else {
+   echo "El número introducido no es correcto \n";
+}
 
 ?>
