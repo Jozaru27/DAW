@@ -4,12 +4,10 @@
  * 
  * @author Jose Zafrilla Ruiz
  *
- * 24. Con los trabajadores del ejercicio anterior, calcular el salario actual y el salario aumentado un
+ * 11. Ejercicio 24. Con los trabajadores del ejercicio anterior, calcular el salario actual y el salario aumentado un
  * porcentaje indicado por la variable
  *
  */
-
-// Función
 
 // Función para calcular el salario actual y aumentado
 // Recibe por parámetros un array de trabajadores y un porcentaje de aumento.
@@ -67,3 +65,35 @@ foreach ($resultados as $resultado) {
 }
 
 ?>
+
+<!-- HTML -->
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Nombre del Autor -->
+    <meta name="author" content="Jose Zafrilla Ruiz" />
+    <link rel="author" href="https://github.com/Jozaru27">
+
+    <!-- Título de Página -->
+    <title>Form 10 - Jose Zafrilla</title>
+</head>
+
+<body>
+    <h2>Form 10 - Jose Zafrilla</h2>
+
+    <form action="ejForm10.php" method="get">
+        <label for="tipoCalculo">Calculadora de salarios:</label><br>
+
+        <select name="tipoCalculo[]" required multiple size="3">
+            <option value="maximo">Salario Máximo</option>
+            <option value="minimo">Salario Mínimo</option>
+            <option value="medio">Salario Medio</option>
+        </select><br>
+
+        <input type="submit" value="Calcular Salarios">
+    </form> 
+</body>
+</html>
