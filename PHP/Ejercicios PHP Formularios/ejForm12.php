@@ -13,18 +13,23 @@
  */
 
 // Inicializar la combinación y el contador de intentos
-$combination = 1234;
-$intentos = isset($_GET['intentos']) ? $_GET['intentos'] : 4;
+$combinación = 1234;
+$intentos = isset($_GET['intentos']) ? $_GET['intentos'] : 4; // El contador de intentos está como campo hidden en el form
 
-// Verificar si se ha enviado un intento
+// Verificar si se ha enviado un intento. Si el número de intentos es menor a 0, prosigue. Si la combinación introducida coincide con la establecida, el texto del mensaje cambiará a uno que indique éxito.
+// Además, el color del mensaje estará en color verde. Como adición personal, establece el número de intentos a 0, así no se puede seguir toqueteando el programa
+// Sin embargo, si la combinación no coincide, además de restar un intento, el mensaje dirá que esta no es la combinación. Como adición, mostrará en una línea por debajo, si te has quedado sin intentos o cuántos te quedan
+// Además de salir el color del mensaje en rojo.
+// Si te quedas sin ningún intento, saldrá un mensaje diciendo directamente que no te quedan intentos, en rojo (y al estar intentos en 0, se deshabilitará el campo y el botón)
+// El texto inicial estará en color negro, e indicará que debes introducir una combinación de 4 cifras
 if (isset($_GET['combinacion'])) {
     if ($intentos > 0) {
-        $combinationEntered = $_GET['combinacion'];
+        $combinaciónEntrante = $_GET['combinacion'];
 
-        if ($combinationEntered == $combination) {
+        if ($combinaciónEntrante == $combinación) {
             $mensaje = "La caja fuerte se ha abierto satisfactoriamente";
             $color = "green";
-            $intentos = 0; // Establecer intentos a 0 para deshabilitar más envíos
+            $intentos = 0;
         } else {
             $mensaje = "Lo siento, esa no es la combinación";
             $intentos = $intentos - 1;
@@ -40,7 +45,6 @@ if (isset($_GET['combinacion'])) {
         $color = "red";
     }
 } else {
-    // Si no se ha enviado un intento, mostrar mensaje predeterminado
     $mensaje = "Introduce una combinación de 4 cifras para la caja fuerte";
     $color = "black";
 }
@@ -65,6 +69,7 @@ if (isset($_GET['combinacion'])) {
 <body>
     <h2>Form 12 - Jose Zafrilla</h2>
 
+    <!-- El campo de texto y el botón se deshabilitan si intentos llega a 0 -->
     <form action="ejForm12.php" method="get">
         <label for="combinacion">Combinación:</label>
         <input type="text" id="combinacion" name="combinacion" <?php if ($intentos == 0) echo "disabled"; ?>>
@@ -72,6 +77,7 @@ if (isset($_GET['combinacion'])) {
         <input type="submit" value="Enviar" <?php if ($intentos == 0) echo "disabled"; ?>>
     </form>
 
+    <!-- Sección necesaria para mostrar el mensaje con el color acorde -->
     <div style="color: <?php echo $color; ?>;"><?php echo $mensaje; ?></div>
 </body>
 </html>

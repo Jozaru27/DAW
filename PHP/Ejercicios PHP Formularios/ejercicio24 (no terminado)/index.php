@@ -4,12 +4,12 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * 23. Escribe un formulario de recogida de datos que conste de dos páginas: En la primera página
+ * 24. Escribe un formulario de recogida de datos que conste de dos páginas: En la primera página
  * se solicitan los datos y se muestran errores tras validarlos. En la segunda página se muestra toda
- * la información introducida por el usuario si no hay errores errores. Los datos a recoger son datos
- * personales, nivel de estudios (desplegable), situación actual (selección múltiple: estudiando,
- * trabajando, buscando empleo, desempleado) y hobbies (marcar de varios mostrados y poner otro
- * con opción a introducir texto)
+ * la información introducida por el usuario si no hay errores errores. Los datos a introducir son:
+ * Nombre, Apellidos, Edad, Peso (entre 10 y 150), Sexo, Estado Civil (Soltero, Casado, Viudo,
+ * Divorciado, Otro) Aficiones: Cine, Deporte, Literatura, Música, Cómics, Series, Videojuegos.
+ * Debe tener los botones de Enviar y Borrar
  * 
  * 
  */
@@ -219,6 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 
+
 <!-- HTML -->
 
 <!DOCTYPE html>
@@ -272,7 +273,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <option value="Buscando Empleo" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Buscando Empleo', $_POST["ocupacion"])) echo "SELECTED" ?>>Buscando Empleo</option>
             <option value="Desempleado" <?php if (isset($_POST["ocupacion"]) && is_array($_POST["ocupacion"]) && in_array('Desempleado', $_POST["ocupacion"])) echo "SELECTED" ?>>Desempleado</option>
         </select><br><br> 
-        <!-- STRPOS no siempre sirve, depende del caso === HACE QUE CUANDO VALIDES/CARGUES EL FORMULARIO, TE SELECCIONE TODAS LAS OPCIONES -->
+        <!-- STRPOS CACA === HACE QUE CUANDO VALIDES/CARGUES EL FORMULARIO, TE SELECCIONE TODAS LAS OPCIONES -->
 
         <label for="hobby">Hobby</label><br>
         <input type="checkbox" name="hobby[]" value="cine" <?php echo in_array('cine', $hobby) ? 'checked' : ''; ?>><label for="hobby">Cine</label>
