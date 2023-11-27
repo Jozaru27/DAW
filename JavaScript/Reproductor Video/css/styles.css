@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#contenedor-principal {
+    display: flex;
+}
+
+#seccion-izquierda {
+    width: 70%;
+    padding: 20px;
+}
+
+#controles {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+#seccion-derecha {
+    width: 30%;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+#videos-recomendados {
+    
+}
