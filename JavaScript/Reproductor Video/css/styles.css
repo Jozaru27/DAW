@@ -11,6 +11,7 @@ body {
 #seccion-izquierda {
     width: 70%;
     padding: 20px;
+    background-color:white;
 }
 
 #controles {
