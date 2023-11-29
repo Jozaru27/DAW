@@ -9,7 +9,7 @@ body {
 }
 
 #seccion-izquierda {
-    width: 70%;
+    width: 75%;
     padding: 20px;
     background-color:white;
 }
@@ -24,7 +24,7 @@ body {
 }
 
 #seccion-derecha {
-    width: 30%;
+    width: 25%;
     background-color: #f0f0f0;
     padding: 20px;
 }
@@ -36,4 +36,13 @@ video {
 
 #videos-recomendados {
     
+}
+
+#imagen_logo{
+    height: 5vw;
+    padding: 1vw;
+}
+
+#barra-nav{
+    text-align:center;
 }
