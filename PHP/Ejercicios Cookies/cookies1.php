@@ -50,11 +50,10 @@
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre"><br><br>
 
-        <label for="ciudad">Gesto:</label>
-        <select name="ciudad">
-          <option value="Alicante"> Alicante </option>
-          <option value="Castellón"> Castellón </option>
-          <option value="Valencia"> Valencia </option>
+        <label for="gesto">Gesto:</label>
+        <select name="gesto">
+          <option value="Saludo"> Saludo </option>
+          <option value="Despedida"> Despedida </option>
         </select><br><br>
 
         <input type="submit" value="Enviar"> 

@@ -3,10 +3,10 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * 2. Crea un formulario en el que se le pida al usuario los siguientes datos: nombre y preferencia de
- * idioma, color y ciudad. Crea una Cookie que almacene estos datos y que, al recargar la página
- * por realizar una nueva selección de datos (y posiblemente usuario) muestre los datos
- * introducidos en el formulario junto con los datos obtenidos de la Cookie
+ * 3. Usa el formulario (Ejercicio 1 UD5) del selector de operación y las operaciones de suma, resta,
+ * división y multiplicación de modo que se guarde en la Cookie las operaciones elegidas y
+ * muestre el resultado de la operación indicando cuáles han sido las operaciones elegidas en la
+ * ejecución actual (formulario) y las elegidas en la operación anterior a la actual (cookie).
  * 
  */
 
@@ -41,14 +41,14 @@
     <link rel="author" href="https://github.com/Jozaru27">
 
     <!-- Título de Página -->
-    <title>Cookies 2 - Jose Zafrilla</title>
+    <title>Cookies 3 - Jose Zafrilla</title>
 </head>
 
 
 <body>
-    <h2>Cookies 2 - Jose Zafrilla</h2>
+    <h2>Cookies 3 - Jose Zafrilla</h2>
 
-    <form action="cookies2.php" method="get">
+    <form action="cookies3.php" method="get">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre"><br><br>
 
