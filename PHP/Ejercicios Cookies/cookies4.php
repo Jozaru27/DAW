@@ -10,33 +10,28 @@
  * 
  */
 
- $cookie_name = "cookie";
- $cookie_value = "Dia: " . $_GET["diaActual"];
-
 $diaActual = isset($_GET["diaActual"]) ? $_GET["diaActual"] : null;
+$quincenaActual = "";
 
-// Se calcula la quincena y se muestra
-$quincenaActual = ($diaActual <= 15) ? "Primera quincena <br>" : "Segunda quincena <br>";
-echo "El día actual es " . $diaActual . ", por ende, estamos en la " . $quincenaActual . "<br>\n";
+if ($diaActual !== null && $diaActual !== "") {
+    if ($diaActual <= 15){
+        $quincenaActual = "primera";
+    } else if ($diaActual > 15){
+        $quincenaActual = "segunda";
+    }
+}
+
+$cookie_name = "cookie";
+$cookie_value = "Día: " . $diaActual . "<br> Quincena: " . $quincenaActual;
 
 if (!empty($_GET)){
     setcookie($cookie_name, $cookie_value);
     echo "Datos de la cookie " . $cookie_name . ": <br>";
-    echo $_COOKIE["cookie"] . "<br";
+    echo $_COOKIE["cookie"] . "<br><br>";
 }
 
-// if (isset($_COOKIE[$cookie_name])) {
-//     list($quincenaAnterior, $diaAnterior) = explode("-", $_COOKIE[$cookie_name]);
-//     echo "Quincena anterior almacenada en la cookie: " . $quincenaAnterior;
-//     echo "Día anterior almacenado en la cookie: " . $diaAnterior . "<br>";
-// } else {
-//     echo "No hay datos de la quincena y día anterior almacenados en la cookie<br>";
-// }
-
-
-// $cookie_name = "cookie";
-// $cookie_value = $quincenaActual . "-" . $diaActual;
-// setcookie($cookie_name, $cookie_value);
+echo "Datos actuales: <br>";
+echo "El día actual es " . $diaActual . " por ende, estamos en la $quincenaActual quincena \n" ;
 
 ?>
 
@@ -64,6 +59,10 @@ if (!empty($_GET)){
         <input type="number" id="diaActual" name="diaActual" required>
         <input type="submit" value="Verificar">
     </form>
+
+    <?php
+   
+    ?>
 </body>
 
 </html>

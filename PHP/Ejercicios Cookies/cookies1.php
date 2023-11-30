@@ -11,19 +11,19 @@
  */
 
  $cookie_name = "cookie";
- $cookie_value = "Nombre: " . $_GET["nombre"] . "<br> Gesto: " . $_GET["gesto"];
+ $cookie_value = "";
 
- echo "El valor de nombre enviado ahora es: " . $_GET["nombre"] . "<br>";
- echo "El valor de gesto enviado ahora es: " . $_GET["gesto"] . "<br>";
- echo "<br>";
+ $cookie_value .= "Nombre: " . $_GET["nombre"] . "<br>";
+ $cookie_value .= "Gesto: " . $_GET["gesto"] . "<br>";
 
  if (!empty($_GET)){
   setcookie($cookie_name, $cookie_value);
   echo "Datos de la cookie " . $cookie_name . ": <br>";
-  echo $_COOKIE["cookie"] . "<br";
+  echo $_COOKIE["cookie"] . "<br>";
  }
 
-
+ echo "Datos actuales: <br>";
+ echo "" . $cookie_value . "\n" ;
 
 ?>
 

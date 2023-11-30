@@ -10,17 +10,20 @@
  * 
  */
 
+ $cookie_name = "cookie";
+ $cookie_value = "";
+
  $num1 = isset($_GET["num1"]) ? $_GET["num1"] : null;
  $num2 = isset($_GET["num2"]) ? $_GET["num2"] : null;
  $operacion = isset($_GET["operación"]) ? $_GET["operación"] : null;
 
- echo "El valor de num1 enviado ahora es: " . $num1 . "<br>";
- echo "El valor de num2 enviado ahora es: " . $num2 . "<br>";
- echo "El valor de la operación enviado ahora es: ";
+ $cookie_value.= "El valor de num1 enviado ahora es: " . $num1 . "<br>";
+ $cookie_value.= "El valor de num2 enviado ahora es: " . $num2 . "<br>";
+ $cookie_value.= "El valor de la operación enviado ahora es: ";
  foreach ($operacion as $operacionIndividual) {
-  echo $operacionIndividual . ", ";
+    $cookie_value.= $operacionIndividual . ", ";
  }
- echo "<br>";
+ $cookie_value.= "<br>";
 
  $cookie_name = "cookie";
  $cookie_value = "Num1: " . $num1 . "<br> Num2: " . $num2 . "<br> Operación: ";
@@ -39,34 +42,37 @@
       switch ($operaciones) {
           case "+":
               $resultado = $num1 + $num2;
-              echo "<b>El resultado de $num1 + $num2 es:</b> $resultado <br>";
+              $cookie_value.= "<b>El resultado de $num1 + $num2 es:</b> $resultado <br>";
               break;
 
           case "-":
               $resultado = $num1 - $num2;
-              echo "<b>El resultado de $num1 - $num2 es:</b> $resultado <br>";
+              $cookie_value.= "<b>El resultado de $num1 - $num2 es:</b> $resultado <br>";
               break;
 
           case "/":
               $resultado = $num1 / $num2;
-              echo "<b>El resultado de $num1 / $num2 es:</b> $resultado <br>";
+              $cookie_value.= "<b>El resultado de $num1 / $num2 es:</b> $resultado <br>";
               break;
 
           case "*":
               $resultado = $num1 * $num2;
-              echo "<b>El resultado de $num1 * $num2 es:</b> $resultado <br>";
+              $cookie_value.= "<b>El resultado de $num1 * $num2 es:</b> $resultado <br>";
               break;
       }
   }
 } else {
-  echo "<br><br><i>Por favor, selecciona al menos una operación.</i>";
+    $cookie_value.= "<br><br><i>Por favor, selecciona al menos una operación.</i>";
 }
 
 if (!empty($_GET)){
   setcookie($cookie_name, $cookie_value);
   echo "<br>Datos de la cookie " . $cookie_name . ": <br>";
-  echo $_COOKIE["cookie"] . "<br";
+  echo $_COOKIE["cookie"] . "<br>";
  }
+
+ echo "Datos actuales: <br>";
+ echo "" . $cookie_value . "\n" ;
 
 ?>
 

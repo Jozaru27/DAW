@@ -11,21 +11,22 @@
  */
 
  $cookie_name = "cookie";
- $cookie_value = "Nombre: " . $_GET["nombre"] . "<br> Idioma: " . $_GET["idioma"] . "<br> Color: " . $_GET["color"] . "<br> Ciudad: " . $_GET["ciudad"];
+ $cookie_value = "";
 
- echo "El valor de nombre enviado ahora es: " . $_GET["nombre"] . "<br>";
- echo "El valor de idioma enviado ahora es: " . $_GET["idioma"] . "<br>";
- echo "El valor de color enviado ahora es: " . $_GET["color"] . "<br>";
- echo "El valor de ciudad enviado ahora es: " . $_GET["ciudad"] . "<br>";
- echo "<br>";
+ $cookie_value .= "El valor de nombre es: " . $_GET["nombre"] . "<br>";
+ $cookie_value .= "El valor de idioma es: " . $_GET["idioma"] . "<br>";
+ $cookie_value .= "El valor de color es: " . $_GET["color"] . "<br>";
+ $cookie_value .= "El valor de ciudad es: " . $_GET["ciudad"] . "<br>";
+ $cookie_value .= "<br>";
 
  if (!empty($_GET)){
   setcookie($cookie_name, $cookie_value);
   echo "Datos de la cookie " . $cookie_name . ": <br>";
-  echo $_COOKIE["cookie"] . "<br";
+  echo $_COOKIE["cookie"] . "<br>";
  }
-
-
+ 
+ echo "Datos actuales: <br>";
+ echo "" . $cookie_value . "\n" ;
 
 ?>
 
