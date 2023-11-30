@@ -10,22 +10,63 @@
  * 
  */
 
- $cookie_name = "cookie";
- $cookie_value = "Nombre: " . $_GET["nombre"] . "<br> Idioma: " . $_GET["idioma"] . "<br> Color: " . $_GET["color"] . "<br> Ciudad: " . $_GET["ciudad"];
+ $num1 = isset($_GET["num1"]) ? $_GET["num1"] : null;
+ $num2 = isset($_GET["num2"]) ? $_GET["num2"] : null;
+ $operacion = isset($_GET["operación"]) ? $_GET["operación"] : null;
 
- echo "El valor de nombre enviado ahora es: " . $_GET["nombre"] . "<br>";
- echo "El valor de idioma enviado ahora es: " . $_GET["idioma"] . "<br>";
- echo "El valor de color enviado ahora es: " . $_GET["color"] . "<br>";
- echo "El valor de ciudad enviado ahora es: " . $_GET["ciudad"] . "<br>";
+ echo "El valor de num1 enviado ahora es: " . $num1 . "<br>";
+ echo "El valor de num2 enviado ahora es: " . $num2 . "<br>";
+ echo "El valor de la operación enviado ahora es: ";
+ foreach ($operacion as $operacionIndividual) {
+  echo $operacionIndividual . ", ";
+ }
  echo "<br>";
 
- if (!empty($_GET)){
+ $cookie_name = "cookie";
+ $cookie_value = "Num1: " . $num1 . "<br> Num2: " . $num2 . "<br> Operación: ";
+  if (is_array($operacion) && count($operacion) > 0) {
+      foreach ($operacion as $operacionIndividual) {
+          $cookie_value .= $operacionIndividual . ", ";
+      }
+  } else {
+      $cookie_value .= "Ninguna operación seleccionada";
+  }
+  $cookie_value .= "<br>";
+
+
+ if (is_array($operacion) && count($operacion) > 0) {
+  foreach ($operacion as $operaciones) {
+      switch ($operaciones) {
+          case "+":
+              $resultado = $num1 + $num2;
+              echo "<b>El resultado de $num1 + $num2 es:</b> $resultado <br>";
+              break;
+
+          case "-":
+              $resultado = $num1 - $num2;
+              echo "<b>El resultado de $num1 - $num2 es:</b> $resultado <br>";
+              break;
+
+          case "/":
+              $resultado = $num1 / $num2;
+              echo "<b>El resultado de $num1 / $num2 es:</b> $resultado <br>";
+              break;
+
+          case "*":
+              $resultado = $num1 * $num2;
+              echo "<b>El resultado de $num1 * $num2 es:</b> $resultado <br>";
+              break;
+      }
+  }
+} else {
+  echo "<br><br><i>Por favor, selecciona al menos una operación.</i>";
+}
+
+if (!empty($_GET)){
   setcookie($cookie_name, $cookie_value);
-  echo "Datos de la cookie " . $cookie_name . ": <br>";
+  echo "<br>Datos de la cookie " . $cookie_name . ": <br>";
   echo $_COOKIE["cookie"] . "<br";
  }
-
-
 
 ?>
 
@@ -49,27 +90,21 @@
     <h2>Cookies 3 - Jose Zafrilla</h2>
 
     <form action="cookies3.php" method="get">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre"><br><br>
+        <label for="num1">Número 1:</label>
+        <input type="number" id="num1" name="num1"><br><br>
 
-        <label for="idioma">Idioma:</label>
-        <select name="idioma">
-          <option value="Castellano"> Castellano </option>
-          <option value="Valenciano"> Valenciano </option>
-          <option value="Inglés"> Inglés </option>
+        <label for="num2">Número 2:</label>
+        <input type="number" id="num2" name="num2"><br><br>
+
+        <label for="operación">Operación<br><br>
+        <select multiple size='4' name="operación[]" id="operación">
+            <option value="+"> Suma </option>
+            <option value="-"> Resta </option>
+            <option value="*"> Multiplicación </option>
+            <option value="/"> División </option>
         </select><br><br>
 
-        <label for="color">Color:</label>
-        <input type="text" name="color"><br><br>
-
-        <label for="ciudad">Ciudad:</label>
-        <select name="ciudad">
-          <option value="Alicante"> Alicante </option>
-          <option value="Castellón"> Castellón </option>
-          <option value="Valencia"> Valencia </option>
-        </select><br><br>
-
-        <input type="submit" value="Enviar"> 
+        <input type="submit" value="Resolver"> 
     </form> 
 </body>
 </html>
