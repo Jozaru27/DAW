@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <picture>
+        <source srcset="img/globo.jpg" media="(min-width: 800px)" />
+        <source srcset="img/globo_escalado.jpg" media="(max-width: 799px)" />
+        <img src="img/globo.jpg"/>
+    </picture>
+
+    <br><br>
+    
+    <picture>
+        <source srcset="img/polilla.jpg" media="(max-width: 300px)" />
+        <source srcset="img/polilla_recortada1.jpg" media="(min-width: 301px)" />
+        <source srcset="img/polilla_recortada2.jpg" media="(min-width: 501px)" />
+        <img src="img/polilla.jpg"/>
+    </picture>      
+</body>
+</html>
