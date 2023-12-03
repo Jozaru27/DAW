@@ -14,6 +14,11 @@ body {
     background-color:white;
 }
 
+#barraProgreso {
+    width: 100%;
+    bottom: 0;
+}
+
 #controles {
     display: flex;
     justify-content: space-around;
@@ -45,4 +50,86 @@ video {
 
 #barra-nav{
     text-align:center;
+}
+
+/* Iconos Botones */
+
+button{
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#silenciarButton{
+    background-image: url('../img/mute.png');
+}
+
+#adelantarVideoButton{
+    background-image: url('../img/fastforward.png');
+}
+
+#reanudarPausarButton{
+    background-image: url('../img/play.png');
+}
+
+#retrocederVideoButton{
+    background-image: url('../img/fastrewind.png');
+}
+
+#reiniciarButton{
+    background-image: url('../img/stop.png');
+}
+
+#bajarVolumenButton{
+    background-image: url('../img/volumedown.png');
+}
+
+#subirVolumenButton{
+    background-image: url('../img/volumeup.png');
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; 
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    text-align: center;
+    background-image: url('../img/ad_po_popup.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 720px;
+    height: 520px;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:30px;
+    height:45px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: grey;
+    cursor: default;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, cursor 0.5s ease-in-out;
 }

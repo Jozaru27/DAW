@@ -15,7 +15,10 @@ window.onload = () => {
     // Verifica - Si el currentTime es 0: deshabilita el botón de retroceso, si no, lo habilita
     // Verifica - Si el currentTime es >= a la duración del vídeo, deshabilita el botón de
     // adelantar, si no, lo habilita
+    // Al principio se llama a actualizarBarraProgreso, una función descrita más abajo
     video.addEventListener("timeupdate", function() {
+        actualizarBarraProgreso();
+
         if (video.currentTime === 0) {
             document.getElementById("retrocederVideoButton").disabled = true;
         } else {
@@ -32,14 +35,15 @@ window.onload = () => {
     // EventListener para habilitar/deshabilitar los botones de subir/bajar volumen
     // Tiene un funcionamiento similar al EventListener de arriba
     video.addEventListener("volumechange", function() {
+        
         if (video.volume === 0) {
             document.getElementById("bajarVolumenButton").disabled = true;
             document.getElementById("subirVolumenButton").disabled = false;
-            silenciarButton.innerText = "Desilenciar";
+            silenciarButton.style.backgroundImage = "url('img/unmute.png')";
         } else {
             document.getElementById("bajarVolumenButton").disabled = false;
             document.getElementById("subirVolumenButton").disabled = false;
-            silenciarButton.innerText = "Silenciar";
+            silenciarButton.style.backgroundImage = "url('img/mute.png')";
         }
 
         if (video.volume === 1) {
@@ -51,18 +55,70 @@ window.onload = () => {
     for (video1 of videos){
         video1.addEventListener("click", cambiarVideo);
     }
+
+    // Cuando se termina el video, limpia el valor de la barra de progreso (vuelve al principio)
+    // Además, actualiza sus atributos al cambiar de video
+    video.addEventListener("ended", function() {
+        barraProgreso.value = 0;
+        barraProgreso.max = video.duration;
+        reproduciendo = false;
+    });
+
+    // Cuando haces click en la barra de progreso, el vídeo se mueve hasta ese punto
+    barraProgreso.addEventListener("input", function() {
+        video.currentTime = barraProgreso.value;
+    });
+
+    // Mostrar modal al cargar la página
+    document.getElementById("myModal").style.display = "block";
+
+    // Declarar el botón de cerrar
+    let botonCerrar = document.querySelector(".close");
+    let permitirClicar = false;
+
+    // Mostrar X después de 10 segundos
+    setTimeout(() => {
+        permitirClicar = true;
+        botonCerrar.style.opacity = "1"; // Cambia la opacidad de la "X" a 1
+        botonCerrar.style.cursor = "pointer"; // Habilita el clic en la "X"
+    }, 10000);
+
+    // Si se clica en la x, desaparece el modal
+    botonCerrar.onclick = () => {
+        if (permitirClicar) {
+            window.open('https://es.aliexpress.com/', '_blank');
+            document.getElementById("myModal").style.display = "none";
+            botonCerrar.style.opacity = "0"; // Cambia la opacidad de la "X" a 1
+            botonCerrar.style.cursor = "default"; // Habilita el clic en la "X"
+        }
+    };
 }
 
+// Función para actualizar la barra de progreso
+// Va actualizando la barra de progreso para que su valor sea el mismo que el valor de tiempo del video
+// El máximo de la barra de progreso es igual a la duración máxima del vídeo
+function actualizarBarraProgreso() {
+    barraProgreso.value = video.currentTime;
+    barraProgreso.max = video.duration;
+}
+
+// Función de Play/Pause
+// Pausa/Reanuda la reproducción del vídeo
 function reanudarPausar() {
     if (!reproduciendo) {
         video.play();
         reproduciendo = true;
+        reanudarPausarButton.style.backgroundImage = "url('img/pause.png')";
     } else {
         video.pause();
         reproduciendo = false;
+        reanudarPausarButton.style.backgroundImage = "url('img/play.png')";
     }
 }
 
+// Función de Mute
+// Silencia/Desilencia el vídeo según el valor del volumen
+// Guarda el valor del volumen cuando lo silencia, para volver a ese valor si se desilencia
 function silenciar() {
     if (video.volume > 0) {
         volumenAlmacenado = video.volume;
@@ -78,6 +134,7 @@ function silenciar() {
 function reiniciar() {
     video.load();
     reproduciendo = false;
+    reanudarPausarButton.style.backgroundImage = "url('img/play.png')";
 }
 
 // Función de subir el volumen
@@ -107,14 +164,51 @@ function atrasarVideo(){
 }
 
 function cambiarVideo(){
-    reproduciendo = false;
     let aux = video.src;
     video.src = this.src;
     this.src = aux;
+
+    reproduciendo = false;
+    reanudarPausarButton.style.backgroundImage = "url('img/play.png')";
+
+    // Mostrar modal
+    document.getElementById("myModal").style.display = "block";
+
+     // Declarar el botón de cerrar
+     let botonCerrar = document.querySelector(".close");
+     let permitirClicar = false;
+ 
+     // Mostrar X después de 10 segundos
+     setTimeout(() => {
+         permitirClicar = true;
+         botonCerrar.style.opacity = "1"; // Cambia la opacidad de la "X" a 1
+         botonCerrar.style.cursor = "pointer"; // Habilita el clic en la "X"
+     }, 10000);
+ 
+     // Si se clica en la x, desaparece el modal
+     botonCerrar.onclick = () => {
+         if (permitirClicar) {
+            window.open('https://es.aliexpress.com/', '_blank');
+             document.getElementById("myModal").style.display = "none";
+             botonCerrar.style.opacity = "0"; // Cambia la opacidad de la "X" a 1
+             botonCerrar.style.cursor = "default"; // Habilita el clic en la "X"
+         }
+     };
 }
 
-// areglar el primer addevent listener tocho para que parezca el segundo
-// darle estilo a los botones, cambiar también los iconos
 
-// añadir barra de progreso
-// añadir popup
+// estilo extra botones? 
+
+// barra de progeso que aparezca cuando hover?
+
+// maximizar video
+// minimizar video
+
+
+// boton de compartir
+// boton miniatura
+
+// boton de bucle
+// color de la página
+
+// Optimizar código del PopUp/Modal para simplificarlo
