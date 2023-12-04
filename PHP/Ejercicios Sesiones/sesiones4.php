@@ -4,40 +4,57 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * 4. Usa el formulario del ejercicio 4 de Cookies del conversor de euros y pesetas de modo que uses
- * la sesión para mostrar la cantidad, moneda y conversión actuales y además muestre la cantidad,
- * moneda y conversión anterior.
+ * 4. Usa el formulario del ejercicio 5 de Cookies con indicación de la quincena dado el día de la
+ * semana de modo que uses la sesión para mostrar el día y la quincena actuales y además muestre
+ * el día y la quincena anteriores
  * 
  */
 session_start(); //iniciamos la sesión
 
-$diaActual = isset($_GET["diaActual"]) ? $_GET["diaActual"] : null;
+// Cogemos el valor de dia actual
+// Iniciamos la variable quincena en vacío
+$diaActual = isset($_POST["diaActual"]) ? $_POST["diaActual"] : null;
 $quincenaActual = "";
 
-if ($diaActual !== null && $diaActual !== "") {
+// If para saber en qué quincena estamos dependiendo del número
+if (isset($_POST["diaActual"])) {
     if ($diaActual <= 15) {
-        $quincenaActual = "primera";
+        $_SESSION["quincena"] = "primera";
     } else if ($diaActual > 15) {
-        $quincenaActual = "segunda";
+        $_SESSION["quincena"] = "segunda";
     }
 }
 
+// Cuando se envíen los datos
 if ($_POST["Enviar"] === "Enviar") {
 
+    // Si dia actual no está setted, se toma el valor del Post. Si está setted, di antiguo es dia actual, y se coge dia actual del post
     if (!isset($_SESSION['diaActual'])) {
         $_SESSION['diaActual'] = $_POST['diaActual'];
     } else {
         $_SESSION['diaAntiguo'] = $_SESSION['diaActual'];
         $_SESSION['diaActual'] = $_POST['diaActual'];
 
-        echo "<br> <b> El dato antiguo es: </b> <br>";
-        echo "Dia Actual: " . $_SESSION['diaActual'] . "<br>";
+    // Si dia antiguo está setted, se saca la quincena según el número
+    if (isset($_SESSION["diaAntiguo"])) {
+        if ($_SESSION["diaAntiguo"] <= 15) {
+            $_SESSION["quincenaAntiguo"] = "primera";
+        } else if ($_SESSION["diaAntiguo"] > 15) {
+            $_SESSION["quincenaAntiguo"] = "segunda";
+        }
     }
 
+        echo "<br> <b> El dato antiguo es: </b> <br>";
+        echo "Dia Antiguo: " . $_SESSION['diaAntiguo'] . "<br>";
+        echo "Quincena Antigua: " . $_SESSION["quincenaAntiguo"] . "<br>";
+    }
+
+
+    // Mostrar los datos actuales
     echo "<br> <b> Datos actuales: </b> <br>";
     $diaActual = $_POST["diaActual"];
     echo "Dia Actual: $diaActual <br>";
-    echo "Quincena Actual: $quincenaActual <br>";
+    echo "Quincena Actual:" . $_SESSION["quincena"] . "<br>";
 }
 
 ?>
@@ -61,7 +78,7 @@ if ($_POST["Enviar"] === "Enviar") {
 <body>
     <h2>Sesiones 4 - Jose Zafrilla</h2>
 
-    <form action="sesiones3.php" method="post">
+    <form action="sesiones4.php" method="post">
         <label for="diaActual">Introduce el día actual:</label>
         <input type="number" id="diaActual" name="diaActual" required>
 
