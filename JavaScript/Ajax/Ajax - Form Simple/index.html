@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+    <script>
+        
+        let peticion_http;
+        let nombreVar = "";
+        let apellidoVar = "";
+
+        window.onload = function () {
+            Enviar.addEventListener("click", descargar);
+        }
+
+        function descargar(){
+            nombreVar = nombre.value;
+            apellidoVar = apellido.value;
+            
+            peticion_http = new XMLHttpRequest();
+
+            peticion_http.addEventListener('readystatechange', mostrar);
+
+            peticion_http.open('GET', 'texto.txt', true);
+            peticion_http.send(null);
+
+        }
+        
+        function mostrar(){
+            if (peticion_http.readyState == 4 && peticion_http.status == 200) {
+                if(selectorcito.value == "cajaMuerta"){
+                    cajita.innerText = nombreVar + " " + apellidoVar + " " + peticion_http.responseText;
+                    cajeton.innerText = "";
+                } else {
+                    cajeton.innerText = nombreVar + " " + apellidoVar + " " + peticion_http.responseText;
+                    cajita.innerText = "";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form action="index.html" method="get">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" name="apellido"><br><br>
+
+        <label for="caja">Caja</label>
+        <select id="selectorcito">
+            <option value="cajaMuerta" id="cajaMuerta">Caja Muerta</option>
+            <option value="cajaViva" id="cajaViva">Caja Viva</option>
+        </select><br><br>
+
+        <input type="button" value="Enviar" id="Enviar"/><br><br>
+
+        <textarea name="cajaMuerta" id="cajita"rows="10" cols="50" disabled></textarea>
+        <textarea name="cajaViva" id="cajeton" rows="10" cols="50" disabled></textarea>
+
+    </form>
+</body>
+</html>
