@@ -3,17 +3,22 @@
     background-repeat: no-repeat; 
     background-size: cover; 
     background-position: center;
+}
+
+.grid1:hover div{
     box-shadow: 5px 5px 5px;
 }
 
-.divInterno{
+.pTexto{
     background-color: black;
     color: white;
     opacity:70%;
     width: 65%;
     position: relative;
     left: 30%;
-    top: 5%;
+    top: 1%;
+    padding: 3px;
+    font-size: 2vw;
 }
 
 /* Estilos para pantallas mayores a 700px */
