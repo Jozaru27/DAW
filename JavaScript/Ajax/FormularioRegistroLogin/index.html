@@ -12,7 +12,7 @@
         <button id="registroButton" >Registro</button>
         <button id="loginButton" >Login</button><br><br>
         <div class="cajitaForm"> 
-            <form id="formRegistro">
+            <form id="formRegistro" action="registro.php" method="POST">
                 <label for="nombre">Nombre: </label>
                 <input type="text"><br><br>
         
@@ -33,18 +33,19 @@
         
                 <label for="telefono">Teléfono: </label>
                 <input type="text"><br><br>
-        
+
+                <input type="button" id="botonEnviarReg" value="Enviar">
             </form>
         
-            <form id="formLogin">
+            <form id="formLogin" action="login.php" method="POST">
                 <label for="nombre">Nombre: </label>
                 <input type="text"><br><br>
         
                 <label for="contraseña">Contraseña: </label>
                 <input type="text"><br><br>
+
+                <input type="button" id="botonEnviarLog" value="Enviar">
             </form>
-        
-            <input type="submit" id="botonEnviar" value="Enviar">
         </div>
     </div>
 
