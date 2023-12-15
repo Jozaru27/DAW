@@ -4,7 +4,7 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * 4. Usa el formulario del ejercicio 5 de Cookies con indicación de la quincena dado el día de la
+ * 4. Usa el formulario del ejercicio 4 de Cookies con indicación de la quincena dado el día de la
  * semana de modo que uses la sesión para mostrar el día y la quincena actuales y además muestre
  * el día y la quincena anteriores
  * 
