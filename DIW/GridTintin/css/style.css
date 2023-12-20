@@ -77,6 +77,17 @@ body {
     box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
 }
 
+.div1_2.active,
+.div2_2.active,
+.div3_2.active,
+.div4_2.active,
+.div5_2.active,
+.div6_2.active,
+.div7_2.active {
+    border: 2px solid green;
+}
+
+
 footer {
     clear: both;
 }
