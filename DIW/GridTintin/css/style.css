@@ -73,8 +73,8 @@ body {
 .div5_2,
 .div6_2,
 .div7_2 {
-    padding: 10px; /* Puedes ajustar el valor según tus preferencias */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .div1_2.active,
@@ -90,4 +90,21 @@ body {
 
 footer {
     clear: both;
+}
+
+@media screen and (max-width: 850px){
+    .pagina, .parent, .parent2 {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .parent {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div1, .div2, .div3, .div4, .div5, .div6, .div7 {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
