@@ -31,13 +31,13 @@
  echo "Datos actuales: <br>";
  echo "Moneda: " . $_SESSION["moneda"] . "<br> Conversión: " . $_SESSION["tipoConversion"] . "<br> Resultado: " . number_format($_SESSION["resultado"], 2) . "\n";
  
- // Mostrar los datos anteriores de la sesión
+ // Datos de la sesión
  echo "<br> <b> Datos anteriores de la sesión: </b> <br>";
  if (isset($_SESSION["anterior"])) {
      echo "Moneda: " . $_SESSION["anterior"]["moneda"] . "<br> Conversión: " . $_SESSION["anterior"]["tipoConversion"] . "<br> Resultado: " . number_format($_SESSION["anterior"]["resultado"], 2) . "\n";
  }
  
- // Actualizar datos anteriores
+ // Actualiza datos de la sesión
  $_SESSION["anterior"]["moneda"] = $_SESSION["moneda"];
  $_SESSION["anterior"]["tipoConversion"] = $_SESSION["tipoConversion"];
  $_SESSION["anterior"]["resultado"] = $_SESSION["resultado"];
