@@ -12,11 +12,14 @@
 
  session_start();
 
+ // Obtengo los datos del formulario y los guardo en variables
  $moneda = isset($_GET["moneda"]) ? $_GET["moneda"] : null;
  $tipoConversion = isset($_GET["tipoConversion"]) ? $_GET["tipoConversion"] : null;
  
+ // Defino esta variable para que no dé error inicial
  $resultado = null;
  
+ // Realizar conversiones dependiendo del tipo seleccionado
  if ($tipoConversion == "euroAPesetas" && $moneda) {
      $resultado = $moneda * 166.386;
  } elseif ($tipoConversion == "pesetasAEuro" && $moneda) {
