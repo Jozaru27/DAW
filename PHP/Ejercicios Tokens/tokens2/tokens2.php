@@ -3,17 +3,21 @@
  * 
  * @author Jose Zafrilla Ruiz
  * 
- * 2. Crea un formulario de identificación de usuario de modo que el usuario introduzca su nombre,
- * apellido, asignatura y grupo. Además debe seleccionar si es menor o mayor de edad y si tiene
- * un cargo o no. Genera una página para cada perfil de la tabla en la que se muestre un saludo de bienvenida
- * indicando los datos del usuario (nombre y apellidos) y mostrando la asignatura y grupo elegidos.
- * Además deberá poder cerrar la sesión y volver a la página del formulario. Utiliza las sesiones
- * para poder realizar este ejercicio.
+ * 2. Crea un token de formulario para el formulario del ejercicio 2 de Roles (Delegado, Estudiante,
+ * Profesor y Director) de modo que se pueda asegurar la sesión de cada usuario desde la página
+ * del formulario a la página personalizada de cada uno. Debes comprobar el resultado avisando
+ * en caso de que el token no coincida. Puedes añadir un botón cambiar SID que generará un
+ * nuevo token en la sesión y así comprobar que detecta si la SID no coincide.
  * 
  */
 
 // Iniciamos la Sesión
 session_start(); 
+
+// Si no está el token creado, se crea y se guarda en la sesión
+if (!isset($_SESSION["token"])) {
+    $_SESSION["token"] = bin2hex(openssl_random_pseudo_bytes(24));
+}
 
 // Comprobamos que se envíe el formulario (Control de errores, para evitar Warnings antes de enviar el formulario)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['grupo'] = $_POST['grupo'];
     $_SESSION['edad'] = $_POST['edad'];
     $_SESSION['cargo'] = $_POST['cargo'];
+    $_SESSION["codToken"] = $_POST["codToken"];
 
     // Recoge los datos del formulario guardándolos en una variable.
     $nombre = $_POST["nombre"];
@@ -75,6 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form action="roles2.php" method="post">
         <h2>Introduzca por favor los siguientes datos:</h2>
+
+         <!-- Línea en oculto para generar el código del token a comparar -->
+         <input type="hidden" name="codToken" value="<?php echo $_SESSION['token']; ?>">
 
         <label for="nombre"> Nombre: </label><br>
         <input type="text" name="nombre" id="nombre"><br><br>

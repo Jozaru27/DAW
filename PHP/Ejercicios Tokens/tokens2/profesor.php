@@ -16,6 +16,13 @@ if (isset($_POST["cerrar"])){
     header("Location: roles2.php");
 }
 
+// Comprobamos que el código del token sea el mismo o no.
+if (hash_equals($_SESSION['codToken'], $_SESSION['token']) === false) {
+    echo "Brecha de Seguridad. El token no coincide <br>";
+} else {
+    echo "Seguridad Funcional. Token funcional <br>";
+}
+
 ?>
 
 <!-- HTML -->
@@ -39,6 +46,7 @@ if (isset($_POST["cerrar"])){
 
     <form action="roles2.php" method="post">
         <input type="submit" value="Cerrar Sesión" name="cerrar">
+        <input type="submit" value="Cambiar SID" name="cambiarSID" <?php $_SESSION["token"] = bin2hex(openssl_random_pseudo_bytes(24))?>> <br><br>
     </form>
 </body>
 
