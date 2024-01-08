@@ -4,7 +4,7 @@
 session_start(); 
 
 // Mensaje de bienvenida con los datos
-echo "<h2> Bienvenido a la Interfaz de Delegados </h2>";
+echo "<h2> Bienvenido a la Interfaz de Estudiantes </h2>";
 echo "<b>Nombre</b>: " . $_SESSION["nombre"] . "<br>";
 echo "<b>Apellido</b>: " .$_SESSION["apellido"] . "<br>";
 echo "<b>Asignatura</b>: " .$_SESSION["asignatura"] . "<br>";
@@ -30,11 +30,11 @@ if (isset($_POST["cerrar"])){
     <link rel="author" href="https://github.com/Jozaru27">
 
     <!-- Título de Página -->
-    <title>Delegado - Jose Zafrilla</title>
+    <title>Estudiante - Jose Zafrilla</title>
 </head>
 
 <body>
-    <h2>Delegado - Jose Zafrilla</h2>
+    <h2>Estudiante - Jose Zafrilla</h2>
     <hr>
 
     <form action="roles2.php" method="post">
