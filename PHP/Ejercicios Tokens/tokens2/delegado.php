@@ -13,7 +13,7 @@ echo "<b>Grupo:</b> " .$_SESSION["grupo"] . "<br>";
 // Cuando se envía el formulario, reenvía al principal (funciona a modo de volver atrás).
 if (isset($_POST["cerrar"])){
     session_unset();
-    header("Location: roles2.php");
+    header("Location: tokens2.php");
 }
 
 ?>
@@ -37,7 +37,7 @@ if (isset($_POST["cerrar"])){
     <h2>Delegado - Jose Zafrilla</h2>
     <hr>
 
-    <form action="roles2.php" method="post">
+    <form action="tokens2.php" method="post">
         <input type="submit" value="Cerrar Sesión" name="cerrar">
     </form>
 </body>

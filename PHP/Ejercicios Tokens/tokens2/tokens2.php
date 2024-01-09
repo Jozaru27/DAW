@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Roles 2 Form - Jose Zafrilla</h2>
     <hr>
 
-    <form action="roles2.php" method="post">
+    <form action="tokens2.php" method="post">
         <h2>Introduzca por favor los siguientes datos:</h2>
 
         <label for="nombre"> Nombre: </label><br>
