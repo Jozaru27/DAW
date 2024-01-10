@@ -1,0 +1,95 @@
+$colorTexto: #eee;
+$colorTextoHover: #fff;
+$colorFondo: #666;
+$colorFondoHover: #888;
+
+@mixin color($colorTexto, $colorFondo){
+    color: $colorTexto;
+    background-color: $colorFondo;
+}
+
+@mixin colorHover($colorTextoHover, $colorFondoHover){
+    &:hover {
+        @include color($colorTextoHover, $colorFondoHover);
+    }
+}
+
+@mixin box-sizing($parametro){
+    box-sizing: $parametro;
+}
+
+@mixin transiciones($property, $duration, $timing: linear) {
+    transition: $property $duration $timing;
+}
+
+@mixin animaciones($name, $duration, $timing: linear) {
+    animation: $name $duration $timing;
+}
+
+// @mixin transiciones($property, $duration, $timing: linear){
+//     transition-property: $property;
+//     transition-duration: $duration;
+//     transition-timing-function: $timing;
+// }
+
+// @mixin animaciones($name, $duration, $timing: linear){
+//     animation-name: $name;
+//     transition-duration: $duration;
+//     transition-timing-function: $timing;
+// }
+
+// Estilos para el header
+header {
+    @include color($colorTexto, $colorFondo);
+    padding: 10px;
+    text-align: center;
+}
+
+// Estilos para la barra de navegación
+nav {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .categoria {
+            display: inline-block;
+            margin-right: 10px;
+
+            a {
+                text-decoration: none;
+                padding: 5px;
+
+                @include color($colorTexto, $colorFondo);
+
+                @include colorHover($colorTextoHover, $colorFondoHover);
+
+                &:hover {
+                    .submenu {
+                        display: block;
+                    }
+                }
+            }
+
+            .submenu {
+                display: none;
+                position: absolute;
+                background-color: $colorFondo;
+
+                li {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// Estilos para el footer
+footer {
+    @include color($colorTexto, $colorFondo);
+    padding: 10px;
+    text-align: center;
+
+    @include box-sizing(border-box);
+    @include transiciones(all, 0.3s);
+}
