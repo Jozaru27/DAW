@@ -9,23 +9,27 @@ class Incidencia {
     public static $contador = 1;
     public $puesto;
     public $mensaje;
-    public static $estado = "Pendiente";
-    public static $pendientes = "";
+    public  $estado = "Pendiente";
+    public static $pendientes = 0;
 
     public function __construct($puesto, $mensaje){
         $this->puesto = $puesto;
         $this->mensaje = $mensaje;
+        self::$pendientes++;
     }
 
     public function __toString(){
-        return "Incidencia " . self::$contador++ . " - Puesto: $this->puesto - $this->mensaje  - " . self::$estado . "\n";
+        return "Incidencia " . self::$contador++ . " - Puesto: $this->puesto - $this->mensaje  - $this->estado \n";
     }
     
-    public function resuelve(){
-        
+    public function resuelve(string $mensajeSolucion){
+        $this->estado = "Resuleta";
+        self::$pendientes--;
     }
 
-    public function getPendientes(){}
+    public static function getPendientes(){
+        return self::$pendientes;
+    }
 
 
 
@@ -59,7 +63,7 @@ class Incidencia {
 
     // Estado
     public function getEstado(){
-        return self::$estado;
+        return $this->estado;
     }
 
     public function setEstado($estado){

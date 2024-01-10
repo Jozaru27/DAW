@@ -21,5 +21,5 @@ print $inc3;
 print $inc4;
 print $inc5;
 
-print "Incidencias pendientes: " . Incidencia::getPendientes();
+print "Incidencias pendientes: " . Incidencia::getPendientes(). "\n";
 ?>
