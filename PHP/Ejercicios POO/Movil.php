@@ -4,43 +4,43 @@
 * Ej1UD8 - Movil.php
 */
 
-class Terminal{
-    public $terminal;
-    public $segundosDeLlamada;
-
-    // metodo llama (segundos y tarifa)
-}
+include_once "Terminal.php";
 
 class Movil extends Terminal{
     public $tarifa;
-    public $minutos;
-    public $segundos;
 
-    public function __construct($terminal, $tarifa){
-        $this->terminal = $terminal;
+    public function __construct($numero, $tarifa){
+        parent::__construct($numero);
         $this->tarifa = $tarifa;
     }
 
     public function llama($terminal, $segundosDeLlamada){
-        $this->terminal = $terminal;
-        $this->segundosDeLlamada = $segundosDeLlamada;
+        $this->segundosDeLlamada += $segundosDeLlamada;
+        $terminal->segundosDeLlamada += $segundosDeLlamada;
 
         switch ($this->tarifa) {
             case 'rata':
-                return $this->segundosDeLlamada * 0.06;
+                $coste = $segundosDeLlamada * 0.06;
+                break;
             case 'mono':
-                return $this->segundosDeLlamada * 0.12;
+                $coste = $segundosDeLlamada * 0.12;
+                break;
             case 'bisonte':
-                return $this->segundosDeLlamada * 0.30;
+                $coste = $segundosDeLlamada * 0.30;
+                break;
             default:
-                return 0;
+                $coste = 0;
         }
 
-        // if ($segundosDeLlamada > )
-}
+        return $coste;
+    }
 
     public function __toString(){
-        return "Nº $this->terminal  - 0m y 0s de conversación en total - tarificados 0m y 0 s por un importe de 0 euros<br> \n";
+        $minutos = floor($this->segundosDeLlamada / 60);
+        $segundos = $this->segundosDeLlamada % 60;
+        $coste = $this->llama($this, $this->segundosDeLlamada);
+
+        return "Nº $this->numero - $minutos m y $segundos s de conversación en total - tarificados $minutos m y $segundos s por un importe de $coste euros<br>\n";
     }
 }
 
