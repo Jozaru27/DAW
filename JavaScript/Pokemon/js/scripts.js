@@ -2,13 +2,38 @@ let totalCartas = 10;
 let poke;
 let maquinita = [];
 let jugadorcete = [];
+
 window.onload = () => {
     iniciar();
     cargarPokemons();
+    quienSale();
+    cargarEventos();
 }
+
 function iniciar(){
     cartel.classList.add("ocultar");
 }
+
+function cargarEventos(){
+    let cartasJugador = document.querySelectorAll("#player . carta");
+    for(carta of cartasJugador){
+        carta.addEventListener("click", lanzarCartas);
+    }
+}
+
+function quienSale(){
+    // 0 - Máquina
+    // 1 - Jugador
+    let juegaLaMaquina = Math.floor(Math.random() * 2);
+    if(juegaLaMaquina) juegaMaquina();
+}
+
+function juegaMaquina(){
+    let cartaMaquina = document.querySelectorAll("#machine, .carta");
+    let cartaMaqina = cartasMaquina[Math.floor(Math.random( * ))]
+    jugadaMachine.appendChild(cartaMaquina);
+}
+
 async function cargarPokemons() {
     let url1 = "https://pokeapi.co/api/v2/pokemon";
     let url2;
@@ -59,19 +84,19 @@ function repartirCartas(){
     
 }
 
-function crearCartas(exp,nombre,imagen,maq){
+function crearCartas(exp, nombre, imagen, maq){
     let carta=document.createElement("div");
     carta.classList.add("carta");
 
-    let img=document.createElement("img");
-    img.src=imagen;
+    let img = document.createElement("img");
+    img.src = imagen;
 
-    let name=document.createElement("div");
-    name.innerText=nombre;
+    let name = document.createElement("div");
+    name.innerText = nombre;
 
-    let expe=document.createElement("div");
+    let expe = document.createElement("div");
     expe.classList.add("experiencia");
-    expe.innerText=exp;
+    expe.innerText = exp;
 
     carta.appendChild(img);
     carta.appendChild(name);

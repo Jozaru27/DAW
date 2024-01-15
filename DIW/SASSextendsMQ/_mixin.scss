@@ -1,0 +1,34 @@
+@mixin color-scheme($text-color, $bg-color) {
+    color: $text-color;
+    background-color: $bg-color;
+}
+  
+@mixin box-sizing($type) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+  
+@mixin transition($property, $duration, $timing: linear) {
+    -moz-transition: $property $duration $timing;
+    -webkit-transition: $property $duration $timing;
+    transition: $property $duration $timing;
+}
+  
+@mixin animation($name, $duration, $timing: linear) {
+    -moz-animation: $name $duration $timing;
+    -webkit-animation: $name $duration $timing;
+    animation: $name $duration $timing;
+}
+
+@mixin responsiveSmall($property, $value){
+    @media (max-width: 800px) {
+        #{$property}: $value;
+    }
+}
+
+@mixin responsiveMedium($property, $value){
+    @media (max-width: 1024px) {
+        #{$property}: $value;
+    }
+}

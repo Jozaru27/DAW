@@ -1,32 +1,10 @@
+@import '_mixin.scss';
+
 $text-color: #eee;
-$text-hover-color: #fff;
-$bg-color: #666;
-$bg-hover-color: #888;
-
-
-@mixin color-scheme($text-color, $bg-color) {
-  color: $text-color;
-  background-color: $bg-color;
-}
-
-@mixin box-sizing($type) {
-  -webkit-box-sizing: $type;
-  -moz-box-sizing: $type;
-  box-sizing: $type;
-}
-
-@mixin transition($property, $duration, $timing: linear) {
-  -moz-transition: $property $duration $timing;
-  -webkit-transition: $property $duration $timing;
-  transition: $property $duration $timing;
-}
-
-@mixin animation($name, $duration, $timing: linear) {
-  -moz-animation: $name $duration $timing;
-  -webkit-animation: $name $duration $timing;
-  animation: $name $duration $timing;
-}
-
+$text-hover-color: lighten($text-color, 10%);
+$bg-color: #15a;
+$bg-hover-color: lighten($bg-color, 10%);
+$title-color: darken(#15a, 10%);
 
 @keyframes iluminar {
   from {
@@ -114,8 +92,73 @@ header {
 footer {
   @include color-scheme($text-color, $bg-color);
   @include box-sizing(border-box);
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0px;
   padding: 5px;
+}
+
+%button-block {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+%input-block {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid #bbb;
+}
+
+#contenido {
+  padding: 30px 2px;
+
+  @include responsiveMedium(padding, 10px 20px);
+
+  .col-left{
+    box-sizing: border-box;
+    width: 30%;
+    float: left;
+    padding: 10px;
+    
+    @include responsiveSmall(float, none);
+    @include responsiveSmall(width, 100%);
+
+    input {
+      @extend %input-block;
+    }
+  
+    button {
+      @extend %button-block;
+    }
+  }
+
+  .col-right{
+    box-sizing: border-box;
+    margin-left: 30%;
+    width: 70%;
+    padding: 10px;
+
+    h1 {
+      color: $title-color;
+      font-size: 1.6em;
+    }
+  
+    @include responsiveSmall(margin-left, 0);
+    @include responsiveSmall(width, 100%);
+  }
+
+  .button-action{
+    background-color: $bg-color;
+    color: white;
+
+    &:hover{
+      background-color: lighten($bg-color, 20%);
+    }
+  }
 }
