@@ -68,3 +68,10 @@ button {
 .chuckContainer p {
     font-style: italic;
 }
+
+#main{
+    background-color: black;
+    padding:15px;
+    border-radius: 15px;
+    color: white;
+}

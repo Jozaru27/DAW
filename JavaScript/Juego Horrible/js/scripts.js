@@ -23,15 +23,17 @@ function lanzarDado (){
 
 // Cargar la imagen del dado en la etiqueta <div id="dado">
 function cargarDado() {
-    const dadoDiv = document.getElementById("dado");
-    dadoDiv.innerHTML = ""; // Limpiar contenido anterior
+    dado.innerHTML = ""; // Limpiar contenido anterior
 
-    const imagenDado = document.createElement("img");
+    let imagenDado = document.createElement("img");
     imagenDado.src = `img/${puntos}.png`; // Suponiendo que las imágenes están en la ruta /img/(número del 1 al 6).png
     imagenDado.alt = `Dado: ${puntos}`;
+
+    imagenDado.width = 100;
+    imagenDado.height = 100;
     
     // Agregar la imagen del dado al div
-    dadoDiv.appendChild(imagenDado);
+    dado.appendChild(imagenDado);
 }
 
 // Cargar la lista de personajes de la API - Obtener su total
@@ -43,7 +45,6 @@ async function cargarListaPersonajes (){
         .then(data =>{
         totalPersonajes = data.info.count;
     })
-
     obtenerPersonajeAleatorio();
 }
 
@@ -62,41 +63,40 @@ function obtenerPersonajeAleatorio(){
 
 // Muestra la información del personaje en el HTML
 function mostrarInformacion(personaje) {
-    const mainDiv = document.getElementById("main");
-    mainDiv.innerHTML = ""; // Limpiar contenido anterior
+    main.innerHTML = ""; // Limpiar contenido anterior
 
     // Crear elementos HTML para mostrar la información del personaje
-    const imagenElement = document.createElement("img");
+    let imagenElement = document.createElement("img");
     imagenElement.src = personaje.image;
 
-    const nombreElement = document.createElement("h2");
-    nombreElement.textContent = `${personaje.name}`;
+    let nombreElement = document.createElement("h2");
+    nombreElement.textContent = personaje.name;
 
-    const generoElement = document.createElement("h3");
+    let generoElement = document.createElement("h3");
     generoElement.textContent = "Género";
 
-    const generoValorElement = document.createElement("p");
+    let generoValorElement = document.createElement("p");
     generoValorElement.textContent = personaje.gender;
 
-    const especieElement = document.createElement("h3");
+    let especieElement = document.createElement("h3");
     especieElement.textContent = "Especie";
 
-    const especieValorElement = document.createElement("p");
+    let especieValorElement = document.createElement("p");
     especieValorElement.textContent = personaje.species;
 
-    const tipoElement = document.createElement("h3");
+    let tipoElement = document.createElement("h3");
     tipoElement.textContent = "Tipo";
 
-    const tipoValorElement = document.createElement("p");
+    let tipoValorElement = document.createElement("p");
     tipoValorElement.textContent = personaje.type || "Desconocido";
 
     // Agregar los elementos al div principal
-    mainDiv.appendChild(imagenElement);
-    mainDiv.appendChild(nombreElement);
-    mainDiv.appendChild(generoElement);
-    mainDiv.appendChild(generoValorElement);
-    mainDiv.appendChild(especieElement);
-    mainDiv.appendChild(especieValorElement);
-    mainDiv.appendChild(tipoElement);
-    mainDiv.appendChild(tipoValorElement);
+    main.appendChild(imagenElement);
+    main.appendChild(nombreElement);
+    main.appendChild(generoElement);
+    main.appendChild(generoValorElement);
+    main.appendChild(especieElement);
+    main.appendChild(especieValorElement);
+    main.appendChild(tipoElement);
+    main.appendChild(tipoValorElement);
 }
