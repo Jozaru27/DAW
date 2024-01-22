@@ -19,7 +19,7 @@ class Bicicleta extends Vehiculo{
 
     // Método para poner la cadena de la Bicicleta
     public function ponerCadena() {
-        echo "Cadena de la Bici puesta :3. \n";
+        echo "Cadena de la Bici puesta. \n";
     }
 
 }

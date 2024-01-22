@@ -22,6 +22,9 @@ $coche = new Coche();
 	echo "7. Ver kilometraje de la bicicleta \n";
 	echo "8. Ver kilometraje del coche \n";
 	echo "9. Ver kilometraje total \n";
+	echo "10. Ver número de vehículos<br>\n";
+	echo "11. Añade una bicicleta<br>\n";
+	echo "12. Añade un coche<br>\n";
 	echo "X. Salir \n";
 	echo "Elige una opción: \n";
 
@@ -66,6 +69,24 @@ $coche = new Coche();
 
 		case '9': //ver kilometraje total
 			echo Vehiculo::verKMTotales();
+			break;
+		
+		case '10': //ver número de vehículos
+			echo Vehiculo::verVehiculosCreados();
+			break;
+		
+		case '11': //añade una bicicleta
+			$nombrebici = readline("Introduce el nombre de la bicicleta: ");
+			$bicicletas[$nombrebici] = new Bicicleta();
+			$$nombrebici = new Bicicleta();
+			$vehiculosCreados++;
+			break;
+		
+		case '12': //añade un coche
+			$nombrecoche = readline("Introduce el nombre del coche: ");
+			$coches[$nombrecoche] = new Coche();
+			$$nombrecoche = new Coche();
+			$vehiculosCreados++;
 			break;
 
 		case 'X':

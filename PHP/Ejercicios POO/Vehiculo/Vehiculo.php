@@ -24,5 +24,11 @@ class Vehiculo {
     public static function verKMTotales() {
         return self::$kilometrosTotales . " km";
     }
+
+    // Función para ver los vehículos totales creados
+    public static function verVehiculosCreados() {
+        return self::$vehiculosCreados . " en total.";
+    }
+
 }
 ?>
