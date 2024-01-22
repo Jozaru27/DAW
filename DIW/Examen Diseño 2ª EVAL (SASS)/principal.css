@@ -1,0 +1,243 @@
+nav#desktop {
+  position: absolute;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+nav#desktop ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+nav#desktop ul .submenu {
+  position: absolute;
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s ease-out;
+}
+nav#desktop > ul {
+  width: 100%;
+  height: 32px;
+  color: #eee;
+  background-color: #15a;
+}
+nav#desktop a {
+  color: #eee;
+  background-color: #15a;
+  text-decoration: none;
+  width: 160px;
+  padding: 7px 20px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+nav#desktop a:hover {
+  color: white;
+  background-color: #166cd8;
+  animation: iluminar 0.4s linear;
+}
+nav#desktop li.categoria {
+  float: left;
+}
+nav#desktop li.categoria > a {
+  transition: padding 0.4s linear;
+}
+nav#desktop li.categoria:hover > a {
+  padding: 10px 20px;
+}
+nav#desktop li.categoria:hover ul.submenu {
+  height: 100px;
+}
+nav#mobile {
+  display: none;
+  float: right;
+}
+nav#mobile:hover ul {
+  height: auto;
+}
+nav#mobile ul {
+  margin: 0px;
+  height: 0px;
+  overflow: hidden;
+  list-style-type: none;
+  position: absolute;
+  right: 10px;
+  top: 40px;
+}
+nav#mobile ul a {
+  color: #eee;
+  background-color: #138;
+  text-decoration: none;
+  width: 160px;
+  padding: 7px 20px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.6em;
+  font-weight: normal;
+}
+nav#mobile ul a:hover {
+  color: white;
+  background-color: #1744b5;
+  animation: iluminar 0.4s linear;
+}
+
+@media (max-width: 1024px) {
+  nav#desktop {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  nav#mobile {
+    display: block;
+  }
+}
+i {
+  display: inline-block;
+}
+
+.icon-menu {
+  background-image: url("images/menu.png");
+  background-position: 0px 0px;
+  height: 30px;
+  width: 32px;
+}
+
+.icon-news {
+  background-image: url("images/news.png");
+  background-position: 0px -90px;
+  height: 30px;
+  width: 39px;
+}
+
+.icon-money {
+  background-image: url("images/money.png");
+  background-position: 0px -100px;
+  height: 50px;
+  width: 54px;
+}
+
+.icon-contact {
+  background-image: url("images/contact.png");
+  background-position: 0px 0px;
+  height: 30px;
+  width: 30px;
+}
+
+@keyframes iluminar {
+  from {
+    color: #eee;
+    background-color: #15a;
+  }
+  to {
+    color: white;
+    background-color: #166cd8;
+  }
+}
+body {
+  padding: 0px;
+  margin: 0px;
+}
+body header {
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 12px 30px;
+  color: #444;
+  background-color: #eee;
+  text-shadow: 1px 1px 2px #aaa;
+  background-color: #138;
+  color: #ddf;
+}
+body header:hover {
+  color: gray;
+}
+body footer {
+  color: #eee;
+  background-color: #15a;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  padding: 5px;
+}
+
+#contenido .col-left button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+#contenido .col-left input {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid #bbb;
+}
+
+#contenido {
+  padding: 30px 2px;
+}
+@media (max-width: 1024px) {
+  #contenido {
+    padding: 10px 20px;
+  }
+}
+#contenido .col-left {
+  box-sizing: border-box;
+  width: 30%;
+  float: left;
+  padding: 10px;
+}
+@media (max-width: 800px) {
+  #contenido .col-left {
+    float: none;
+  }
+}
+@media (max-width: 800px) {
+  #contenido .col-left {
+    width: 100%;
+  }
+}
+#contenido .col-left button {
+  border-radius: 5px;
+  color: #cfc5c5;
+  font-size: 18px;
+}
+#contenido .col-right {
+  box-sizing: border-box;
+  margin-left: 30%;
+  width: 70%;
+  padding: 10px;
+}
+#contenido .col-right h1 {
+  color: #0c3e7c;
+  font-size: 1.6em;
+}
+@media (max-width: 800px) {
+  #contenido .col-right {
+    margin-left: 0;
+  }
+}
+@media (max-width: 800px) {
+  #contenido .col-right {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  #contenido .col-right {
+    font-size: 1.6em;
+    background-color: rgb(35, 99, 69);
+    color: rgb(255, 255, 255);
+  }
+}
+#contenido .button-action {
+  background-color: #15a;
+  color: white;
+}
+#contenido .button-action:hover {
+  background-color: #3686eb;
+}/*# sourceMappingURL=principal.css.map */

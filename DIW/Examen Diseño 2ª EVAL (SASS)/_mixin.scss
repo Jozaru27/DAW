@@ -1,0 +1,58 @@
+// Archivo donde se encuentran todos los mixin separados
+@mixin color-scheme($text-color, $bg-color) {
+    color: $text-color;
+    background-color: $bg-color;
+}
+  
+@mixin box-sizing($type) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+  
+@mixin transition($property, $duration, $timing: linear) {
+    -moz-transition: $property $duration $timing;
+    -webkit-transition: $property $duration $timing;
+    transition: $property $duration $timing;
+}
+  
+@mixin animation($name, $duration, $timing: linear) {
+    -moz-animation: $name $duration $timing;
+    -webkit-animation: $name $duration $timing;
+    animation: $name $duration $timing;
+}
+
+@mixin responsiveSmall($property, $value){
+    @media (max-width: 800px) {
+        #{$property}: $value;
+    }
+}
+
+@mixin responsiveMedium($property, $value){
+    @media (max-width: 1024px) {
+        #{$property}: $value;
+    }
+}
+
+// Mixin que luego se usa, pudiendo llamar a los valores con el orden que se quiera
+@mixin buttonColorAlter ($radius, $color: #000, $font-size: 30px){
+    border-radius: $radius;
+    color: $color;
+    font-size: $font-size;
+}
+
+// Mixing para tener un tercer dispositivo - Extra Pequeño
+// Hace que una vez los dispositivos tengan una pantalla de menos de 600px, la letra se hará más grande
+// además de facilitar su lectura, dependiendo de si está activado el modo oscuro o modo claro, cambiará el color de fondo a un verde/azul (modo de alto contraste)
+@mixin extraSmall($property, $value){
+    @media (max-width: 600px) {
+        #{$property}: $value;
+        @if ($theme == dark){
+            background-color: rgb(35, 99, 69);
+            color: rgb(255, 255, 255);
+          } @else {
+            background-color: rgb(54, 146, 126);
+            color: rgb(22, 22, 48);
+          }
+    }
+}

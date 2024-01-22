@@ -1,0 +1,19 @@
+// La lista de iconos y sus posiciones
+
+i {
+    display: inline-block;
+}
+
+
+$iconos: ((menu, "images/menu.png", 0px, 0px, 30px, 32px), (news, "images/news.png", 0px, -90px, 30px, 39px), (money, "images/money.png", 0px, -100px, 50px, 54px),
+(contact, "images/contact.png", 0px, 0px, 30px, 30px));
+
+
+@each $icono in $iconos{
+    .icon-#{nth($icono,1)}{
+            background-image: url(nth($icono,2));
+            background-position: nth($icono,3) nth($icono,4);
+            height: nth($icono,5);
+            width:nth($icono,6);
+    }
+}

@@ -1,0 +1,7 @@
+// Archivo para la función que acepta un color como parámetro
+// y luego devuelve una versión escalada en gris de ese color
+// se debe usar en hover en algún elemento
+
+@function greyify($color){
+    @return grayscale($color);
+}

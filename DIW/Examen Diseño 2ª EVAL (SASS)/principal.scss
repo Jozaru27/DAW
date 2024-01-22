@@ -1,0 +1,144 @@
+// Importados los diferentes ficheros scss en principal.scss
+@import '_mixin.scss';
+@import '_menu.scss';
+@import '_content.scss';
+@import '_functions.scss';
+
+// Variables
+$text-color: #eee;
+$text-hover-color: lighten($text-color, 10%);
+$bg-color: #15a;
+$bg-hover-color: lighten($bg-color, 10%);
+$title-color: darken(#15a, 10%);
+$theme:dark; // se puede intercambiar dark/white
+
+// Creo una variable para el ancho de la columna izquierda, ya que quiero que ocupe sólo un 30%. En caso de querer cambiarse el ancho de la columna izquierda, también se calcula automáticamente el de la derecha
+$width-left-column:30%;
+
+// Keyframes
+@keyframes iluminar {
+  from {
+    @include color-scheme($text-color, $bg-color);
+  }
+  to {
+    @include color-scheme($text-hover-color, $bg-hover-color);
+  }
+}
+
+// Body, nesteando Header y Footer - No se incluye nav porque está en menu.scss (para tener el código ordenado)
+body {
+  padding: 0px;
+  margin: 0px;
+  
+  header {
+    // Font nestea las propiedades que empiezan con font, para acortar código (nesting de propiedades)
+    font: {
+      size: 1.8em;
+      weight: bold;
+      family: Georgia, "Times New Roman", Times, serif;
+    }
+    
+    padding: 12px 30px;
+    color: #444;
+    background-color: #eee;
+    text-shadow: 1px 1px 2px #aaa;
+
+    // Estructura de control IF para el modo oscuro/claro
+    @if ($theme == dark){
+      background-color: #138;
+      color: #ddf;
+    } @else {
+      background-color: #ddf;
+      color: #138;
+    }
+
+    &:hover{      // Cuando se le hace hover al header, se llama a la función, la cuál devuelve el color de fuente del header transformado en gris (para dar sensación de interactividad)
+      color: grayscale(red);  
+    }
+  }
+  
+  // Footer incluyendo mixins del archivo mixin.scss
+  footer {
+    @include color-scheme($text-color, $bg-color);
+    @include box-sizing(border-box);
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    padding: 5px;
+  }
+}
+
+// Estilos que luego se extienden al form de la columna izquierda (button / input)
+// Además de extenderse, usan el placeholder (%), así si se crease otro form se podría extender sin tener que repetir código de nuevo
+%button-block {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+%input-block {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid #bbb;
+}
+
+#contenido {
+  padding: 30px 2px;
+
+  // Otro mixing 
+  @include responsiveMedium(padding, 10px 20px);
+
+  .col-left{
+    box-sizing: border-box;
+    width: $width-left-column;
+    float: left;
+    padding: 10px;
+    
+    // Responsive design para la columna izquierda
+    @include responsiveSmall(float, none);
+    @include responsiveSmall(width, 100%);
+
+    // Extends para los estilos del Form (input y botones)
+    input {
+      @extend %input-block;
+    }
+  
+    button {
+      @extend %button-block;  // Aquí el extends se está usando en su máximo esplendor, pues conserva los parámetros que se le extienden y luego se sobreescriben los que no se necesitan en la línea de abajo.
+      @include buttonColorAlter($color: #cfc5c5, $font-size: 18px, $radius: 5px)    // Se le pasa un mixin con los valores especificados, pues estado desordenado respecto al mixing original (mixing sin importar orden)
+    }
+  }
+
+  .col-right{
+    box-sizing: border-box;
+    margin-left: 30%;
+    width: 100% - $width-left-column;       // Uso la variable de $width-left-column que tiene un 30%, para calcular el resto que debo dejarle a la columna derecha, teniendo en cuenta que el total es 100% (operación aritmética)
+    padding: 10px;
+
+    h1 {
+      color: $title-color;
+      font-size: 1.6em;
+    }
+    
+    // Responsive Design para la columna derecha
+    @include responsiveSmall(margin-left, 0);
+    @include responsiveSmall(width, 100%);
+
+    // Responsive para la columna derecha (para que se lea bien incluso en los dispositivos más pequeños - explicado más a fondo en mixin.scss)
+    @include extraSmall(font-size, 1.6em);
+  }
+
+  .button-action{
+    background-color: $bg-color;
+    color: white;
+
+    &:hover{ // &hover anidado
+      background-color: lighten($bg-color, 20%);
+    }
+  }
+}
