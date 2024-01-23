@@ -21,19 +21,18 @@ class Persona {
     public function __construct(){
         $this->nombre = "";
         $this->edad = 0;
-        $this->DNI = "";
+        $this->DNI = $this->generarDNI();;
         $this->sexo = "H";
         $this->peso = 0;
         $this->altura = 0;
     }
-
-    // funcion para comprobar H o M
 
     public function consNomEdSex($nombre, $edad, $sexo){
         $persona = new self();
         $persona->setNombre($nombre);
         $persona->setEdad($edad);
         $persona->setSexo($sexo);
+        return $persona;
     }
 
     public function consFull($nombre, $edad, $sexo, $peso, $altura){
@@ -43,6 +42,7 @@ class Persona {
         $persona->setSexo($sexo);
         $persona->setPeso($peso);
         $persona->setAltura($altura);
+        return $persona;
     }
 
     // Getters & Setters
@@ -83,10 +83,8 @@ class Persona {
     // Setter para establecer el sexo
     public function setSexo($sexo) {
         // Validar que el sexo sea 'H' o 'M'
-        if ($sexo === 'H' || $sexo === 'M') {
+        if ($sexo !== 'H' || $sexo !== 'M') {
             $this->sexo = $sexo;
-        } else {
-            echo "Error: El sexo debe ser 'H' o 'M'.\n";
         }
     }
 
@@ -115,6 +113,66 @@ class Persona {
         return ($sexo === 'H' || $sexo === 'M');
     }
 
+    public function strIMC() {
+        $imc = $this->calcularIMC();
+        $str = $this->nombre . " ";
+        switch ($imc) {
+            case self::INFRAPESO:
+                $str .= "está por debajo de su peso";
+                break;
+            case self::PESO_IDEAL:
+                $str .= "está en su peso ideal";
+                break;
+            case self::SOBREPESO:
+                $str .= "tiene sobrepeso";
+                break;
+        }
+        return $str;
+    }
+
+    public function calcularIMC() {
+        $imc = $this->peso / ($this->altura * $this->altura);
+        if ($imc < 20) return self::INFRAPESO;
+        if ($imc <= 25) return self::PESO_IDEAL;
+        return self::SOBREPESO;
+    }
+
+    public function esMayorDeEdad() {
+        return $this->edad >= 18;
+    }
+
+    public function mostrarIMC() {
+        return $this->strIMC();
+    }
+
+
+    public function __toString() {
+        $sexoStr = $this->sexo === "H" ? "Hombre" : "Mujer";
+        $mayorDeEdadStr = $this->esMayorDeEdad() ? "es mayor de edad" : "es menor de edad";
+        return "PERSONA " . $this->nombre . " Informacion de la persona:\n" .
+               "DNI: " . $this->DNI . "\n" .
+               "Nombre: " . $this->nombre . "\n" .
+               "Sexo: " . $sexoStr . "\n" .
+               "Edad: " . $this->edad . "\n" .
+               "Peso: " . $this->peso . " Kg\n" .
+               "Altura: " . $this->altura . " metros\n" .
+               "Resultado IMC: " . $this->strIMC() . "\n" .
+               $this->nombre . " con DNI " . $this->DNI . " " . $mayorDeEdadStr . "\n";
+    }
+    
+    
+}
+
+trait DniTrait {
+    private function generarDNI() {
+        $numero = mt_rand(10000000, 99999999);
+        $letra = $this->generaLetraDNI($numero % 23);
+        return $numero . $letra;
+    }
+    private function generaLetraDNI($idLetra) {
+        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        return $letras[$idLetra];
+    }
 }
 
 ?>
