@@ -65,7 +65,6 @@ function obtenerPersonajeAleatorio(){
 function mostrarInformacion(personaje) {
     main.innerHTML = ""; // Limpiar contenido anterior
 
-    // Crear elementos HTML para mostrar la información del personaje
     let imagenElement = document.createElement("img");
     imagenElement.src = personaje.image;
 
@@ -99,4 +98,5 @@ function mostrarInformacion(personaje) {
     main.appendChild(especieValorElement);
     main.appendChild(tipoElement);
     main.appendChild(tipoValorElement);
+
 }

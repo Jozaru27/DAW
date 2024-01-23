@@ -69,8 +69,14 @@ button {
     font-style: italic;
 }
 
+/* New Code */
+
 #main{
     background-color: black;
     border-radius: 15px;
     color: white;
+}
+
+main img {
+    border-radius: 10px; /* Agrega bordes redondos a la imagen si lo deseas */
 }

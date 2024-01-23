@@ -101,3 +101,30 @@ function mostrarInformacion(personaje) {
     main.appendChild(tipoElement);
     main.appendChild(tipoValorElement);
 }
+
+// Cargar la lista de chistes de Chuck Norris
+async function cargarListaChistes() {
+    let url = "https://api.chucknorris.io/jokes/random";
+
+    await fetch(url)
+        .then(response => response.json())
+        .then(chiste => {
+            console.log(chiste);
+            mostrarChiste(chiste.value);
+        })
+}
+
+// Muestra el chiste en el HTML
+function mostrarChiste(chiste) {
+    main.innerHTML = ""; 
+    main.style.padding = "50px";
+
+    // let chisteCategory = document.createElement("h3");
+    // chisteCategory.textContent = chiste.categories;
+
+    let chisteElement = document.createElement("p");
+    chisteElement.textContent = chiste;
+
+    // main.appendChild(chisteCategory);
+    main.appendChild(chisteElement);
+}
