@@ -4,7 +4,10 @@
  * Ej4UD8 - Persona.php
  */
 
+ include_once "DniTrait.php";
+
 class Persona {
+    use DniTrait;
     public $nombre;
     public $edad;
     public $DNI;
@@ -16,8 +19,6 @@ class Persona {
     const PESO_IDEAL = 0;
     const SOBREPESO = 1;
 
-    // use DniTrait;
-
     public function __construct(){
         $this->nombre = "";
         $this->edad = 0;
@@ -27,7 +28,7 @@ class Persona {
         $this->altura = 0;
     }
 
-    public function consNomEdSex($nombre, $edad, $sexo){
+    public static function consNomEdSex($nombre, $edad, $sexo){
         $persona = new self();
         $persona->setNombre($nombre);
         $persona->setEdad($edad);
@@ -35,7 +36,7 @@ class Persona {
         return $persona;
     }
 
-    public function consFull($nombre, $edad, $sexo, $peso, $altura){
+    public static function consFull($nombre, $edad, $sexo, $peso, $altura){
         $persona = new self();
         $persona->setNombre($nombre);
         $persona->setEdad($edad);
@@ -83,9 +84,7 @@ class Persona {
     // Setter para establecer el sexo
     public function setSexo($sexo) {
         // Validar que el sexo sea 'H' o 'M'
-        if ($sexo !== 'H' || $sexo !== 'M') {
-            $this->sexo = $sexo;
-        }
+        $this->sexo = $this->comprobarSexo($sexo);
     }
 
     // Getter para obtener el peso
@@ -109,8 +108,12 @@ class Persona {
     }
 
     // Función para comprobar el sexo
-    public function comprobarSexo($sexo) {
-        return ($sexo === 'H' || $sexo === 'M');
+    private function comprobarSexo($sexo) {
+        if ($sexo !== 'H' || $sexo !== 'M'){
+            return 'H';
+        } else {
+            return strtoupper($sexo);
+        }
     }
 
     public function strIMC() {
@@ -161,18 +164,6 @@ class Persona {
     }
     
     
-}
-
-trait DniTrait {
-    private function generarDNI() {
-        $numero = mt_rand(10000000, 99999999);
-        $letra = $this->generaLetraDNI($numero % 23);
-        return $numero . $letra;
-    }
-    private function generaLetraDNI($idLetra) {
-        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-        return $letras[$idLetra];
-    }
 }
 
 ?>
