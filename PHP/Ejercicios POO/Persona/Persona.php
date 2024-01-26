@@ -116,23 +116,25 @@ class Persona {
         }
     }
 
+    // Función para calcular el IMC. Según el resultado de la función calcular, muestra un texto u otro
     public function strIMC() {
         $imc = $this->calcularIMC();
         $str = $this->nombre . " ";
         switch ($imc) {
             case self::INFRAPESO:
-                $str .= "está por debajo de su peso";
+                $str .= "está por debajo de su peso ¡A comer! :( \n";
                 break;
             case self::PESO_IDEAL:
-                $str .= "está en su peso ideal";
+                $str .= "está en su peso ideal ¡Olé! :) \n";
                 break;
             case self::SOBREPESO:
-                $str .= "tiene sobrepeso";
+                $str .= "tiene sobrepeso ¡La dieta! :( \n";
                 break;
         }
         return $str;
     }
 
+    // Función que calcula llamada en la función anterior.
     public function calcularIMC() {
         $imc = $this->peso / ($this->altura * $this->altura);
         if ($imc < 20) return self::INFRAPESO;
@@ -140,30 +142,29 @@ class Persona {
         return self::SOBREPESO;
     }
 
-    public function esMayorDeEdad() {
-        return $this->edad >= 18;
-    }
-
-    public function mostrarIMC() {
-        return $this->strIMC();
-    }
-
-
     public function __toString() {
         $sexoStr = $this->sexo === "H" ? "Hombre" : "Mujer";
-        $mayorDeEdadStr = $this->esMayorDeEdad() ? "es mayor de edad" : "es menor de edad";
-        return "PERSONA " . $this->nombre . " Informacion de la persona:\n" .
+        $mayorDeEdadStr = $this->esMayorDeEdad() ? "es Mayor de Edad." : "es Menor de Edad.";
+        return "PERSONA " . $this->nombre . " Información de la persona:\n" .
                "DNI: " . $this->DNI . "\n" .
                "Nombre: " . $this->nombre . "\n" .
                "Sexo: " . $sexoStr . "\n" .
                "Edad: " . $this->edad . "\n" .
-               "Peso: " . $this->peso . " Kg\n" .
+               "Peso: " . $this->peso . " KG\n" .
                "Altura: " . $this->altura . " metros\n" .
                "Resultado IMC: " . $this->strIMC() . "\n" .
                $this->nombre . " con DNI " . $this->DNI . " " . $mayorDeEdadStr . "\n";
     }
     
+     // Función para saber si es mayor de edad
+     public function esMayorDeEdad() {
+        return $this->edad >= 18;
+    }
+
+    // Función que muestra el IMC
+    public function mostrarIMC() {
+        return $this->strIMC();
+    }
     
 }
-
 ?>

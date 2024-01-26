@@ -3,8 +3,8 @@
 class Revista extends Publicacion {
     private $numero;
 
-    public function __construct($isbn, $titulo, $anio = 2024, $numero) {
-        parent::__construct($isbn, $titulo, $anio);
+    public function __construct($isbn, $titulo, $año, $numero) {
+        parent::__construct($isbn, $titulo, $año);
         $this->numero = $numero;
     }
 

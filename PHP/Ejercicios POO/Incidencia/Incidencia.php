@@ -24,6 +24,7 @@ class Incidencia {
     
     public function resuelve(string $mensajeSolucion){
         $this->estado = "Resuleta";
+        $this->mensaje .=  " - " . $mensajeSolucion;
         self::$pendientes--;
     }
 

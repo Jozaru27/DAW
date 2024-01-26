@@ -9,7 +9,17 @@ class Vehiculo {
     public static $kilometrosTotales = 0;
     public $kilometrosRecorridos = 0;
 
-     // Método para avanza
+    // Constructor para incrementar el contador de vehículos creados
+    public function __construct() {
+        self::$vehiculosCreados++;
+    }
+
+    // Función para ver los vehículos totales creados
+    public static function verVehiculosCreados() {
+        return self::$vehiculosCreados . " en total.";
+    }
+
+     // Método para avanzar
     public function avanza($km) {
         $this->kilometrosRecorridos += $km; 
         self::$kilometrosTotales += $km; 
@@ -24,11 +34,6 @@ class Vehiculo {
     public static function verKMTotales() {
         return self::$kilometrosTotales . " km";
     }
-
-    // Función para ver los vehículos totales creados
-    public static function verVehiculosCreados() {
-        return self::$vehiculosCreados . " en total.";
-    }
-
+    
 }
 ?>

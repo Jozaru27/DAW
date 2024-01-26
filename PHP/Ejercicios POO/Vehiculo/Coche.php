@@ -7,7 +7,7 @@
 include_once "Vehiculo.php"; 
 
 class Coche extends Vehiculo {
-    // Redefinición de la función verKMRecorridos para mostrar información específica del Coche
+    // Redefinición del método verKMRecorridos para mostrar información específica del Coche
     public function verKMRecorridos() {
         return "Kilómetros recorridos por el Coche: " .  parent::verKMRecorridos() . " km";
     }
@@ -19,7 +19,7 @@ class Coche extends Vehiculo {
 
     // Función para quemar rueda con el Coche
     public function quemaRueda() {
-        return "¡Quemando rueda con el Coche!";
+        return "¡Quemando rueda con el Coche! Broom Broom";
     }
 }
 

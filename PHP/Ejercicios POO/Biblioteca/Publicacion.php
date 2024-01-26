@@ -2,24 +2,17 @@
     abstract class Publicacion {
     protected $isbn;
     protected $titulo;
-    protected $anio;
-    
+    protected $año = 2024;
 
-    public function __construct($isbn, $titulo, $anio = 2024) {
+    public function __construct($isbn, $titulo, $año) {
         $this->isbn = $isbn;
         $this->titulo = $titulo;
-        $this->anio = $anio;
+        $this->año = $año;
     }
 
     public function __toString() {
-        return "ISBN: " . $this->isbn . ", título: " . $this->titulo . ", año de publicación: " . $this->anio . "\n";
+        return "\nISBN: " . $this->isbn . ", título: " . $this->titulo . ", año de publicación: " . $this->año;
     }
-}
-
-interface Prestable {
-    public function estaPrestado();
-    public function mostrarPrestado();
-    public function devolver();
 }
 
 ?>

@@ -8,39 +8,46 @@ include_once "Terminal.php";
 
 class Movil extends Terminal{
     public $tarifa;
+    private $segundosDeLlamadaTarificados;
 
     public function __construct($numero, $tarifa){
         parent::__construct($numero);
         $this->tarifa = $tarifa;
+        $this->segundosDeLlamadaTarificados = 0;
     }
 
     public function llama($terminal, $segundosDeLlamada){
         $this->segundosDeLlamada += $segundosDeLlamada;
         $terminal->segundosDeLlamada += $segundosDeLlamada;
-
+    
         switch ($this->tarifa) {
             case 'rata':
-                $coste = $segundosDeLlamada * 0.06;
+                $coste = ceil($segundosDeLlamada / 60) * 0.06;
                 break;
             case 'mono':
-                $coste = $segundosDeLlamada * 0.12;
+                $coste = ceil($segundosDeLlamada / 60) * 0.12;
                 break;
             case 'bisonte':
-                $coste = $segundosDeLlamada * 0.30;
+                $coste = ceil($segundosDeLlamada / 60) * 0.30;
                 break;
             default:
                 $coste = 0;
         }
-
+        $this->segundosDeLlamadaTarificados += $segundosDeLlamada;
         return $coste;
     }
+    
 
     public function __toString(){
-        $minutos = floor($this->segundosDeLlamada / 60);
-        $segundos = $this->segundosDeLlamada % 60;
+        $minutosTotales = floor($this->segundosDeLlamada / 60);
+        $segundosTotales = $this->segundosDeLlamada % 60;
+
+        $minutosTarificados = floor($this->segundosDeLlamadaTarificados / 60);
+        $segundosTarificados = $this->segundosDeLlamadaTarificados % 60;
+
         $coste = $this->llama($this, $this->segundosDeLlamada);
 
-        return "Nº $this->numero - $minutos m y $segundos s de conversación en total - tarificados $minutos m y $segundos s por un importe de $coste euros<br>\n";
+        return "Nº $this->numero - $minutosTotales m y $segundosTotales s de conversación en total - tarificados $minutosTarificados m y $segundosTarificados s por un importe de $coste euros.";
     }
 }
 

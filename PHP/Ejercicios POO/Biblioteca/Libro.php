@@ -6,16 +6,12 @@ class Libro extends Publicacion implements Prestable {
     public $prestado = false;
 
     public function prestar(){
-        if ($this->prestado = false)  {
-            return "Se ha prestado el libro " . $this->titulo ."\n";
-            $prestado = true;
+        if (!$this->prestado)  {
+            $this->prestado = true;
+            return "Se ha prestado el libro '" . $this->titulo . "'.\n";
         } else {
-            return "El libro ya estaba prestado\n";
+            return "El libro '" . $this->titulo . "' ya está prestado.\n";
         }
-    }
-
-    public function estaPrestado() {
-        return $this->prestado;
     }
 
     public function mostrarPrestado() {
@@ -32,6 +28,16 @@ class Libro extends Publicacion implements Prestable {
             $this->prestado = false;
             echo "Se ha devuelto el libro '" . $this->titulo . "'.\n";
         }
+    }
+
+    public function estaPrestado() {
+        return $this->prestado;
+    }
+
+    // devuelve el prestado o no prestado al lado de cada libro
+    public function __toString() {
+        $estadoPrestamo = $this->estaPrestado() ? "prestado" : "no prestado";
+        return parent::__toString() . " ($estadoPrestamo)";
     }
 
 }

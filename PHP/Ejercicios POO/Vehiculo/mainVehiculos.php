@@ -74,19 +74,22 @@ $coche = new Coche();
 		case '10': //ver número de vehículos
 			echo Vehiculo::verVehiculosCreados();
 			break;
+
+			// no me salía ni con $$nombrebici = new Bicicleta(); ni con $$nombrecoche = new Coche();
+			// lo que he hecho ha sido crear un constructor en vehiculo que añada al contador con self (+ la función de )
+			// en los propios casos 11 y 12 creo instancias (asignándoles a un elemento del array)
+
 		
 		case '11': //añade una bicicleta
 			$nombrebici = readline("Introduce el nombre de la bicicleta: ");
 			$bicicletas[$nombrebici] = new Bicicleta();
-			$$nombrebici = new Bicicleta();
-			$vehiculosCreados++;
+			echo "Bicicleta añadida! \n";
 			break;
 		
 		case '12': //añade un coche
 			$nombrecoche = readline("Introduce el nombre del coche: ");
 			$coches[$nombrecoche] = new Coche();
-			$$nombrecoche = new Coche();
-			$vehiculosCreados++;
+			echo "Coche añadido! \n";
 			break;
 
 		case 'X':

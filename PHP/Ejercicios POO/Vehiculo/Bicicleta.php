@@ -21,7 +21,6 @@ class Bicicleta extends Vehiculo{
     public function ponerCadena() {
         echo "Cadena de la Bici puesta. \n";
     }
-
 }
 
 ?>
