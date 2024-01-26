@@ -1,0 +1,32 @@
+.red{
+    background-color: red;
+    height: 30px;
+}
+
+.green{
+    background-color: green;
+    height: 30px;
+}
+
+.pink{
+    background-color: deeppink;
+    height: 30px;
+}
+
+.orange{
+    background-color: salmon;
+    height: 30px;
+}
+
+.blue{
+    background-color: blue;
+    height: 30px;
+}
+
+.row{
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+
+.col{
+}
