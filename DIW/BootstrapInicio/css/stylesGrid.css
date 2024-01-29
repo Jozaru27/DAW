@@ -16,11 +16,13 @@
 .orange{
     background-color: salmon;
     height: 30px;
+    margin: 1px;
 }
 
 .blue{
     background-color: blue;
     height: 30px;
+    margin: 1px;
 }
 
 .row{
