@@ -1,6 +1,7 @@
 <?php
 
 include_once "Mamifero.php";
+// Clase  de Gato con su función especifica, constructor, to String, y total especifico
 class Gato extends Mamifero {
     public $nombre;
 
@@ -9,7 +10,7 @@ class Gato extends Mamifero {
     }
 
     public function maulla() {
-        echo "Gato Nombre: Miauuuu\n";
+        echo "El Gato $this->nombre: Miauuuu\n";
     }
 
     public function setNombre($nombre) {
@@ -17,7 +18,7 @@ class Gato extends Mamifero {
     }
 
     public function __toString() {
-        return parent::__toString() . "Gato Nombre: " . $this->nombre . " ";
+        return parent::__toString() . "En concreto soy un Gato, con Nombre: " . $this->nombre . " ";
     }
 }
 

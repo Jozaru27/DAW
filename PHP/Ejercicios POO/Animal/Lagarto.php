@@ -1,6 +1,7 @@
 <?php
 
 include_once "Animal.php";
+// Clase  de Lagarto con su función especifica, constructor, to String, y total especifico
 class Lagarto extends Animal {
     public $nombre;
 
@@ -9,7 +10,7 @@ class Lagarto extends Animal {
     }
 
     public function tomarSol() {
-        echo "Lagarto Nombre: Estoy tomando el sol\n";
+        echo "Lagarto $this->nombre: Estoy tomando el sol\n";
     }
 
     public function setNombre($nombre) {
@@ -17,7 +18,7 @@ class Lagarto extends Animal {
     }
 
     public function __toString() {
-        return parent::__toString() . "Lagarto Nombre: " . $this->nombre . " ";
+        return parent::__toString() . "En concreto soy un Lagarto, con Nombre: " . $this->nombre . " .";
     }
 }
 

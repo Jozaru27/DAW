@@ -1,6 +1,7 @@
 <?php
 
 include_once "Ave.php";
+// Clase  de Pinguino con su función especifica, constructor, to String, y total especifico
 class Pinguino extends Ave {
     public $nombre;
 
@@ -9,7 +10,7 @@ class Pinguino extends Ave {
     }
 
     public function pia() {
-        echo "Pingüino Nombre: Soy un pingüino programador en PHP\n";
+        echo "Pingüino $this->nombre: Soy un pingüino programador en PHP\n";
     }
 
     public function setNombre($nombre) {
@@ -21,7 +22,7 @@ class Pinguino extends Ave {
     }
 
     public function __toString() {
-        return parent::__toString() . "Pingüino Nombre: " . $this->nombre . " ";
+        return parent::__toString() . "En concreto soy un Pingüino, con Nombre: " . $this->nombre . " ";
     }
 }
 

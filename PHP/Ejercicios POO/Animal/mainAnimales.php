@@ -10,6 +10,7 @@ include_once "Perro.php";
 include_once "Lagarto.php";
 include_once "Gato.php";
 
+// Añado los includes
 include_once "Animal.php";
 include_once "Ave.php";
 include_once "Mamifero.php";

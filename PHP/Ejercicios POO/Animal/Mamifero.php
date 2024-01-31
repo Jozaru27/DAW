@@ -1,6 +1,7 @@
 <?php
 
 include_once "Animal.php";
+// Clase abstracta de Mamifero con su función especifica, constructor, to String, y total especifico
 abstract class Mamifero extends Animal {
     private static $totalMamiferos = 0;
 

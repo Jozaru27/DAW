@@ -1,6 +1,7 @@
 <?php
 
 include_once "Animal.php";
+// Clase abstracta de Ave con su función especifica, constructor, to String, y total especifico
 abstract class Ave extends Animal {
     private static $totalAves = 0;
 
