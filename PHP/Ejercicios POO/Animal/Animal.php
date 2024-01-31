@@ -2,7 +2,8 @@
 
 abstract class Animal {
     private static $totalAnimales = 0;
-    protected $sexo;
+    public $sexo;
+    public $nombre;
 
     public function __construct($sexo = "M") {
         $this->sexo = $sexo;
@@ -34,5 +35,26 @@ abstract class Animal {
 
     public static function getTotalAnimales() {
         return "Total de animales: " . self::$totalAnimales . "\n";
+    }
+
+    // Constructores
+    public static function consSexo($sexo) {
+        $animal = new static();
+        $animal->sexo = $sexo;
+        return $animal;
+    }
+
+    public static function consFull($sexo, $nombre) {
+        $animal = new static();
+        $animal->sexo = $sexo;
+        $animal->nombre = $nombre;
+        return $animal;
+    }
+
+    public static function consSexoNombre($sexo, $nombre) {
+        $animal = new static();
+        $animal->sexo = $sexo;
+        $animal->nombre = $nombre;
+        return $animal;
     }
 }

@@ -10,6 +10,10 @@ include_once "Perro.php";
 include_once "Lagarto.php";
 include_once "Gato.php";
 
+include_once "Animal.php";
+include_once "Ave.php";
+include_once "Mamifero.php";
+
 print Animal::getTotalAnimales();
 print Ave::getTotalAves();
 print Mamifero::getTotalMamiferos();
