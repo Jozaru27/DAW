@@ -45,7 +45,6 @@ function cargarEvento() {
     for (let provincias of datos) {
         console.log(provincias.ccaa);
         if (provincias.ccaa == comunidad) {
-            console.log("ENTRA");
             let col = document.createElement("td");
 
             col.appendChild(document.createTextNode(provincias.provincia));
