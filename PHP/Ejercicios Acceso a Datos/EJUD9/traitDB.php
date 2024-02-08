@@ -1,14 +1,13 @@
 <?php
 
-require_once __DIR__ . "/../db.php";
-
+require_once __DIR__ . "/db.php";
 
 trait traitDB{
     public static function connectDB(){
         try {
             // Crea la conexión
-            $conn = new PDO('mysql:host=localhost:33006;dbname=INCIDENCIA', USERNAME, PASSWORD);
-
+            $conn = new PDO('mysql:host=localhost:33006;dbname=INCIDENCIAS', USERNAME, PASSWORD);
+            echo "Conexión exitosa \n";
         } catch (PDOException $e) {
             die("Conexión fallida: " . $e->getMessage());
         }
@@ -38,7 +37,7 @@ trait traitDB{
         $conn->exec($sql);
         $sql = "DELETE FROM INCIDENCIA";
         $conn->exec($sql);
-        // $sql = "DROP TABLE INCIDENCIA IF EXISTS";
+        // $sql = "DROP TABLE IF EXISTS INCIDENCIA";
         // $conn->exec($sql);
         // $sql = "CREATE TABLE INCIDENCIA (
         //     CODIGO INTEGER,
