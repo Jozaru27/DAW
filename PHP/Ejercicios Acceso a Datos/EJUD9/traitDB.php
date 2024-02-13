@@ -15,7 +15,7 @@ trait traitDB{
         return $conn;
     }
 
-    public function execDB($sql){
+    public static function execDB($sql){
         //usa la conexion, ejecuta la sentencia y devuelve el numero de filas afectadas
         $resultado = self::connectDB()->exec($sql);
         return $resultado;

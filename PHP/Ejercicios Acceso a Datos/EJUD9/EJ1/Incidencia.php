@@ -117,6 +117,30 @@ class Incidencia {
         $row = traitDB::queryPreparadaDB($sql, compact("codigo"));
         print_r($row);
     }
+
+    public static function leeTodasIncidencias(){
+        $sql ="SELECT * FROM INCIDENCIA";
+        // $row = $sql->execDB($sql);
+
+        $row = traitDB::queryPreparadaDB($sql, null);
+        print_r($row);
+    }
+    
+    public function actualizaIncidencia($puesto, $mensaje, $estado, $resolucion){
+        $SQLstring = "UPDATE INCIDENCIA SET ESTADO='$estado', PUESTO='$puesto', PROBLEMA='$mensaje', RESOLUCION='$resolucion' WHERE CODIGO = $this->codigo";
+        if(traitDB::execDB($SQLstring) === true) {
+            return "La incidencia con código: $this->codigo se ha actualizado correctamente";
+        }
+    }
+
+    public function borraIncidencia(){
+        $SQLstring = "DELETE FROM INCIDENCIA WHERE CODIGO = $this->codigo";
+        if(traitDB::execDB($SQLstring) !== false) {
+            return "La incidencia con código: $this->codigo se ha borrado correctamente";
+        } else {
+            return "Error al borrar la incidencia.";
+        }
+    }
     
 }
 
