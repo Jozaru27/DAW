@@ -28,6 +28,7 @@ let idUser = 0;
 
 var parametros = {tipo:"", clase:"", id:"", texto:"", src:"", href:"", value:""};
 
+var arrayPueblos = ["Turís", "Cheste", "Chiva", "Montserrat", "Godelleta", "Valencia", "Torrent", "Paterna", "Gandía", "Xàtiva", "Elx", "Paiporta", "Picanya"]; // Array de localidades para usar cuando la API no funciona
 
 window.onload = async function() {
     //Seleccionamos el SELECT
@@ -123,7 +124,7 @@ function crearElemento(atributos) {
     //A COMPLETAR SI SE QUIERE
 }
 
-//Buscamos la ciudad sugerida. // COMMPLETADO
+//Buscamos la ciudad sugerida. // COMPLETADO
 async function cargarCiudad(lat, lng) {
     let url = `https://geocode.xyz/${lat},${lng}?json=1`;
     let ciudad; // Variable donde va a almacenar la ciudad
@@ -140,7 +141,7 @@ async function cargarCiudad(lat, lng) {
     return ciudad; // Devuelve la ciudad
 }
 
-//Filtrado de info utilizando array.filter u otro sistema
+//Filtrado de info utilizando array.filter u otro sistema // COMPLETADO - Indicado como hacerlo con API's, funciones o de manera estática
 async function mostrarDatosUsuario() {
     zonaPosts.innerHTML = "";
     zonaAlbums.innerHTML = "";
@@ -162,15 +163,19 @@ async function mostrarDatosUsuario() {
     info.appendChild(añadirTexto("div", null, "descripción", null, usuarios[idUser].name)); // Añade el nombre correspondiente
 
     info.appendChild(añadirTexto("div", null, "titulo", null, "Edad"));   // Añade el campo de edad
-    //info.appendChild(añadirTexto("div", null, "descripción", null, edad)); // Añade la edad correspondiente                                                                           --- !! Comentado por problemas con la API, al igual que la de ciudad
-    info.appendChild(añadirTexto("div", null, "descripción", null, "30")); // Añade la edad ESTÁTICA
+    // info.appendChild(añadirTexto("div", null, "descripción", null, edad)); // Añade la edad correspondiente                                                                           --- !! Comentado por problemas con la API, al igual que la de ciudad
+    info.appendChild(añadirTexto("div", null, "descripción", null, seleccionarEdad())); // Añade la edad usando una función que toma un número aleatorio
+    // info.appendChild(añadirTexto("div", null, "descripción", null, "30")); // Así podríamos tener una edad estática para que no cambie
 
     info.appendChild(añadirTexto("div", null, "titulo", null, "Email"));  // Añade el campo de email
     info.appendChild(añadirTexto("a", null, "descripción", "mailto:" + usuarios[idUser].email, usuarios[idUser].email)); // Añade la ciudad correspondiente - Además funciona como mail (enlace)
 
     info.appendChild(añadirTexto("div", null, "titulo", null, "Ciudad")); // Añade el campo de ciudad
     //info.appendChild(añadirTexto("div", null, "descripción", null, ciudad)); // Añade la ciudad correspondiente                                                                       --- !! Si se descomenta esta línea ha de ser junto a la 156, además de comentar la siguiente
-    info.appendChild(añadirTexto("div", null, "descripción", null, "Cheste")); // Añade la ciudad ESTÁTICA
+    info.appendChild(añadirTexto("div", null, "descripción", null, seleccionarPueblo())); // Añade la ciudad usando una función con un array pre-cargado ya con valores
+    // info.appendChild(añadirTexto("div", null, "descripción", null, "Gargantilla del Lozoya y Pinilla de Buitrago")); // Así podríamos tener una ciudad estática para que no cambie
+
+    
 
     info.appendChild(añadirTexto("div", null, "titulo", null, "Web")); // Añade el campo de web
     info.appendChild(añadirTexto("a", null, "descripción", usuarios[idUser].website, usuarios[idUser].website)); // Añade la web correspondiente - Además funciona como enlace
@@ -206,36 +211,96 @@ function reiniciarParametros() {
 //Mostramos los posts en el div con id="posts"
 async function showPosts() {
     zonaPosts.innerHTML = "";
-    //A COMPLETAR
+    zonaAlbums.innerHTML = "";
+    zonaFotos.innerHTML = "";
+    
+    let postsDiv = document.getElementById("posts");
+    postsTodos = await getPosts();
+
+    postsTodos.forEach(post => {
+        
+        let tituloPost = añadirTexto('h2', `post${post.id}`, 'titulo-post', null, post.title);
+        let cuerpoPost = añadirTexto('p', null, 'cuerpo-post', null, post.body);
+
+        postsDiv.appendChild(tituloPost);
+        postsDiv.appendChild(cuerpoPost);
+
+    });
 }
 
 //Obtenemos los posts del servidor
 async function getPosts() {
     url = `https://jsonplaceholder.typicode.com/users/${idUser}/posts`;
-    //A COMPLETAR
+    let posts;
+
+    await fetch(url)
+    .then(response => response.json())
+    .then(data =>{
+        console.log(data); 
+        posts = data; 
+    })
+    return posts;
 }
 
-//Mostramos los albumes en el div con id="albumes"
+//Mostramos los albumes en el div con id="albumes" // COMPLETADO
 async function showAlbums() {
+    zonaFotos.innerHTML = ""; // Limpiamos las zonas
     zonaPosts.innerHTML = "";
     zonaAlbums.innerHTML = "";
-    //A COMPLETAR
+
+    let albums = await getAlbums(); // Recupera los albumes de la función de getAlbums
+
+    albums.forEach((album, index) => {
+        let albumDiv = añadirTexto("a", index + 1, "album", "#", album.title); // Monta los albumes (los cuelga como enlaces clickables, añadiendo un eventListener para mostrar las fotos)
+        albumDiv.addEventListener("click", showFotos);
+        zonaAlbums.appendChild(albumDiv);
+    });
 }
 
-//Obtenemos los albumes del servidor
+//Obtenemos los albumes del servidor // COMPLETADO
 async function getAlbums() {
-    url = `https://jsonplaceholder.typicode.com/users/${idUser}/posts`;
-    //A COMPLETAR
+    url = `https://jsonplaceholder.typicode.com/users/${idUser}/albums`;
+ 
+    await fetch(url)
+    .then(response=>response.json())
+    .then(data=>{
+        albums = data;  // Recoge los diferentes albumes
+        console.log(albums);
+    });
+    return albums;
 }
 
-//Mostramos las fotos en el div id="fotos"
+//Mostramos las fotos en el div id="fotos" // COMPLETADO
 async function showFotos() {
-    zonaFotos.innerHTML = "";
-    //A COMPLETAR
+    zonaFotos.innerHTML = ""; // Limpiamos la zona
+    getFotos(this.id); // Obtenemos las fotos del album según el ID
 }
 
 //Obtenemos las fotos del servidor
 async function getFotos(idAlbum) {
     url = `https://jsonplaceholder.typicode.com/albums/${idAlbum}/photos`;
-    //A COMPLETAR
+
+    await fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            data.forEach(foto => {  // Por cada foto, usa la función de añadir imagen y las cuelga del div de zonaFotos
+                let imagen = añadirImagen("foto", null, foto.thumbnailUrl);
+                zonaFotos.appendChild(imagen);
+            });
+        });
+}
+
+// Funciones Adicionales:
+
+// FUNCIÓN - Escoge un pueblo al azar para el perfil
+function seleccionarPueblo() {  
+    var random = Math.floor(Math.random() * arrayPueblos.length);
+    return arrayPueblos[random];
+}
+
+// FUNCIÓN - Escoge una edad al azar para el perfil, con valores comprendidos entre 18 y 80
+function seleccionarEdad() {
+    var edadAleatoria = Math.floor(Math.random() * (80 - 18 + 1)) + 18;
+    return edadAleatoria;
 }
