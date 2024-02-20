@@ -13,34 +13,44 @@
 /* Media Query de la Cabecera */
 @media (min-width:768px){
     .rowHeader{
-        background-color: #29ff2b;
         font-size: 24px;
         font-style: italic;
-        margin:15px;
+    }
+
+    .colH{
+        margin:5px;
+        background-color: #29ff2b;
     }
 
     .rowBody{
         font-size: 48px;
         text-align: center;
-        background-color: #fb0d1c;
         height: 275px;
-        margin:15px;
+        margin:5px;
     }
 
     .rowFooter{
-        background-color: #fffc3b;
         font-size: 28px;
         font-style: italic;
-        margin:15px;
+        margin:5px;
     }
     
     .leftFooter{
         text-align: right;
+        margin:5px;
+        background-color: #fffc3b;
     }
     
     .rightFooter{
         text-align: left;
+        margin:5px;
+        background-color: #fffc3b;
     } 
+
+    .col1, .col2, .col3{
+        margin:5px;
+        background-color: #fb0d1c;
+    }
 }
 
 @media (max-width:767px){
@@ -48,12 +58,14 @@
         background-color: #2dfdfd;
         font-size: 24px;
         font-style: italic;
+        margin:5px;
     }
 
     .rowBody{
         font-size: 48px;
         text-align: center;
         background-color: #fb0d1c;
+        margin:5px;
     }
 
     .col1{
@@ -107,5 +119,6 @@
         text-align: right;
         height: 130px;
         background-color: #fb0d1c;
+        
     }
 }
