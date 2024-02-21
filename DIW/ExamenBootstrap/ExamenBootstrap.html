@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Bootstrap Examen - Jose Zafrilla</title>
+
+    <!-- Imports de bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- header -->
+    <div class="row">
+      <div class="header col-md-12 col-sm-6 text-white border border-1 border-dark bg-dark p-5">
+        <img src="imgs/logo.png" alt="..." class="img-thumbnail rounded float-left imagen">
+        <h1 style="float:left;">BIPAI</h1><br><br><br>
+        <div class="btn-group btn-group-sm d-none d-sm-block" role="group" aria-label="Basic example">
+          <a href="#bicicletas" class="bg-dark btn btn-secondary">Bicicletas</a>
+          <a href="#accesorios" class="bg-dark btn btn-secondary">Accesorios</a>
+          <a href="#componentes" class="bg-dark btn btn-secondary">Componentes</a>
+        </div>
+      </div>
+
+      <!-- nav bar -->
+      <div class="text-center bg-dark col-md-12 col-sm-6 text-black border border-1 border-dark p-md-4 p-sm-5 p-4">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Inicio</a>
+            <a class="navbar-brand" href="#bicicletas">Bicicletas</a>
+            <a class="navbar-brand" href="#accesorios">Accesorios</a>
+            <a class="navbar-brand" href="#componentes">Componentes</a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Sillines</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Cascos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Tijas</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+      </div>
+    </div>
+
+    <!-- sidebar para tamaños pequeños -->
+    <div class="row">
+      <div class="sidebar d-block d-sm-none text-black border border-1 border-dark">
+        TOP VENTAS 2023
+        <ul class="list-group-horizontal">
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+            <label class="form-check-label" for="firstCheckbox">Giant</label>
+            <span class="badge rounded-pill text-bg-success">1º</span>
+          </li>
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
+            <label class="form-check-label" for="secondCheckbox">Treck</label>
+            <span class="badge rounded-pill text-bg-primary">2º</span>
+
+          </li>
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
+            <label class="form-check-label" for="thirdCheckbox">Specialized</label>
+            <span class="badge rounded-pill text-bg-info">3º</span>
+          </li>
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="fourthCheckbox">
+            <label class="form-check-label" for="fourthCheckbox">Cannondale</label>
+            <span class="badge rounded-pill text-bg-warning">4º</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- carousel -->
+      <div class="col-md-8 col-sm-10">
+        <div class="row">
+          <div class="main col-md-12 col-sm-12 text-black border border-1 border-dark h-sm-100">
+          <br>
+          <div id="carouselExampleIndicators" class="carousel slide carousel-dark">
+            <div class="carousel-indicators ">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="imgs/accesorios.jpg" class="d-block w-100" alt="...">
+                <h5>Accesorios</h5>
+                <p>Muchos y baratos</p>
+              </div>
+              <div class="carousel-item">
+                <img src="imgs/componentes.jpg" class="d-block w-100" alt="...">
+                <h5>Componentes</h5>
+                <p>Variados y no muy caros</p>
+              </div>
+              <div class="carousel-item">
+                <img src="imgs/orbea.jpg" class="d-block w-100" alt="...">
+                <h5>Orbea</h5>
+                <p>Hoy me he enterado yo de lo que es una orbea</p>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+          </div>
+
+          <!-- componentes tamaños pequeños -->
+          <div id="componentes" class="article col-md-4 col-sm-12 d-block d-sm-none text-black border border-1 border-dark">
+            <div class="card">
+              <img src="imgs/componentes.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Componentes</h5>
+                <p class="card-text">Accede a nuestra sección de componentes donde no te faltará ningún componente </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="bicicletas" class="article col-md-4 col-sm-12 d-none d-sm-block text-black border border-1 border-dark">
+            
+              <div class="card">
+                <img src="imgs/orbea.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Bicicletas</h5>
+                  <p class="card-text">Accede a nustra sección de bicicletas donde podrás encontrar las mejroes de esta temporada</p>
+                </div>
+              </div>
+
+          </div>
+
+          <div id="accesorios" class="article col-md-4 col-sm-12 text-black border border-1 border-dark">
+            <div class="card">
+              <img src="imgs/accesorios.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Accesorios</h5>
+                <p class="card-text">Accede a nustra sección de accesorios donde podrás encontrar lo último del mercado</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="componentes" class="article col-md-4 col-sm-12 d-none d-sm-block text-black border border-1 border-dark">
+            <div class="card">
+              <img src="imgs/componentes.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Componentes</h5>
+                <p class="card-text">Accede a nuestra sección de componentes donde no te faltará ningún componente</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- bicicletas tamaños pequeños -->
+          <div id="bicicletas" class="article col-md-4 col-sm-12 d-block d-sm-none text-black border border-1 border-dark">
+            <div class="card">
+              <img src="imgs/orbea.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Bicicletas</h5>
+                <p class="card-text">Accede a nustra sección de bicicletas donde podrás encontrar las mejroes de esta temporada</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- sidebar normal -->
+      <div class="sidebar col-md-4 col-sm-2 d-none d-sm-block text-black border border-1 border-dark">
+        <p>TOP VENTAS 2023</p>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+            <label class="form-check-label" for="firstCheckbox">Giant</label>
+            <span class="badge rounded-pill text-bg-success">1º</span>
+          </li>
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
+            <label class="form-check-label" for="secondCheckbox">Treck</label>
+            <span class="badge rounded-pill text-bg-primary">2º</span>
+
+          </li>
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
+            <label class="form-check-label" for="thirdCheckbox">Specialized</label>
+            <span class="badge rounded-pill text-bg-info">3º</span>
+          </li>
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" id="fourthCheckbox">
+            <label class="form-check-label" for="fourthCheckbox">Cannondale</label>
+            <span class="badge rounded-pill text-bg-warning">4º</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="row">
+      <div class="text-center footer col-md-12 col-sm-12 col-12 text-black border border-1 border-dark">
+        <br>
+        <p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+            © COPYRIGHT 
+          </button>
+        </p>
+        <div>
+          <div class="collapse collapse-vertical text-center" id="collapseWidthExample">
+            <div class="card card-body text-center" >
+              Esta página es propiedad de Jose Zafrilla Ruiz
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Coming soon..." data-bs-content="¡En Construcción!">Nueva Web</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para el popover -->
+  <script>
+    var popover = new bootstrap.Popover('[data-bs-toggle="popover"]', {
+      container: 'body',
+      html: true
+    });
+  </script>
+
+</body>
+</html>
