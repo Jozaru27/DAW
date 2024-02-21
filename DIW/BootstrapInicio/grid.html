@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stylesGrid.css">
+    <link rel="stylesheet" href="css/stylesGrid2.css">
     <title>Bootstrap Inicio - Grid</title>
 
     <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.min.css" type="text/css">
@@ -39,56 +39,56 @@
 
 <body>
 
-  <div class="container text-center">
+    <div class="container">
+        <div class="row green mt-2 p-2">
+            Header
+        </div>
 
-    <div class="row">
-        <div class="column1 col-md p-2 mt-2">Header</div>
+        <div class="row">
+            <div class="mt-2 p-4 col-md-2 azul offset-md-4 col-6 col-sm-3">
+                1
+            </div>
+            <div class="mt-2 p-4 col-md-2 azul col col-sm3">
+                2
+            </div>
+            <div class="w-100 d-md-block d-sm-none"></div>
+            <div class="mt-2 p-4 col-md-2 azul col-sm col-6">
+                3
+            </div>
+            <div class="mt-2 p-4 col-md-2 azul offset-md-8 col-sm col">
+                4
+            </div>
+        </div>
+
+        <div class="row d-md-none d-sm-block d-none">
+            <div class="azulClarito col-sm mt-2 p-4">Tablet</div>
+        </div>
+
+        <div class="row">
+            <div class="gris col-md mt-2 p-5 mb-1 ms-1 me-1 order-md-1 col-sm-3 order-sm-4 order-4 col">d</div>
+            <div class="gris col-md mt-2 p-5 mb-1 ms-1 me-1 order-md-2 col-sm-3 order-sm-3 order-3 col-6">c</div>
+            <div class="gris col-md mt-2 p-5 mb-1 me-1 ms-1 order-md-3 col-sm order-sm-2 order-2 col">b</div>
+            <div class="gris col-md mt-2 p-5 mb-1 me-1 ms-1 order-md-4 col-sm order-sm-1 order-1 col-6">a</div>
+        </div>
+
+        <div class="row d-md-none d-sm-none d-block ">
+            <div class="azulClarito col-sm mt-2 me-1 p-4">Mobile</div>
+        </div>
+
+        <div class="row">
+            <div class="azulClarito col-md p-3 mb-2 d-sm-none d-md-block d-none">Desktop</div>
+        </div>
+
+        <div class="row">
+            <div class="naranja col-md-2 mt-1 mb-2 me-2 p-5 offset-md-4 order-md-first d-md-block col-sm order-sm-last d-sm-block d-none">:(</div>
+            <div class="naranja col-md-2 mt-1 mb-2 me-2 p-5 order-md-last col-sm order-sm-first">:D</div>
+        </div>
+        
+        <div class="row green mt-2 p-2 d-md-block d-sm-block d-none col-md">
+            Footer
+        </div>
     </div>
 
-    <div class="row">
-        <!-- mt = margin-top me = margin-right ms = margin-left mb = margin-bottom (lo mismo para el padding pero con una p) -->
-        <div class="column2 mt-2 p-4 col-md-2 offset-md-4 col-sm-3 col-6">1</div>
-        <div class="column3 mt-2 p-4 col-md-2 col-sm-3 col">2</div>
-        <!-- para que en sm no se muestre: display-supersmall-none
-        ⚠️hay que poner tambien que hace en propiedades md, sino se pondria por defecto⚠️ -->
-        <div class="w-100 d-md-block d-sm-none"></div>
-        <div class="column4 col-md-2 mt-2 p-4 col-sm col-6">3</div>
-        <div class="column5 col-md-2 mt-2  p-4 offset-md-8 col-sm col">4</div>
     </div>
-
-    <div class="row d-md-none d-sm-block d-none ">
-        <div class="columnInter col-sm mt-2 p-4">Tablet</div>
-    </div>
-    
-    <div class="row">
-        <!-- aqui el primero y el ultimo no tienen ms y me porque sino estan un poco mas para adentro no se alinea con 
-        el resto de elementos -->
-        <div class="column6 col-md mt-2 p-5 mb-1 ms-1 me-1 order-md-1 col-sm-3 order-sm-4 order-4 col">d</div>
-        <div class="column7 col-md mt-2 p-5 mb-1 ms-1 me-1 order-md-2 col-sm-3 order-sm-3 order-3 col-6">c</div>
-        <div class="column8 col-md mt-2 p-5 mb-1 me-1 ms-1 order-md-3 col-sm order-sm-2 order-2 col">b</div>
-        <div class="column9 col-md mt-2 p-5 mb-1 me-1 ms-1 order-md-4 col-sm order-sm-1 order-1 col-6">a</div>
-    </div>
-
-    <!-- al ser una nueva fila, la mostramos en el prefijo que queramos y en los demas los ocultamos -->
-    <div class="row d-md-none d-sm-none d-block ">
-        <div class="columnInter col-sm mt-2 me-1 p-4">Mobile</div>
-    </div>
-
-    <div class="row">
-        <div class="column10 col-md p-3 mb-2 d-sm-none d-md-block d-none">Desktop</div>
-    </div>
-
-    <div class="row">
-        <div class="column11 col-md-2 mt-1 mb-2 me-2 p-5 offset-md-4 order-md-first d-md-block col-sm order-sm-last d-sm-block d-none">:(</div>
-        <div class="column12 col-md-2 mt-1 mb-2 me-2 p-5 order-md-last col-sm order-sm-first">:D</div>
-    </div>
-
-    <div class="row">
-        <div class="column13 col-md mt-2 p-2 d-md-block d-sm-block d-none">Footer</div>
-    </div>
-
-</div>
-
 </body>
-
 </html>
