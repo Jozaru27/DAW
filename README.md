@@ -1,5 +1,5 @@
 # DAW
-Repositorio de Git donde almacenaré proyectos y trabajos del curso de DAW, para su fácil uso desde distintos equiposm así como su almacenaje.
+Repositorio donde se encuentran almacenados proyectos y trabajos del curso de DAW (mayoritariamente 2º). Para libre uso de cualquiera que le sirva.
 
 Por lo general:
 1º de DAW: Carpeta residual
